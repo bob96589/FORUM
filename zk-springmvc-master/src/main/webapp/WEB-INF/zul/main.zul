@@ -1,0 +1,54 @@
+<?page title="Shopping Cart Sample - Purchase" ?>
+<zk>
+
+
+<borderlayout>
+<center autoscroll="true">
+
+<include src="all.zul" />
+</center>
+</borderlayout>
+<!-- 	<label value="Most latest 10 articles" sclass="sectionTitleLabel" /> -->
+<!-- 	<include src="newArticles.zul" /> -->
+
+<!-- 	<label value="Most latest 10 replied articles" sclass="sectionTitleLabel" /> -->
+<!-- 	<include src="allArticle.zul" /> -->
+
+<!-- 	<label value="Most latest 10 articles related to the current user" sclass="sectionTitleLabel" /> -->
+<!-- 	<include src="allArticle.zul" /> -->
+
+<!-- 	<label value="All articles" sclass="sectionTitleLabel" /> -->
+<!-- 	<include src="articleDetail.zul" /> -->
+
+<!-- 	<borderlayout> -->
+<!-- 		<center title="Product List"> -->
+<!-- 			<include hflex="1" src="product.zul" /> -->
+<!-- 		</center> -->
+<!-- 		<south size="35%" title="Shopping Cart"> -->
+<!-- 			<include hflex="1" src="cart.zul" /> -->
+<!-- 		</south> -->
+		
+		
+<!-- 		<north size="35%" title="Shopping Cart"> -->
+<!-- 			<include hflex="1" src="allArticle.zul" /> -->
+<!-- 		</north> -->
+
+
+
+<!-- 		<north id="north" height="19%" border="0"> -->
+<!-- 		</north> -->
+		
+<!-- 		<west id="west" size="7%" border="0"> -->
+<!-- 		</west> -->
+
+<!-- 		<center title="articleDetail"> -->
+<!-- 		</center> -->
+		
+<!-- 		<east id="east" size="7%" border="0"> -->
+<!-- 		</east> -->
+		
+<!-- 		<south id="south" height="19%" border="0"> -->
+<!-- 		</south> -->
+		
+<!-- 	</borderlayout> -->
+</zk>
