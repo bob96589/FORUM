@@ -6,6 +6,7 @@ import java.util.Set;
 
 import com.bob.model.Article;
 import com.bob.model.Tag;
+import com.bob.model.User;
 
 public interface ForumService {
 
@@ -20,5 +21,7 @@ public interface ForumService {
 	Article findArticleById(int articleId);
 
 	List<Map<String, Object>> getRepliedArticles();
+
+	User findUserByAccount(String username);
 
 }

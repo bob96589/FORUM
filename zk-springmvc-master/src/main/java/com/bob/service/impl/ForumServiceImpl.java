@@ -14,6 +14,7 @@ import com.bob.dao.TagDao;
 import com.bob.dao.UserDao;
 import com.bob.model.Article;
 import com.bob.model.Tag;
+import com.bob.model.User;
 import com.bob.service.ForumService;
 
 @Service
@@ -84,6 +85,12 @@ public class ForumServiceImpl implements ForumService {
 	@Override
 	public List<Map<String, Object>> getRepliedArticles() {
 		return articleDao.getRepliedArticles();
+	}
+
+	@Override
+	public User findUserByAccount(String username) {
+		// TODO Auto-generated method stub
+		return userDao.findByAccount(username);
 	}
 
 }

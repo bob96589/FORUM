@@ -15,4 +15,5 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	<!-- import -->
 	<import resource="sqlStatement.xml" />
 	<import resource="database.xml" />
+	<import resource="security.xml" />
 </beans>

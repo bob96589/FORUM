@@ -1,0 +1,20 @@
+<zk xmlns:n="native">
+	<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('demo.view.zk.ArticleContentVM')">
+		<label forEach="${vm.articleList}" />
+		<div children="@bind(vm.articleList)"/>
+		<template name="children" var="hh">
+		   	<groupbox>
+				<label value="@bind(hh.id)"/>
+				<label value="@bind(hh.pid)" />
+				<label value="@bind(hh.userId)" />
+				<label value="@bind(hh.title)" />
+				<label value="@bind(hh.content)" />
+				<label value="@bind(hh.createTime)" />
+				<label value="@bind(hh.status)" />
+				<label forEach="${hh.children}"/>
+				<div children="@bind(hh.children)"></div>
+			</groupbox>
+			<separator/>
+		</template>
+	</window>
+</zk>
