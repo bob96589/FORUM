@@ -73,7 +73,7 @@ public class ForumServiceImpl implements ForumService {
 	}
 
 	@Override
-	public List<Map<String, Object>> getNewArticles() {
+	public List<Map<String, Object>> getLatestArticles() {
 		return articleDao.getNewArticles();
 	}
 
@@ -91,6 +91,17 @@ public class ForumServiceImpl implements ForumService {
 	public User findUserByAccount(String username) {
 		// TODO Auto-generated method stub
 		return userDao.findByAccount(username);
+	}
+
+	@Override
+	public List<Map<String, Object>> getMyArticles(int id) {
+		// TODO Auto-generated method stub
+		return articleDao.getMyArticles(id);
+	}
+
+	@Override
+	public void addArticle(Article article) {
+		articleDao.save(article);
 	}
 
 }

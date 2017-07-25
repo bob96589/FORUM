@@ -10,18 +10,6 @@
            http://www.springframework.org/schema/security
            http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
-	<!-- ====================================================== -->
-	<!-- For catching the @Secured annotation methods -->
-	<!-- Tells the Spring Security engine that we will use Spring Security's -->
-	<!-- pre and post invocation Java annotations (@PreFilter, @PreAuthorize, -->
-	<!-- @PostFilter, -->
-	<!-- @PostAuthorize) to secure service layer methods.. -->
-	<!-- Look in GFCBaseCtrl.java onEvent() method. -->
-	<!-- ====================================================== -->
-
-	<!-- Enable the @Secured annotation to secure service layer methods -->
-	<global-method-security secured-annotations="enabled" />
-
 	<http pattern="/login.zul" security="none" />
 	<http auto-config="true" use-expressions="false">
 		<form-login login-page="/login.zul" authentication-failure-url="/login.zul?login_error=1"
@@ -33,6 +21,7 @@
 		<authentication-provider user-service-ref="userDetailsService"></authentication-provider>
 	</authentication-manager>
 	<beans:bean id="userDetailsService" class="com.bob.service.impl.UserDetailsServiceImpl" />
+	<beans:bean id="securityContext" class="com.bob.security.SecurityContext" scope="session" />
 </beans:beans>
 
 

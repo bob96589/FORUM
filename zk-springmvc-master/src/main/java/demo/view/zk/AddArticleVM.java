@@ -1,49 +1,57 @@
 package demo.view.zk;
 
-import java.util.List;
-import java.util.Map;
+import java.util.Date;
 
 import org.zkoss.bind.annotation.AfterCompose;
-import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.ContextParam;
 import org.zkoss.bind.annotation.ContextType;
-import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Component;
-import org.zkoss.zk.ui.select.Selectors;
 import org.zkoss.zkplus.spring.SpringUtil;
 
+import com.bob.model.Article;
+import com.bob.security.SecurityContext;
 import com.bob.service.ForumService;
 
 public class AddArticleVM {
 
 	private ForumService forumService;
-	private String title;
-	private String content;
-	private String tag;
-	
-	
+	private Article article;
 
-	// List<Map<String, Object>> articleList;
-	//
-	// public List<Map<String, Object>> getArticleList() {
-	// return articleList;
-	// }
-	//
-	// public void setArticleList(List<Map<String, Object>> articleList) {
-	// this.articleList = articleList;
-	// }
+	public Article getArticle() {
+		return article;
+	}
+
+	public void setArticle(Article article) {
+		this.article = article;
+	}
 
 	@AfterCompose
 	public void initSetup(@ContextParam(ContextType.VIEW) Component view) {
-		// Selectors.wireComponents(view, this, false);
-		// forumService = (ForumService) SpringUtil.getBean("forumServiceImpl");
-		// articleList = forumService.getNewArticles();
+		forumService = (ForumService) SpringUtil.getBean("forumServiceImpl");
+		this.article = new Article();
+		article.setStatus(0);
+		article.setUserId(SecurityContext.getId());
 	}
 
 	@Command
 	public void addArticle() {
-		// this.includeSrc = includeSrc;
+		int i = 0;
+		int t = 0;
+		int y = 0;
+		int u = 0;
+		article.setCreateTime(new Date());
+		article.setStatus(0);
+		article.setUserId(SecurityContext.getId());
+		forumService.addArticle(article);
+	}
+	
+	@Command
+	public void test() {
+		int i = 0;
+		int t = 0;
+		int y = 0;
+		int u = 0;
 	}
 
 }

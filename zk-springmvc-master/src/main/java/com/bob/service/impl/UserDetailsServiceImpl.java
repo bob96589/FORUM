@@ -7,11 +7,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+import com.bob.security.ForumUserDetails;
 import com.bob.service.ForumService;
 
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -50,7 +50,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 			// getAuthorities() will translate the access level to the correct
 			// role type
 
-			user = new User(dbUser.getAccount(), dbUser.getPassword().toLowerCase(), true, true, true, true, getAuthorities());
+			user = new ForumUserDetails(dbUser.getId(), dbUser.getAccount(), dbUser.getPassword().toLowerCase(), true, true, true, true, getAuthorities());
 		} catch (Exception e) {
 			throw new UsernameNotFoundException("Error in retrieving user");
 		}

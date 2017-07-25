@@ -12,6 +12,8 @@ import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.select.Selectors;
 import org.zkoss.zkplus.spring.SpringUtil;
 
+import com.bob.security.ForumUserDetails;
+import com.bob.security.SecurityContext;
 import com.bob.service.ForumService;
 
 public class LatestArticlesVM {
@@ -33,7 +35,9 @@ public class LatestArticlesVM {
 		Selectors.wireComponents(view, this, false);
 		forumService = (ForumService) SpringUtil.getBean("forumServiceImpl");
 		Authentication a = SecurityContextHolder.getContext().getAuthentication();
-		articleList = forumService.getNewArticles();
+		ForumUserDetails details = (ForumUserDetails)a.getPrincipal();
+		int id = SecurityContext.getId();
+		articleList = forumService.getLatestArticles();
 	}
 
 }

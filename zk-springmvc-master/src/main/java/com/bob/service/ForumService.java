@@ -16,12 +16,16 @@ public interface ForumService {
 
 	List<Article> getArticleForDetail();
 
-	List<Map<String, Object>> getNewArticles();
+	List<Map<String, Object>> getLatestArticles();
 
 	Article findArticleById(int articleId);
 
 	List<Map<String, Object>> getRepliedArticles();
 
 	User findUserByAccount(String username);
+
+	List<Map<String, Object>> getMyArticles(int id);
+
+	void addArticle(Article article);
 
 }

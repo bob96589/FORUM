@@ -19,4 +19,8 @@ public interface ArticleDao {
 
 	public List<Map<String, Object>> getRepliedArticles();
 
+	public List<Map<String, Object>> getMyArticles(int id);
+
+	public void save(Article article);
+
 }

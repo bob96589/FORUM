@@ -12,7 +12,7 @@
 					<separator/>
 					<button label="${c:l('main.btn.03')}" onClick="@command('onNavigate', includeSrc='repliedArticles.zul')" />
 					<separator/>
-					<button label="${c:l('main.btn.04')}" onClick="@command('onNavigate', includeSrc='')" />
+					<button label="${c:l('main.btn.04')}" onClick="@command('onNavigate', includeSrc='myArticles.zul')" />
 					<separator/>
 					<button label="${c:l('main.btn.05')}" onClick="@command('onNavigate', includeSrc='allArticle.zul')" />
 					<separator/>

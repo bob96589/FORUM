@@ -1,6 +1,6 @@
 <zk xmlns:n="native">
-	<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('demo.view.zk.LatestArticlesVM')">
-		<grid width="80%">
+	<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('demo.view.zk.AddArticleVM')">
+		<grid width="80%" form="@id('fx') @load(vm.article) @save(vm.article, before='addArticle')">
 			<columns>
 				<column label="Add Article" width="100px" />
 				<column label="" />
@@ -8,21 +8,18 @@
 			<rows>
 				<row>
 					<label value="title" />
-					<textbox width="150px" value="info@zkoss.org" />
+					<textbox width="150px" value="@bind(fx.title)" />
 				</row>
 				<row>
 					<label value="content" />
-					<textbox value="I love ZK" width="150px" />
+					<ckeditor width="850px" value="@bind(fx.content)"/>
 				</row>
-				<row>
-					<label value="tag" />
-					<textbox id="intro" rows="3" width="250px" context="editPopup">
-						<attribute name="value">Right Click On Me ! </attribute>
-					</textbox>
-<!-- 					<ckeditor width="850px" /> -->
-				</row>
+<!-- 				<row> -->
+<!-- 					<label value="tag" /> -->
+<!-- 					<textbox value="@bind(fx.tags)"/> -->
+<!-- 				</row> -->
 			</rows>
 		</grid>
-		<button label="submit" onClick="@command('addArticle')" />
+		<button label="submit" onClick="@command('addArticle') @global-command('onNavigate', includeSrc='latestArticles.zul')" />
 	</window>
 </zk>

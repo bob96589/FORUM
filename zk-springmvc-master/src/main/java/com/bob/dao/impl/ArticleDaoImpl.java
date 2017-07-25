@@ -64,4 +64,18 @@ public class ArticleDaoImpl implements ArticleDao {
 		return result;
 	}
 
+	@Override
+	public List<Map<String, Object>> getMyArticles(int id) {
+		String sql = sqlStatement.getValue("article_getMyArticles");
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("userId", id);
+		List<Map<String, Object>> result = namedParameterJdbcTemplate.queryForList(sql, map);
+		return result;
+	}
+
+	@Override
+	public void save(Article article) {
+		sessionFactory.getCurrentSession().persist(article);
+	}
+
 }
