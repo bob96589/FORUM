@@ -5,7 +5,7 @@
 				<column label="id" />
 				<column label="pid" />
 				<column label="userId" />
-				<column label="title" />
+				<column label="title"/>
 				<column label="content" />
 				<column label="createTime" />
 				<column label="status" />
@@ -19,7 +19,7 @@
 					<label value="@bind(article.content)" />
 					<label value="@bind(article.createTime)" />
 					<label value="@bind(article.status)" />
-					<button label="Detail" onClick="@global-command('loadDetail', articleId=article.id)" />
+					<button label="Detail"  onClick="@global-command('loadDetail', articleId=article.id)"/>
 				</row>
 			</template>
 		</grid>

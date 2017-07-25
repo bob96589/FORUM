@@ -23,7 +23,6 @@ import com.bob.service.ForumService;
 public class ArticleTreeVM {
 
 	private List<Article> articleList = new ArrayList<Article>();
-	private Integer articleId;
 	private ForumService forumService;
 
 	public List<Article> getArticleList() {
@@ -40,50 +39,12 @@ public class ArticleTreeVM {
 		forumService = (ForumService) SpringUtil.getBean("forumServiceImpl");
 		articleList = forumService.findForArticleTree();
 	}
-
-	@GlobalCommand
-	@NotifyChange({ "articleList" })
-	public void loadDetail(@BindingParam("articleId") Integer id) {
-//		Article article = forumService.findArticleById(id);
-//		articleList.clear();
-//		articleList.add(article);
-	}
-
+	
 	@Command
-	@NotifyChange({ "articleList" })
-	public void delete(@BindingParam("articleId") Integer id) {
-		forumService.deleteArticle(id);
-		Article article = forumService.findArticleById(this.articleId);
-		articleList.clear();
-		if (article != null) {
-			articleList.add(article);
-		}
-	}
-
-	@Command("reply")
-	public void openReplyDialog(@BindingParam("articleId") Integer articleId) {
+	public void openDialog(@BindingParam("article") Article article) {
 		Map<String, Object> arg = new HashMap<String, Object>();
-		arg.put("articleId", articleId);
-		arg.put("action", "reply");
-		Executions.createComponents("addArticle.zul", null, arg);
+		arg.put("article", article);
+		Executions.createComponents("dialog.zul", null, arg);
 	}
-	
-	@Command("edit")
-	public void openEditDialog(@BindingParam("articleId") Integer articleId) {
-		Map<String, Object> arg = new HashMap<String, Object>();
-		arg.put("articleId", articleId);
-		arg.put("action", "edit");
-		Executions.createComponents("addArticle.zul", null, arg);
-	}
-	
-	
-	@GlobalCommand("refreshRepliedArticle")
-	@NotifyChange({ "articleList" })
-	public void refresh() {
-		Article article = forumService.findArticleById(this.articleId);
-		articleList.clear();
-		articleList.add(article);
-	}
-
 
 }

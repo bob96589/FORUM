@@ -7,20 +7,23 @@ import org.zkoss.bind.annotation.ContextType;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.zul.Window;
 
+import com.bob.model.Article;
+
 public class DialogVM {
-	String value;
+
+	Article article;
+
+	public Article getArticle() {
+		return article;
+	}
+
+	public void setArticle(Article article) {
+		this.article = article;
+	}
 
 	@Init
-	public void init(@BindingParam("articleId") String articleId) {
-		value = articleId;
-	}
-
-	public String getValue() {
-		return value;
-	}
-
-	public void setValue(String value) {
-		this.value = value;
+	public void init(@BindingParam("article") Article article) {
+		this.article = article;
 	}
 
 	@Command

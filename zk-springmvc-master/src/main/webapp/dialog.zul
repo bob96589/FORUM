@@ -1,11 +1,22 @@
 <zk>
-	<window apply="org.zkoss.bind.BindComposer" mode="modal" title="Dialog" border="normal" position="center,center"
-		viewModel="@id('vm') @init('demo.view.zk.DialogVM',articleId=arg.articleId)" width="300px">
+	<window apply="org.zkoss.bind.BindComposer" mode="modal" title="Dialog"
+		border="normal" viewModel="@id('vm') @init('demo.view.zk.DialogVM',article=arg.article)"
+		width="600px">
+		<div>
+			<label value="@bind(vm.article.id)" style="font-size: 30px;" />
+		</div>
+		<div>
+			<label value="@bind(vm.article.title)" />
+		</div>
+		<div>
+			<label value="@bind(vm.article.userId)" />
+			<label value="@bind(vm.article.createTime)" />
+		</div>
+		<div style="min-height: 100px;">
+			<html content="@bind(vm.article.content)"></html>
+		</div>
 		<hbox>
-			<textbox value="@load(vm.value) @save(vm.value,before='close')" constraint="no empty"/>
-		</hbox>
-		<hbox>
-			<button label="close" onClick="@command('close') @global-command('dlgClose',result=vm.value)" />
+			<button label="close" onClick="@command('close')" />
 		</hbox>
 	</window>
 </zk>

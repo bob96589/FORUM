@@ -8,26 +8,8 @@
 				   		<div>
 							<label value="@bind(each.id)" style="font-size: 30px;"/>
 				   		</div>
-<!-- 				   		<div> -->
-<!-- 							<label value="@bind(each.pid)" /> -->
-<!-- 						</div> -->
-<!-- 				   		<div> -->
-<!-- 							<label value="@bind(each.status)" /> -->
-<!-- 						</div> -->
 				   		<div>
 							<label value="@bind(each.title)" />
-						</div>
-				   		<div>
-							mainVm.userId: <label value="${mainVm.userId}" />
-							<separator/>
-							@bind(mainVm.userId): <label value="@bind(mainVm.userId)" />
-							<separator/>
-							each.userId: <label value="${each.userId}" />
-							<separator/>
-							@bind(each.userId): <label value="@bind(each.userId)" />
-							<separator/>
-							<separator/>
-							<separator/>
 						</div>
 				   		<div>
 							<label value="@bind(each.userId)" />
