@@ -1,18 +1,20 @@
 <?page title="main page" ?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?meta content="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"?>
 <zk>
 	<window id="main" border="none" width="100%" height="100%" apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('demo.view.zk.MainVM')">
 		<borderlayout>
 			<west width="200px">
 				<div>
-					<button label="Add Article" onClick="@command('onNavigate', includeSrc='addArticle.zul')" />
+					<button label="${c:l('main.btn.01')}" onClick="@command('onNavigate', includeSrc='addArticle.zul')" />
 					<separator/>
-					<button label="Most latest 10 articles" onClick="@command('onNavigate', includeSrc='latestArticles.zul')" />
+					<button label="${c:l('main.btn.02')}" onClick="@command('onNavigate', includeSrc='latestArticles.zul')" />
 					<separator/>
-					<button label="Most latest 10 replied articles" onClick="@command('onNavigate', includeSrc='repliedArticles.zul')" />
+					<button label="${c:l('main.btn.03')}" onClick="@command('onNavigate', includeSrc='repliedArticles.zul')" />
 					<separator/>
-					<button label="My latest 10 articles" onClick="@command('onNavigate', includeSrc='')" />
+					<button label="${c:l('main.btn.04')}" onClick="@command('onNavigate', includeSrc='')" />
 					<separator/>
-					<button label="All articles(list view)" onClick="@command('onNavigate', includeSrc='allArticle.zul')" />
+					<button label="${c:l('main.btn.05')}" onClick="@command('onNavigate', includeSrc='allArticle.zul')" />
 					<separator/>
 				</div>
 			</west>
