@@ -10,9 +10,29 @@ import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.select.Selectors;
 
+import com.bob.security.SecurityContext;
+
 public class MainVM {
 
-	String includeSrc = "latestArticles.zul";
+	private String includeSrc = "latestArticles.zul";
+	private Integer userId;
+	private String account;
+
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
+	public String getAccount() {
+		return account;
+	}
+
+	public void setAccount(String account) {
+		this.account = account;
+	}
 
 	public String getIncludeSrc() {
 		return includeSrc;
@@ -25,6 +45,8 @@ public class MainVM {
 	@AfterCompose
 	public void initSetup(@ContextParam(ContextType.VIEW) Component view) {
 		Selectors.wireComponents(view, this, false);
+		userId = SecurityContext.getId();
+		account = SecurityContext.getAccount();
 		// forumService = (ForumService) SpringUtil.getBean("forumServiceImpl");
 		// articleList = forumService.getNewArticles();
 	}

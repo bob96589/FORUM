@@ -2,7 +2,7 @@
 <?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
 <?meta content="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"?>
 <zk>
-	<window id="main" border="none" width="100%" height="100%" apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('demo.view.zk.MainVM')">
+	<window id="main" border="none" width="100%" height="100%" apply="org.zkoss.bind.BindComposer" viewModel="@id('mainVm') @init('demo.view.zk.MainVM')">
 		<borderlayout>
 			<west width="200px">
 				<div>
@@ -20,7 +20,7 @@
 			</west>
 			<center autoscroll="true">
 				<div>
-					<include src="@bind(vm.includeSrc)" />
+					<include src="@bind(mainVm.includeSrc)" />
 				</div>
 			</center>
 		</borderlayout>

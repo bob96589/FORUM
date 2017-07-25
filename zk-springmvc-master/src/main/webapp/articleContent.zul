@@ -1,20 +1,80 @@
 <zk xmlns:n="native">
 	<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('demo.view.zk.ArticleContentVM')">
-		<label forEach="${vm.articleList}" />
-		<div children="@bind(vm.articleList)"/>
-		<template name="children" var="hh">
-		   	<groupbox>
-				<label value="@bind(hh.id)"/>
-				<label value="@bind(hh.pid)" />
-				<label value="@bind(hh.userId)" />
-				<label value="@bind(hh.title)" />
-				<label value="@bind(hh.content)" />
-				<label value="@bind(hh.createTime)" />
-				<label value="@bind(hh.status)" />
-				<label forEach="${hh.children}"/>
-				<div children="@bind(hh.children)"></div>
-			</groupbox>
-			<separator/>
+		
+		
+		
+		<apply template="template1" objs="@load(vm.articleList)"/>
+		<template name="template1">
+			<forEach items="@load(objs)">
+			   	<div style="border: black 1px solid; padding: 20px 0px 20px 20px;">
+				   	<div style="display: inline-block; vertical-align:top; width:80%;">
+				   		<div>
+							<label value="@bind(each.id)" style="font-size: 30px;"/>
+				   		</div>
+<!-- 				   		<div> -->
+<!-- 							<label value="@bind(each.pid)" /> -->
+<!-- 						</div> -->
+<!-- 				   		<div> -->
+<!-- 							<label value="@bind(each.status)" /> -->
+<!-- 						</div> -->
+				   		<div>
+							<label value="@bind(each.title)" />
+						</div>
+				   		<div>
+							mainVm.userId: <label value="${mainVm.userId}" />
+							<separator/>
+							@bind(mainVm.userId): <label value="@bind(mainVm.userId)" />
+							<separator/>
+							each.userId: <label value="${each.userId}" />
+							<separator/>
+							@bind(each.userId): <label value="@bind(each.userId)" />
+							<separator/>
+							<separator/>
+							<separator/>
+						</div>
+				   		<div>
+							<label value="@bind(each.userId)" />
+							<label value="@bind(each.createTime)" />
+						</div>
+				   		<div style="min-height: 100px;">
+							<html content="@bind(each.content)"></html>
+						</div>
+					</div>
+					<div style="display: inline-block; vertical-align:top;">
+						<button label="(R)Reply" onClick="@command('reply', articleId=each.id)" />
+						<if test="@load((empty each.children) and (each.userId eq mainVm.userId))">
+							<button label="(E)Edit" onClick="@command('edit', articleId=each.id)" />
+						</if>
+<!-- 						<if test="@bind(each.userId eq mainVm.userId)"> -->
+<!-- 						</if> -->
+							<button label="(X)Delete" onClick="@command('delete', articleId=each.id) @global-command('refreshArticle')" />
+					</div>
+					<apply template="template1" objs="@load(each.children)"/>
+				</div>
+				<separator/>
+			</forEach> 
 		</template>
+		
+		
+		
+<!-- 		<label forEach="${vm.articleList}" /> -->
+<!-- 		<div children="@bind(vm.articleList)"/> -->
+<!-- 		<template name="children" var="hh"> -->
+<!-- 		   	<groupbox> -->
+<!-- 				<label value="@bind(hh.id)"/> -->
+<!-- 				<label value="@bind(hh.pid)" /> -->
+<!-- 				<label value="@bind(hh.userId)" /> -->
+<!-- 				<label value="@bind(hh.title)" /> -->
+<!-- 				<label value="@bind(hh.content)" /> -->
+<!-- 				<label value="@bind(hh.createTime)" /> -->
+<!-- 				<label value="@bind(hh.status)" /> -->
+<!-- 				<label forEach="${hh.children}"/> -->
+<!-- 				<div children="@bind(hh.children)"></div> -->
+<!-- 			</groupbox> -->
+<!-- 			<separator/> -->
+<!-- 		</template> -->
+		
+		
+		
 	</window>
 </zk>

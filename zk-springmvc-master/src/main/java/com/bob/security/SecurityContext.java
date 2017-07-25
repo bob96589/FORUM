@@ -11,7 +11,7 @@ public class SecurityContext {
 		return (T) auth.getPrincipal();
 	}
 
-	public static int getId() {
+	public static Integer getId() {
 		ForumUserDetails user = getUser();
 		return user.getId();
 	}

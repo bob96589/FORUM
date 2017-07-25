@@ -16,12 +16,17 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.Filter;
+import org.hibernate.annotations.FilterDef;
+
 @Entity
 @Table(name = "ARTICLE")
+@FilterDef(name = "test", defaultCondition = "STATUS = 0")
 public class Article {
 
 	@Id
@@ -48,14 +53,18 @@ public class Article {
 	private Integer status;
 
 	@ManyToMany
-	@JoinTable(name = "TAGDETAIL", joinColumns = { @JoinColumn(name = "ARTICLE_ID", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "TAG_ID", nullable = false, updatable = false) })
+	@JoinTable(name = "TAGDETAIL", joinColumns = {
+			@JoinColumn(name = "ARTICLE_ID", nullable = false, updatable = false) }, inverseJoinColumns = {
+					@JoinColumn(name = "TAG_ID", nullable = false, updatable = false) })
 	private Set<Tag> tags;
-	
-	@ManyToOne(fetch = FetchType.EAGER, cascade={CascadeType.ALL})
-	@JoinColumn(name="PID", insertable=false, updatable=false)
+
+	@ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
+	@JoinColumn(name = "PID", insertable = false, updatable = false)
 	private Article parent;
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy="parent")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "parent")
+	@OrderBy("createTime")	
+	@Filter(name="test", condition="STATUS = 0")
 	private Set<Article> children = new HashSet<Article>();
 
 	public Article getParent() {
@@ -143,7 +152,5 @@ public class Article {
 		return "Article [id=" + id + ", pid=" + pid + ", userId=" + userId + ", title=" + title + ", content=" + content
 				+ ", createTime=" + createTime + ", status=" + status + "]";
 	}
-	
-	
 
 }

@@ -2,8 +2,10 @@ package com.bob.service.impl;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,6 +104,19 @@ public class ForumServiceImpl implements ForumService {
 	@Override
 	public void addArticle(Article article) {
 		articleDao.save(article);
+	}
+
+	@Override
+	public void deleteArticle(Integer articleId) {
+		Article article = articleDao.findById(articleId);
+		Queue<Article> list = new LinkedList<Article>();
+		list.offer(article);
+		while(!list.isEmpty()){
+			Article temp = list.poll();
+			temp.setStatus(1);
+			articleDao.save(temp);
+			list.addAll(temp.getChildren());
+		}
 	}
 
 }

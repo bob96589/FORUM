@@ -20,7 +20,7 @@ public class ForumUserDetails implements UserDetails, CredentialsContainer {
     private static final long serialVersionUID = SpringSecurityCoreVersion.SERIAL_VERSION_UID;
 
     //~ Instance fields ================================================================================================
-    private int id;
+    private Integer id;
     private String password;
     private final String username;
     private final Set<GrantedAuthority> authorities;
@@ -34,7 +34,7 @@ public class ForumUserDetails implements UserDetails, CredentialsContainer {
     /**
      * Calls the more complex constructor with all boolean arguments set to {@code true}.
      */
-    public ForumUserDetails(int id, String username, String password, Collection<? extends GrantedAuthority> authorities) {
+    public ForumUserDetails(Integer id, String username, String password, Collection<? extends GrantedAuthority> authorities) {
         this(id, username, password, true, true, true, true, authorities);
     }
 
@@ -61,7 +61,7 @@ public class ForumUserDetails implements UserDetails, CredentialsContainer {
      *         either as a parameter or as an element in the
      *         <code>GrantedAuthority</code> collection
      */
-    public ForumUserDetails(int id, String username, String password, boolean enabled, boolean accountNonExpired,
+    public ForumUserDetails(Integer id, String username, String password, boolean enabled, boolean accountNonExpired,
             boolean credentialsNonExpired, boolean accountNonLocked, Collection<? extends GrantedAuthority> authorities) {
 
         if (((username == null) || "".equals(username)) || (password == null)) {
@@ -86,7 +86,7 @@ public class ForumUserDetails implements UserDetails, CredentialsContainer {
         return authorities;
     }
 
-    public int getId() {
+    public Integer getId() {
 		return id;
 	}
 

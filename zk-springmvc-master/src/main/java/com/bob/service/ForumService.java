@@ -28,4 +28,6 @@ public interface ForumService {
 
 	void addArticle(Article article);
 
+	void deleteArticle(Integer articleId);
+
 }

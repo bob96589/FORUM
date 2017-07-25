@@ -36,33 +36,15 @@ public class AllArticleVM {
 	}
 
 	@AfterCompose
-	public void initSetup(@ContextParam(ContextType.VIEW) Component view,
-			@ExecutionArgParam("centerArea") Center centerArea) {
+	public void initSetup(@ContextParam(ContextType.VIEW) Component view) {
 		Selectors.wireComponents(view, this, false);
 		forumService = (ForumService) SpringUtil.getBean("forumServiceImpl");
 		articleList = forumService.getAllArticle();
 	}
 	
-//	@GlobalCommand @NotifyChange({"cartList", "total"})
-//	public void addCart(@BindingParam("product") Product prod) {
-//		int quantity = prod.getQuantity();
-//		prod.setQuantity(0);
-//		if (quantity <= 0)
-//			return;
-//		boolean isAddNew = true;
-//		if (!cartList.isEmpty()) {
-//			for (CartItem item : cartList) {
-//				if (item.getProduct().getId() == prod.getId()) {
-//					isAddNew = false;
-//					item.add(quantity);
-//					break;
-//				}
-//			}
-//		}
-//		if (isAddNew) {
-//			CartItem item = new CartItem(prod);
-//			item.add(quantity);
-//			cartList.add(item);
-//		}
-//	}
+	@GlobalCommand("refreshArticle")
+	@NotifyChange({"articleList"})
+	public void refreshArticle() {
+		articleList = forumService.getAllArticle();
+	}
 }
