@@ -46,6 +46,29 @@ http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 			ORDER BY A.CREATE_TIME DESC
 			]]></value>
         </entry>
+        <entry key="article_getRepliedArticles">
+            <value><![CDATA[
+           	SELECT TOP 10 
+           		A.*
+           		, ISNULL(R.REPLY_CNT, 0) REPLY_CNT
+           		, T.TAG_NAME
+			FROM ARTICLE A
+			LEFT JOIN (
+				SELECT PID, COUNT(*) REPLY_CNT
+				FROM ARTICLE 
+				GROUP BY PID
+			) R ON R.PID = A.ID
+			LEFT JOIN (
+				SELECT A.ID, GROUP_CONCAT(T.NAME) TAG_NAME
+				FROM ARTICLE A
+				LEFT JOIN TAGDETAIL TD ON A.ID = TD.ARTICLE_ID
+				LEFT JOIN TAG T ON T.ID = TD.TAG_ID
+				GROUP BY A.ID
+			) T ON T.ID = A.ID
+			WHERE A.PID IS NOT NULL
+			ORDER BY A.CREATE_TIME DESC
+			]]></value>
+        </entry>
     </util:map>
 
 </beans>

@@ -1,5 +1,5 @@
-<zk xmlns:n="native">
-	<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('demo.view.zk.AllArticleViewModel')">
+<zk>
+	<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('demo.view.zk.AllArticleVM')">
 		<grid model="@bind(vm.articleList)" mold="paging" pageSize="5" pagingPosition="top">
 			<columns>
 				<column label="id" />
@@ -19,17 +19,10 @@
 					<label value="@bind(article.content)" />
 					<label value="@bind(article.createTime)" />
 					<label value="@bind(article.status)" />
+					<button label="Detail" onClick="@global-command('loadDetail', articleId=article.id)" />
 				</row>
 			</template>
-<!-- 			<foot> -->
-<!-- 				<footer span="3">Total</footer> -->
-<!-- 				<footer> -->
-<!-- 					<hlayout valign="middle"> -->
-<!-- 						<label value="@bind(vm.total) @converter('formattedNumber', format='$ #,###,###')" /> -->
-<!-- 						<button label="Confirm Order" type="submit" disabled="@bind(empty vm.cartList)" autodisable="self" /> -->
-<!-- 					</hlayout> -->
-<!-- 				</footer> -->
-<!-- 			</foot> -->
 		</grid>
+		<include src="articleContent.zul" />
 	</window>
 </zk>

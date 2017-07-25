@@ -15,4 +15,8 @@ public interface ArticleDao {
 
 	public List<Map<String, Object>> getNewArticles();
 
+	public Article findById(int articleId);
+
+	public List<Map<String, Object>> getRepliedArticles();
+
 }

@@ -13,7 +13,7 @@ import demo.data.service.OrderDAO;
 import demo.data.service.ProductDAO;
 
 @Controller
-@RequestMapping("/shopping")
+@RequestMapping("/forum")
 public class PageFlowController {
 
 	@Autowired
@@ -32,7 +32,7 @@ public class PageFlowController {
 		return "redirect:index";
 	}
 	
-	@RequestMapping(value = "/shop", method = RequestMethod.GET)
+	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public String shop(ModelMap model, HttpSession session) {
 		if (isLogged(session)) {
 			model.addAttribute("productList", prodDao.findAll());

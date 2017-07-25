@@ -17,4 +17,8 @@ public interface ForumService {
 
 	List<Map<String, Object>> getNewArticles();
 
+	Article findArticleById(int articleId);
+
+	List<Map<String, Object>> getRepliedArticles();
+
 }

@@ -1,0 +1,34 @@
+<zk>
+	<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('demo.view.zk.LatestArticlesVM')">
+		<grid width="80%">
+		<columns>
+			<column label="Add Article" width="100px" />
+			<column label="" />
+		</columns>
+		<rows>
+			<row>
+				<label value="title" />
+				<hbox>
+					<textbox width="150px" value="info@zkoss.org" />
+				</hbox>
+			</row>
+			<row>
+				<label value="content" />
+				<hbox>
+					<textbox value="I love ZK" width="150px" />
+				</hbox>
+			</row>
+			<row>
+				<label value="tag" />
+				<hbox>
+					<textbox id="intro" rows="3" width="250px" context="editPopup">
+						<attribute name="value">Right Click On Me ! </attribute>
+					</textbox>
+				</hbox>
+			</row>
+		</rows>
+	</grid>
+	<button label="submit" onClick="@command('addArticle')" />
+	
+	</window>
+</zk>

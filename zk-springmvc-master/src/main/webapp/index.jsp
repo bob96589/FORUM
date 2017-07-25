@@ -8,6 +8,6 @@
 	<title>Spring MVC with ZK sample</title>
 </head>
 <body>
-	<a href="shopping/">Spring MVC with ZK sample - Shopping Cart</a>
+	<a href="forum">Spring MVC with ZK sample</a>
 </body>
 </html>

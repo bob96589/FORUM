@@ -76,4 +76,14 @@ public class ForumServiceImpl implements ForumService {
 		return articleDao.getNewArticles();
 	}
 
+	@Override
+	public Article findArticleById(int articleId) {
+		return articleDao.findById(articleId);
+	}
+
+	@Override
+	public List<Map<String, Object>> getRepliedArticles() {
+		return articleDao.getRepliedArticles();
+	}
+
 }
