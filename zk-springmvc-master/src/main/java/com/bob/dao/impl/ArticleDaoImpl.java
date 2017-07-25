@@ -86,4 +86,14 @@ public class ArticleDaoImpl implements ArticleDao {
 		sessionFactory.getCurrentSession().saveOrUpdate(article);
 	}
 
+	@Override
+	public List<Article> findForArticleTree() {
+		Session session = sessionFactory.getCurrentSession();
+		session.enableFilter("test");
+		Query query = session.createQuery("FROM Article A WHERE A.status = 0");
+		List<Article> a = query.list();
+		session.disableFilter("test");
+		return a;
+	}
+
 }

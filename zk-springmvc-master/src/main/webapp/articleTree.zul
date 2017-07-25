@@ -1,0 +1,26 @@
+<zk xmlns:n="native">
+	<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('demo.view.zk.ArticleTreeVM')">
+		<apply template="template1" objs="@load(vm.articleList)"/>
+		<template name="template1">
+			<forEach items="@load(objs)">
+			   	<div style="border: black 1px solid; padding: 20px 0px 20px 20px;">
+				   		<div>
+							<label value="@bind(each.id)" style="font-size: 30px;"/>
+							<label value="@bind(each.pid)" />
+							<label value="@bind(each.status)" />
+							<label value="@bind(each.title)" />
+							<label value="@bind(each.userId)" />
+							<label value="@bind(each.createTime)" />
+						</div>
+					<apply template="template1" objs="@load(each.children)"/>
+				</div>
+				<separator/>
+			</forEach> 
+		</template>
+		
+		
+		
+		
+		
+	</window>
+</zk>

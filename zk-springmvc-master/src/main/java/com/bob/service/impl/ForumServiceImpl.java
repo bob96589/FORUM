@@ -119,4 +119,9 @@ public class ForumServiceImpl implements ForumService {
 		}
 	}
 
+	@Override
+	public List<Article> findForArticleTree() {
+		return articleDao.findForArticleTree();
+	}
+
 }

@@ -30,4 +30,6 @@ public interface ForumService {
 
 	void deleteArticle(Integer articleId);
 
+	List<Article> findForArticleTree();
+
 }

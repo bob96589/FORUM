@@ -23,4 +23,6 @@ public interface ArticleDao {
 
 	public void save(Article article);
 
+	public List<Article> findForArticleTree();
+
 }
