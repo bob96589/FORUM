@@ -21,6 +21,24 @@ public class MainVM {
 	private String includeSrc = "latestArticles.zul";
 	private Integer userId;
 	private String account;
+	private String text = "ddddd";
+	private boolean memoVisible;
+
+	public boolean isMemoVisible() {
+		return memoVisible;
+	}
+
+	public void setMemoVisible(boolean memoVisible) {
+		this.memoVisible = memoVisible;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
 
 	public Integer getUserId() {
 		return userId;
@@ -51,6 +69,7 @@ public class MainVM {
 		Selectors.wireComponents(view, this, false);
 		userId = SecurityContext.getId();
 		account = SecurityContext.getAccount();
+		memoVisible = false;
 		// forumService = (ForumService) SpringUtil.getBean("forumServiceImpl");
 		// articleList = forumService.getNewArticles();
 	}
@@ -61,13 +80,19 @@ public class MainVM {
 	public void onNavigate(@BindingParam("includeSrc") String includeSrc) {
 		this.includeSrc = includeSrc;
 	}
-	
-	
+
 	@Command("add")
 	public void open() {
 		Map<String, Object> arg = new HashMap<String, Object>();
 		arg.put("action", "add");
 		Executions.createComponents("addArticle.zul", null, arg);
+	}
+
+	@GlobalCommand
+	@NotifyChange({ "memoVisible", "text" })
+	public void updateMemo(@BindingParam("memoVisible") boolean memoVisible, @BindingParam("text") String text) {
+		this.memoVisible = memoVisible;
+		this.text = text;
 	}
 
 }

@@ -1,5 +1,7 @@
 <zk xmlns:n="native">
-	<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('demo.view.zk.AddArticleVM', action=arg.action, articleId=arg.articleId)" mode="modal" title="Dialog" border="normal">
+	<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('demo.view.zk.AddArticleVM', action=arg.action, articleId=arg.articleId)" 
+	mode="modal" title="Dialog" border="normal"
+	binder="@init(queueName='myqueue')">
 		<grid width="800px" form="@id('fx') @load(vm.article) @save(vm.article, before='addArticle')">
 			<columns>
 				<column label="Add Article" width="100px" />
