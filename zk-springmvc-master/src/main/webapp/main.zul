@@ -8,6 +8,7 @@
 			<west width="300px">
 				<div>
 					<button label="${c:l('main.btn.01')}" onClick="@command('add')" />
+<!-- 					<button label="add article" onClick="@command('onNavigate', includeSrc='addArticle.zul')" /> -->
 					<separator/>
 					<button label="${c:l('main.btn.02')}" onClick="@command('onNavigate', includeSrc='latestArticles.zul')" />
 					<separator/>
@@ -35,7 +36,7 @@
 		</borderlayout>
 		<hbox visible="@load(mainVm.memoVisible)">
 <!-- 		<hbox visible="true"> -->
-			<div style="border: 1px solid black; width: 200px; height: 200px; position: fixed;bottom: 0;right: 0; z-index: 10;">
+			<div style="border: 1px solid black; width: 200px; height: 200px; position: fixed;bottom: 0;right: 0; z-index: 30;">
 				<label value="@load(mainVm.text)"/>
 				<button label="cancel" onClick="@global-command('cancelArticle')"/>
 			</div>

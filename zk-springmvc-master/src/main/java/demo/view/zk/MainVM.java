@@ -70,8 +70,6 @@ public class MainVM {
 		userId = SecurityContext.getId();
 		account = SecurityContext.getAccount();
 		memoVisible = false;
-		// forumService = (ForumService) SpringUtil.getBean("forumServiceImpl");
-		// articleList = forumService.getNewArticles();
 	}
 
 	@Command
@@ -82,10 +80,10 @@ public class MainVM {
 	}
 
 	@Command("add")
-	public void open() {
+	public void open(@ContextParam(ContextType.VIEW) Component view) {
 		Map<String, Object> arg = new HashMap<String, Object>();
 		arg.put("action", "add");
-		Executions.createComponents("addArticle.zul", null, arg);
+		Executions.createComponents("addArticle.zul", view, arg);
 	}
 
 	@GlobalCommand

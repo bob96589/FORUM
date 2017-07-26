@@ -1,6 +1,8 @@
 package demo.view.zk;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -11,6 +13,8 @@ import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.ContextParam;
 import org.zkoss.bind.annotation.ContextType;
+import org.zkoss.bind.annotation.GlobalCommand;
+import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
@@ -73,18 +77,68 @@ public class AddArticleVM {
 
 	}
 
-	@Command
-	public void addArticle(@ContextParam(ContextType.VIEW) Window comp) {
-		if ("add".equals(action) || "reply".equals(action)) {
-			article.setCreateTime(new Date());
-			article.setStatus(0);
-			article.setUserId(SecurityContext.getId());
-			forumService.addArticle(article);
-		} else if ("edit".equals(action)) {
-			forumService.addArticle(article);
-		}
-		comp.detach();
+	String result = "";
+	EventQueue<Event> eventQueue;
+	EventListener<Event> listener;
+	String workingQueueName;
 
+	@GlobalCommand("cancelArticle")
+	public void cancelArticle() {
+		eventQueue = EventQueues.lookup(workingQueueName, EventQueues.APPLICATION, true);
+		eventQueue.unsubscribe(listener);
+		EventQueues.remove(workingQueueName);
+		Map<String, Object> args = new HashMap<String, Object>();
+		args.put("memoVisible", false);
+		args.put("text", "cancel..");
+		BindUtils.postGlobalCommand(null, EventQueues.DESKTOP, "updateMemo", args);
+	}
+
+	@Command("addArticle")
+	public void doLongOp(@ContextParam(ContextType.VIEW) Window comp) {
+		workingQueueName = "workingQueue" + System.currentTimeMillis();
+		eventQueue = EventQueues.lookup(workingQueueName, EventQueues.APPLICATION, true);
+		eventQueue.subscribe(listener = new EventListener<Event>() {
+			@Override
+			public void onEvent(Event event) throws Exception {
+				System.out.println("update article");
+				if ("add".equals(action) || "reply".equals(action)) {
+					article.setCreateTime(new Date());
+					article.setStatus(0);
+					// article.setUserId(SecurityContext.getId()); //TODO
+					article.setUserId(1001); // TODO
+					forumService.addArticle(article);
+				} else if ("edit".equals(action)) {
+					forumService.addArticle(article);
+				}
+			}
+		}, new EventListener<Event>() {
+			@Override
+			public void onEvent(Event event) throws Exception {
+				Map<String, Object> args = new HashMap<String, Object>();
+				args.put("memoVisible", false);
+				args.put("text", result);
+				BindUtils.postGlobalCommand(null, EventQueues.DESKTOP, refreshCommand, args);
+				BindUtils.postGlobalCommand(null, EventQueues.DESKTOP, "updateMemo", args);
+				eventQueue.unsubscribe(listener);
+				EventQueues.remove(workingQueueName);
+			}
+		});
+
+		ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(1);
+		scheduledThreadPool.schedule(new Runnable() {
+			@Override
+			public void run() {
+				eventQueue.publish(new Event("trigger"));
+			}
+		}, 3, TimeUnit.SECONDS);
+
+		Map<String, Object> args = new HashMap<String, Object>();
+		args.put("memoVisible", true);
+		args.put("text", "Article Sending..");
+		BindUtils.postGlobalCommand(null, EventQueues.DESKTOP, "updateMemo", args);
+
+		// comp.detach();
+		comp.setVisible(false);
 	}
 
 	@Command
@@ -112,24 +166,6 @@ public class AddArticleVM {
 			}, 3, TimeUnit.SECONDS);
 		}
 
-	}
-
-	public void startLongOperation() {
-		final String workingQueueName = "workingQueue" + System.currentTimeMillis();
-		EventQueue eq = EventQueues.lookup(workingQueueName); // create a queue
-		eq.subscribe(new EventListener<Event>() {
-			@Override
-			public void onEvent(Event event) throws Exception {
-				//worker.doLongOp();
-			}
-		}, new EventListener<Event>() {
-			@Override
-			public void onEvent(Event event) throws Exception {
-				// BindUtils.postGlobalCommand(queueName, null, gcmdName, null);
-				EventQueues.remove(workingQueueName);
-			}
-		});
-		eq.publish(new Event("trigger"));
 	}
 
 }
