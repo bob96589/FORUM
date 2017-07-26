@@ -21,7 +21,7 @@ public class MainVM {
 	private String includeSrc = "latestArticles.zul";
 	private Integer userId;
 	private String account;
-	private String text = "ddddd";
+	private String text;
 	private boolean memoVisible;
 
 	public boolean isMemoVisible() {

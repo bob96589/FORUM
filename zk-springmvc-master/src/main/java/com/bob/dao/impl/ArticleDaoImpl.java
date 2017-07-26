@@ -18,29 +18,29 @@ import com.bob.utils.SqlStatement;
 
 @Repository
 public class ArticleDaoImpl implements ArticleDao {
-	
-    @Autowired
-    SessionFactory sessionFactory;
-    @Autowired
-    SqlStatement sqlStatement;
-    @Autowired
-    NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-    
-    
-    public void saveOrUpdate(Article article) {
-    	sessionFactory.getCurrentSession().persist(article);
-    }
-    
-    public List<Article> list() {
-        Query query = sessionFactory.getCurrentSession().createQuery("FROM Article A WHERE A.status = 0 ORDER BY A.createTime DESC");
-        List<Article> list = query.list();
-        return list;
-    }
+
+	@Autowired
+	SessionFactory sessionFactory;
+	@Autowired
+	SqlStatement sqlStatement;
+	@Autowired
+	NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+
+	public void saveOrUpdate(Article article) {
+		sessionFactory.getCurrentSession().persist(article);
+	}
+
+	public List<Article> list() {
+		Query query = sessionFactory.getCurrentSession()
+				.createQuery("FROM Article A WHERE A.status = 0 ORDER BY A.createTime DESC");
+		List<Article> list = query.list();
+		return list;
+	}
 
 	@Override
 	public List<Article> findForDetail() {
 		Query query = sessionFactory.getCurrentSession().createQuery("FROM Article A WHERE A.pid = NULL ");
-        List<Article> list = query.list();
+		List<Article> list = query.list();
 		return list;
 	}
 
@@ -59,7 +59,7 @@ public class ArticleDaoImpl implements ArticleDao {
 		Query query = session.createQuery("FROM Article A WHERE A.id = :articleId AND A.status = 0");
 		query.setParameter("articleId", articleId);
 		Article a = (Article) query.uniqueResult();
-//		Article a = (Article) session.get(Article.class, articleId);
+		// Article a = (Article) session.get(Article.class, articleId);
 		session.disableFilter("test");
 		return a;
 	}

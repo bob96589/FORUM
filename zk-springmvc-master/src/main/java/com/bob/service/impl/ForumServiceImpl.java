@@ -24,27 +24,25 @@ public class ForumServiceImpl implements ForumService {
 
 	@Autowired
 	UserDao userDao;
-
 	@Autowired
 	ArticleDao articleDao;
-
 	@Autowired
 	TagDao tagDao;
 
 	public Set<Tag> doSomething() {
-//		List<Article> list = articleDao.list(0, 4);
-//		Article a = list.get(0);
-//		Set<Tag> tags = a.getTags();
-		
+		// List<Article> list = articleDao.list(0, 4);
+		// Article a = list.get(0);
+		// Set<Tag> tags = a.getTags();
+
 		Article a = new Article();
 		a.setContent("aa");
 		a.setStatus(0);
 		a.setTitle("title");
 		a.setUserId(44);
 		a.setCreateTime(new Date());
-		
+
 		Set<Tag> set = new HashSet<Tag>();
-		for(int i = 0; i < 5; i++) {
+		for (int i = 0; i < 5; i++) {
 			Tag t1 = new Tag();
 			t1.setName("tag" + i);
 			tagDao.saveOrUpdate(t1);
@@ -53,24 +51,21 @@ public class ForumServiceImpl implements ForumService {
 		a.setTags(set);
 		articleDao.saveOrUpdate(a);
 		return null;
-//		Article a = list.get(0);
-//		return a.getTags();
+		// Article a = list.get(0);
+		// return a.getTags();
 	}
 
 	@Override
 	public List<Article> getAllArticle() {
-		
-//		List<Article> list = articleDao.list();
-//		Article a = list.get(0);
-//		Set<Article> set = a.getChildren();
-//		System.out.println(set);
-		
+		// List<Article> list = articleDao.list();
+		// Article a = list.get(0);
+		// Set<Article> set = a.getChildren();
+		// System.out.println(set);
 		return articleDao.list();
 	}
 
 	@Override
 	public List<Article> getArticleForDetail() {
-		// TODO Auto-generated method stub
 		return articleDao.findForDetail();
 	}
 
@@ -91,13 +86,11 @@ public class ForumServiceImpl implements ForumService {
 
 	@Override
 	public User findUserByAccount(String username) {
-		// TODO Auto-generated method stub
 		return userDao.findByAccount(username);
 	}
 
 	@Override
 	public List<Map<String, Object>> getMyArticles(int id) {
-		// TODO Auto-generated method stub
 		return articleDao.getMyArticles(id);
 	}
 
@@ -111,7 +104,7 @@ public class ForumServiceImpl implements ForumService {
 		Article article = articleDao.findById(articleId);
 		Queue<Article> list = new LinkedList<Article>();
 		list.offer(article);
-		while(!list.isEmpty()){
+		while (!list.isEmpty()) {
 			Article temp = list.poll();
 			temp.setStatus(1);
 			articleDao.save(temp);
