@@ -1,5 +1,5 @@
 <zk>
-	<window viewModel="@id('vm') @init('demo.view.zk.ArticleTreeVM')">
+	<window viewModel="@id('vm') @init('com.bob.vm.ArticleTreeVM')">
 	<tree>
 		<treecols sizable="true">
 			<treecol label="Name" />

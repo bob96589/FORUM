@@ -1,5 +1,5 @@
 <zk>
-	<window viewModel="@id('vm') @init('demo.view.zk.LatestArticlesVM')">
+	<window viewModel="@id('vm') @init('com.bob.vm.LatestArticlesVM')">
 		<grid model="@load(vm.articleList)">
 			<columns>
 				<column label="id" />

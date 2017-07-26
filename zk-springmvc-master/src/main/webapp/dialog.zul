@@ -1,6 +1,6 @@
 <zk>
 	<window mode="modal" title="Dialog"
-		border="normal" viewModel="@id('vm') @init('demo.view.zk.DialogVM',article=arg.article)"
+		border="normal" viewModel="@id('vm') @init('com.bob.vm.DialogVM',article=arg.article)"
 		width="600px">
 		<div>
 			<label value="@init(vm.article.id)" style="font-size: 30px;" />

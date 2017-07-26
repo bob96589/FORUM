@@ -1,4 +1,4 @@
-package demo.view.zk;
+package com.bob.vm;
 
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
