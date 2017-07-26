@@ -1,6 +1,5 @@
 <zk>
 	<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('demo.view.zk.LatestArticlesVM')">
-<!-- 		<grid model="@bind(vm.articleList)" mold="paging" pageSize="5" pagingPosition="top"> -->
 		<grid model="@load(vm.articleList)">
 			<columns>
 				<column label="id" />
@@ -15,15 +14,15 @@
 			</columns>
 			<template name="model" var="article">
 				<row>
-					<label value="@bind(article.ID)"/>
-					<label value="@bind(article.PID)" />
-					<label value="@bind(article.USER_ID)" />
-					<label value="@bind(article.TITLE)"/>
-					<label value="@bind(article.CONTENT)" />
-					<label value="@bind(article.CREATE_TIME)" />
-					<label value="@bind(article.STATUS)" />
-					<label value="@bind(article.REPLY_CNT)" />
-					<label value="@bind(article.TAG_NAME)" />
+					<label value="@load(article.ID)"/>
+					<label value="@load(article.PID)" />
+					<label value="@load(article.USER_ID)" />
+					<label value="@load(article.TITLE)"/>
+					<label value="@load(article.CONTENT)" />
+					<label value="@load(article.CREATE_TIME)" />
+					<label value="@load(article.STATUS)" />
+					<label value="@load(article.REPLY_CNT)" />
+					<label value="@load(article.TAG_NAME)" />
 				</row>
 			</template>
 		</grid>

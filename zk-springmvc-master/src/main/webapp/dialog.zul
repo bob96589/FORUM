@@ -3,17 +3,17 @@
 		border="normal" viewModel="@id('vm') @init('demo.view.zk.DialogVM',article=arg.article)"
 		width="600px">
 		<div>
-			<label value="@bind(vm.article.id)" style="font-size: 30px;" />
+			<label value="@init(vm.article.id)" style="font-size: 30px;" />
 		</div>
 		<div>
-			<label value="@bind(vm.article.title)" />
+			<label value="@init(vm.article.title)" />
 		</div>
 		<div>
-			<label value="@bind(vm.article.userId)" />
-			<label value="@bind(vm.article.createTime)" />
+			<label value="@init(vm.article.userId)" />
+			<label value="@init(vm.article.createTime)" />
 		</div>
 		<div style="min-height: 100px;">
-			<html content="@bind(vm.article.content)"></html>
+			<html content="@init(vm.article.content)"></html>
 		</div>
 		<hbox>
 			<button label="close" onClick="@command('close')" />

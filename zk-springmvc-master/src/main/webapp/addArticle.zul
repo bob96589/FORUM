@@ -1,4 +1,4 @@
-<zk xmlns:n="native">
+<zk>
 	<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('demo.view.zk.AddArticleVM', action=arg.action, articleId=arg.articleId)" 
 	mode="modal" title="Dialog" border="normal">
 		<grid width="800px" form="@id('fx') @load(vm.article) @save(vm.article, before='addArticle')">
@@ -23,6 +23,5 @@
 		</grid>
 		<button label="submit" onClick="@command('addArticle')" />
 		<button label="close" onClick="@command('close')" />
-<!-- 		@global-command('dlgClose',result=vm.value) reload -->
 	</window>
 </zk>

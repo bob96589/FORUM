@@ -1,4 +1,4 @@
-<zk xmlns:n="native">
+<zk>
 	<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('demo.view.zk.ArticleTreeVM')">
 	<tree>
 		<treecols sizable="true">
@@ -16,10 +16,10 @@
 			<treeitem>
 				<treerow>
 					<treecell>
-						<label value="@bind(each.id)" style="font-size: 30px;" />
-						<label value="@bind(each.title)" />
-						<label value="@bind(each.userId)" />
-						<label value="@bind(each.createTime)" />
+						<label value="@load(each.id)" style="font-size: 30px;" />
+						<label value="@load(each.title)" />
+						<label value="@load(each.userId)" />
+						<label value="@load(each.createTime)" />
 						<button label="Detail"  onClick="@command('openDialog', article=each)"/>
 					</treecell>
 				</treerow>

@@ -30,7 +30,7 @@
 			</west>
 			<center autoscroll="true">
 				<div>
-					<include src="@bind(mainVm.includeSrc)" />
+					<include src="@load(mainVm.includeSrc)" />
 				</div>
 			</center>
 		</borderlayout>
