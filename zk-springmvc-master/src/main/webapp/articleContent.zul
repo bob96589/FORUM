@@ -1,8 +1,5 @@
 <zk xmlns:n="native">
 	<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('demo.view.zk.ArticleContentVM')">
-		
-		
-		
 		<apply template="template1" objs="@load(vm.articleList)"/>
 		<template name="template1">
 			<forEach items="@load(objs)">

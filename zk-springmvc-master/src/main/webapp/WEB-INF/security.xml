@@ -16,6 +16,7 @@
 			default-target-url="/main.zul" always-use-default-target="true" />
 		<intercept-url pattern="/login.zul" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<intercept-url pattern="/*.zul" access="IS_AUTHENTICATED_FULLY" />
+		<logout logout-success-url="/login.zul" />
 	</http>
 	<authentication-manager>
 		<authentication-provider user-service-ref="userDetailsService"></authentication-provider>

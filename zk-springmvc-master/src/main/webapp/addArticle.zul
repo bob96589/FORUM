@@ -1,6 +1,6 @@
 <zk xmlns:n="native">
-	<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('demo.view.zk.AddArticleVM')">
-		<grid width="80%" form="@id('fx') @load(vm.article) @save(vm.article, before='addArticle')">
+	<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('demo.view.zk.AddArticleVM', action=arg.action, articleId=arg.articleId)" mode="modal" title="Dialog" border="normal">
+		<grid width="800px" form="@id('fx') @load(vm.article) @save(vm.article, before='addArticle')">
 			<columns>
 				<column label="Add Article" width="100px" />
 				<column label="" />
@@ -8,11 +8,11 @@
 			<rows>
 				<row>
 					<label value="title" />
-					<textbox width="150px" value="@bind(fx.title)" />
+					<textbox value="@bind(fx.title)" />
 				</row>
 				<row>
 					<label value="content" />
-					<ckeditor width="850px" value="@bind(fx.content)"/>
+					<ckeditor value="@bind(fx.content)"/>
 				</row>
 <!-- 				<row> -->
 <!-- 					<label value="tag" /> -->
@@ -20,6 +20,8 @@
 <!-- 				</row> -->
 			</rows>
 		</grid>
-		<button label="submit" onClick="@command('addArticle') @global-command('onNavigate', includeSrc='latestArticles.zul')" />
+		<button label="submit" onClick="@command('addArticle') @global-command(vm.refreshCommand)" />
+		<button label="close" onClick="@command('close')" />
+<!-- 		@global-command('dlgClose',result=vm.value) reload -->
 	</window>
 </zk>

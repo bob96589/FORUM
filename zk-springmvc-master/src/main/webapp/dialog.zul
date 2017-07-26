@@ -1,0 +1,11 @@
+<zk>
+	<window apply="org.zkoss.bind.BindComposer" mode="modal" title="Dialog" border="normal" position="center,center"
+		viewModel="@id('vm') @init('demo.view.zk.DialogVM',articleId=arg.articleId)" width="300px">
+		<hbox>
+			<textbox value="@load(vm.value) @save(vm.value,before='close')" constraint="no empty"/>
+		</hbox>
+		<hbox>
+			<button label="close" onClick="@command('close') @global-command('dlgClose',result=vm.value)" />
+		</hbox>
+	</window>
+</zk>

@@ -83,7 +83,7 @@ public class ArticleDaoImpl implements ArticleDao {
 
 	@Override
 	public void save(Article article) {
-		sessionFactory.getCurrentSession().persist(article);
+		sessionFactory.getCurrentSession().saveOrUpdate(article);
 	}
 
 }
