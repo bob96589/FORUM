@@ -1,5 +1,5 @@
 <zk>
-	<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('demo.view.zk.LatestArticlesVM')">
+	<window viewModel="@id('vm') @init('demo.view.zk.LatestArticlesVM')">
 		<grid model="@load(vm.articleList)">
 			<columns>
 				<column label="id" />

@@ -1,5 +1,5 @@
 <zk>
-	<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('demo.view.zk.ArticleTreeVM')">
+	<window viewModel="@id('vm') @init('demo.view.zk.ArticleTreeVM')">
 	<tree>
 		<treecols sizable="true">
 			<treecol label="Name" />

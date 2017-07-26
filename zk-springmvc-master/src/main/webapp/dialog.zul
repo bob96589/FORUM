@@ -1,5 +1,5 @@
 <zk>
-	<window apply="org.zkoss.bind.BindComposer" mode="modal" title="Dialog"
+	<window mode="modal" title="Dialog"
 		border="normal" viewModel="@id('vm') @init('demo.view.zk.DialogVM',article=arg.article)"
 		width="600px">
 		<div>

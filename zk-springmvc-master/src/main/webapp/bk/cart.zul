@@ -1,5 +1,5 @@
 <zk xmlns:n="native">
-	<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('demo.view.zk.CartViewModel')">
+	<window viewModel="@id('vm') @init('demo.view.zk.CartViewModel')">
 		<n:form action="confirmOrder" method="post">
 			<grid model="@bind(vm.cartList)">
 				<columns>

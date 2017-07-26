@@ -1,5 +1,5 @@
 <zk>
-	<grid model="@bind(vm.productList)" vflex="1" apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('demo.view.zk.ProductViewModel')">
+	<grid model="@bind(vm.productList)" vflex="1" viewModel="@id('vm') @init('demo.view.zk.ProductViewModel')">
 		<columns>
 			<column width="212px" />
 			<column label="Name" />

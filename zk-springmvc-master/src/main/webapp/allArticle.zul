@@ -1,5 +1,5 @@
 <zk>
-	<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('demo.view.zk.AllArticleVM')">
+	<window viewModel="@id('vm') @init('demo.view.zk.AllArticleVM')">
 		<grid model="@bind(vm.articleList)" mold="paging" pageSize="5" pagingPosition="top">
 			<columns>
 				<column label="id" />
