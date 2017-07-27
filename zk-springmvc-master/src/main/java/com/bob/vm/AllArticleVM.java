@@ -8,17 +8,19 @@ import org.zkoss.bind.annotation.ContextType;
 import org.zkoss.bind.annotation.GlobalCommand;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Component;
-import org.zkoss.zk.ui.select.Selectors;
-import org.zkoss.zkplus.spring.SpringUtil;
+import org.zkoss.zk.ui.select.annotation.VariableResolver;
+import org.zkoss.zk.ui.select.annotation.WireVariable;
 
 import com.bob.model.Article;
 import com.bob.service.ForumService;
 
+@VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class AllArticleVM {
-	
+
+	@WireVariable("forumServiceImpl")
 	private ForumService forumService;
 	List<Article> articleList;
-	
+
 	public List<Article> getArticleList() {
 		return articleList;
 	}
@@ -29,13 +31,11 @@ public class AllArticleVM {
 
 	@AfterCompose
 	public void initSetup(@ContextParam(ContextType.VIEW) Component view) {
-		Selectors.wireComponents(view, this, false);
-		forumService = (ForumService) SpringUtil.getBean("forumServiceImpl");
 		articleList = forumService.getAllArticle();
 	}
-	
+
 	@GlobalCommand("refreshArticle")
-	@NotifyChange({"articleList"})
+	@NotifyChange({ "articleList" })
 	public void refreshArticle() {
 		articleList = forumService.getAllArticle();
 	}

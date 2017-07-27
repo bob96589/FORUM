@@ -1,6 +1,8 @@
 <zk>
-	<window viewModel="@id('vm') @init('com.bob.vm.ArticleContentVM')">
+	<window>
 		<apply template="template1" objs="@load(vm.articleList)"/>
+		
+		
 		<template name="template1">
 			<forEach items="@load(objs)">
 			   	<div style="border: black 1px solid; padding: 20px 0px 20px 20px;">
@@ -21,8 +23,9 @@
 					</div>
 					<div style="display: inline-block; vertical-align:top;">
 						<button label="(R)Reply" onClick="@command('reply', articleId=each.id)" />
+<!-- 						<label value="${SecurityContext.getId()}" /> -->
 						<if test="@load((empty each.children) and (each.userId eq mainVm.userId))">
-							<button label="(E)Edit" onClick="@command('edit', articleId=each.id)" />
+							<button label="(E)Edittt" onClick="@command('edit', articleId=each.id)" />
 						</if>
 						<button label="(X)Delete" onClick="@command('delete', articleId=each.id) @global-command('refreshArticle')" />
 					</div>

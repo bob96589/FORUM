@@ -12,14 +12,12 @@ import org.zkoss.bind.annotation.GlobalCommand;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
-import org.zkoss.zk.ui.select.Selectors;
 
 import com.bob.security.SecurityContext;
 
 public class MainVM {
 
 	private String includeSrc = "latestArticles.zul";
-	private Integer userId;
 	private String account;
 	private String text;
 	private boolean memoVisible;
@@ -41,12 +39,9 @@ public class MainVM {
 	}
 
 	public Integer getUserId() {
-		return userId;
+		return SecurityContext.getId();
 	}
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
 
 	public String getAccount() {
 		return account;
@@ -66,8 +61,6 @@ public class MainVM {
 
 	@AfterCompose
 	public void initSetup(@ContextParam(ContextType.VIEW) Component view) {
-		Selectors.wireComponents(view, this, false);
-		userId = SecurityContext.getId();
 		account = SecurityContext.getAccount();
 		memoVisible = false;
 	}

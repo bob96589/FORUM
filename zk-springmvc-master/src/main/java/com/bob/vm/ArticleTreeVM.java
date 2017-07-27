@@ -10,20 +10,20 @@ import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.ContextParam;
 import org.zkoss.bind.annotation.ContextType;
-import org.zkoss.bind.annotation.GlobalCommand;
-import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
-import org.zkoss.zk.ui.select.Selectors;
-import org.zkoss.zkplus.spring.SpringUtil;
+import org.zkoss.zk.ui.select.annotation.VariableResolver;
+import org.zkoss.zk.ui.select.annotation.WireVariable;
 
 import com.bob.model.Article;
 import com.bob.service.ForumService;
 
+@VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class ArticleTreeVM {
 
-	private List<Article> articleList = new ArrayList<Article>();
+	@WireVariable("forumServiceImpl")
 	private ForumService forumService;
+	private List<Article> articleList = new ArrayList<Article>();
 
 	public List<Article> getArticleList() {
 		return articleList;
@@ -35,11 +35,9 @@ public class ArticleTreeVM {
 
 	@AfterCompose
 	public void initSetup(@ContextParam(ContextType.VIEW) Component view) {
-		Selectors.wireComponents(view, this, false);
-		forumService = (ForumService) SpringUtil.getBean("forumServiceImpl");
 		articleList = forumService.findForArticleTree();
 	}
-	
+
 	@Command
 	public void openDialog(@BindingParam("article") Article article) {
 		Map<String, Object> arg = new HashMap<String, Object>();

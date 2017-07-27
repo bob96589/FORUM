@@ -14,17 +14,19 @@ import org.zkoss.bind.annotation.GlobalCommand;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
-import org.zkoss.zk.ui.select.Selectors;
-import org.zkoss.zkplus.spring.SpringUtil;
+import org.zkoss.zk.ui.select.annotation.VariableResolver;
+import org.zkoss.zk.ui.select.annotation.WireVariable;
 
 import com.bob.model.Article;
 import com.bob.service.ForumService;
 
+@VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class ArticleContentVM {
 
+	@WireVariable("forumServiceImpl")
+	private ForumService forumService;
 	private List<Article> articleList = new ArrayList<Article>();
 	private Integer articleId;
-	private ForumService forumService;
 
 	public List<Article> getArticleList() {
 		return articleList;
@@ -36,8 +38,7 @@ public class ArticleContentVM {
 
 	@AfterCompose
 	public void initSetup(@ContextParam(ContextType.VIEW) Component view) {
-		Selectors.wireComponents(view, this, false);
-		forumService = (ForumService) SpringUtil.getBean("forumServiceImpl");
+		// Selectors.wireComponents(view, this, false);
 	}
 
 	@GlobalCommand
@@ -67,7 +68,7 @@ public class ArticleContentVM {
 		arg.put("action", "reply");
 		Executions.createComponents("addArticle.zul", null, arg);
 	}
-	
+
 	@Command("edit")
 	public void openEditDialog(@BindingParam("articleId") Integer articleId) {
 		Map<String, Object> arg = new HashMap<String, Object>();
@@ -75,8 +76,7 @@ public class ArticleContentVM {
 		arg.put("action", "edit");
 		Executions.createComponents("addArticle.zul", null, arg);
 	}
-	
-	
+
 	@GlobalCommand("refreshRepliedArticle")
 	@NotifyChange({ "articleList" })
 	public void refresh() {
@@ -84,6 +84,5 @@ public class ArticleContentVM {
 		articleList.clear();
 		articleList.add(article);
 	}
-
 
 }
