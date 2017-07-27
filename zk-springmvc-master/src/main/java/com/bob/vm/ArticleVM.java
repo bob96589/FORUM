@@ -83,11 +83,6 @@ public class ArticleVM {
 		allArticlesForTreeView = forumService.findForArticleTree();
 	}
 
-	@GlobalCommand("refreshArticle")
-	@NotifyChange({ "articleList" })
-	public void refresh() {
-		latestArticles = forumService.getLatestArticles();
-	}
 
 	@GlobalCommand("refreshArticleDisplay")
 	@NotifyChange({ "latestArticles", "repliedArticles", "myArticles", "allArticlesForTreeView" })

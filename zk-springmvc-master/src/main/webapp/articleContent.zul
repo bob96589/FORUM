@@ -26,7 +26,7 @@
 							<button label="(E)Edittt" onClick="@command('edit', articleId=article.id)" />
 						</if>
 						<button label="(X)Delete"
-							onClick="@command('delete', articleId=article.id) @global-command('refreshArticle')" />
+							onClick="@command('delete', articleId=article.id) @global-command('refreshArticleDisplay')" />
 					</div>
 					<forEach items="@load(article.children)" var="childArticle">
 						<apply template="template1" article="@load(childArticle)" />

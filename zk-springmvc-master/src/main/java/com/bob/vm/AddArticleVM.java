@@ -35,7 +35,6 @@ public class AddArticleVM {
 	private ForumService forumService;
 	private Article article;
 	private String action;
-	private String refreshCommand;
 	ScheduledFuture executionOfTask;
 	EventQueue<Event> eventQueue;
 
@@ -50,13 +49,6 @@ public class AddArticleVM {
 		this.action = action;
 	}
 
-	public String getRefreshCommand() {
-		return refreshCommand;
-	}
-
-	public void setRefreshCommand(String refreshCommand) {
-		this.refreshCommand = refreshCommand;
-	}
 
 	public Article getArticle() {
 		return article;
@@ -72,14 +64,11 @@ public class AddArticleVM {
 		this.action = action;
 		if ("add".equals(action)) {
 			this.article = BeanFactory.getArticleInstance();
-			this.refreshCommand = "refreshArticle";
 		} else if ("reply".equals(action)) {
 			this.article = BeanFactory.getArticleInstance();
 			article.setPid(articleId);
-			this.refreshCommand = "refreshRepliedArticle";
 		} else if ("edit".equals(action)) {
 			this.article = forumService.findArticleById(articleId);
-			this.refreshCommand = "refreshRepliedArticle";
 		}
 		eventQueue = EventQueues.lookup(APPLICATION_POSTING_QUEUE, EventQueues.APPLICATION, true);
 		eventQueue.subscribe(new EventListener<Event>() {
@@ -88,12 +77,12 @@ public class AddArticleVM {
 				// event.getName(): "trigger"
 				// refresh
 				// call back
-				Map<String, Object> args = new HashMap<String, Object>();
-				BindUtils.postGlobalCommand(null, null, refreshCommand, args);
 				
 				// ok
+				Map<String, Object> args = new HashMap<String, Object>();
 				args.put("memoVisible", false);
 				BindUtils.postGlobalCommand(null, null, "updateMemo", args);
+				
 				BindUtils.postGlobalCommand(null, null, "refreshArticleDisplay", args);
 			}
 		});
