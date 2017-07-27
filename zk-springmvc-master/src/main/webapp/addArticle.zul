@@ -20,6 +20,6 @@
 <!-- 				</row> -->
 			</rows>
 		</grid>
-		<button label="submit" onClick="@global-command('addArticle')" />
+		<button label="submit" onClick="@command('addArticle')" />
 	</window>
 </zk>

@@ -24,7 +24,6 @@ import org.zkoss.zk.ui.event.EventQueue;
 import org.zkoss.zk.ui.event.EventQueues;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
-import org.zkoss.zul.Window;
 
 import com.bob.model.Article;
 import com.bob.security.SecurityContext;
@@ -37,12 +36,26 @@ public class ArticleVM {
 	@WireVariable("forumServiceImpl")
 	private ForumService forumService;
 
-	List<Map<String, Object>> latestArticles;
-	List<Map<String, Object>> repliedArticles;
-	List<Map<String, Object>> myArticles;
+	private List<Map<String, Object>> latestArticles;
+	private List<Map<String, Object>> repliedArticles;
+	private List<Map<String, Object>> myArticles;
+	private List<Article> allArticlesForListView;
+	private List<Article> allArticlesForTreeView;
+	private Article selectedArticle;
+	private Component dialog;
+	private Article article;
+	private ScheduledFuture executionOfTask;
+	private EventQueue<Event> eventQueue;
+	private final static String APPLICATION_POSTING_QUEUE = "APPLICATION_POSTING_QUEUE";
+	private final static ScheduledExecutorService SCHEDULED_THREAD_POOL = Executors.newScheduledThreadPool(20);
 
-	List<Article> allArticlesForListView;
-	List<Article> allArticlesForTreeView;
+	public Article getSelectedArticle() {
+		return selectedArticle;
+	}
+
+	public void setSelectedArticle(Article selectedArticle) {
+		this.selectedArticle = selectedArticle;
+	}
 
 	public List<Article> getAllArticlesForListView() {
 		return allArticlesForListView;
@@ -84,13 +97,21 @@ public class ArticleVM {
 		this.myArticles = myArticles;
 	}
 
+	public Article getArticle() {
+		return article;
+	}
+
+	public void setArticle(Article article) {
+		this.article = article;
+	}
+
 	@Init
 	public void initSetup(@ContextParam(ContextType.VIEW) Component view) {
 		latestArticles = forumService.getLatestArticles();
 		repliedArticles = forumService.getRepliedArticles();
 		myArticles = forumService.getMyArticles(SecurityContext.getId());
 
-		// allArticlesForListView
+		allArticlesForListView = forumService.getAllArticle();
 		allArticlesForTreeView = forumService.findForArticleTree();
 
 		eventQueue = EventQueues.lookup(APPLICATION_POSTING_QUEUE, EventQueues.APPLICATION, true);
@@ -112,12 +133,17 @@ public class ArticleVM {
 	}
 
 	@GlobalCommand("refreshArticleDisplay")
-	@NotifyChange({ "latestArticles", "repliedArticles", "myArticles", "allArticlesForTreeView" })
+	@NotifyChange({ "latestArticles", "repliedArticles", "myArticles", "allArticlesForListView", "allArticlesForTreeView", "selectedArticle" })
 	public void refreshArticleDisplay() {
 		latestArticles = forumService.getLatestArticles();
 		repliedArticles = forumService.getRepliedArticles();
 		myArticles = forumService.getMyArticles(SecurityContext.getId());
+
+		allArticlesForListView = forumService.getAllArticle();
 		allArticlesForTreeView = forumService.findForArticleTree();
+		if (selectedArticle != null) {
+			selectedArticle = forumService.findArticleById(selectedArticle.getId());
+		}
 	}
 
 	@Command
@@ -130,45 +156,8 @@ public class ArticleVM {
 	@GlobalCommand("add")
 	public void open(@ContextParam(ContextType.VIEW) Component view) {
 		Map<String, Object> arg = new HashMap<String, Object>();
-		this.action = "add";
 		this.article = BeanFactory.getArticleInstance();
-
-		// if ("add".equals(action)) {
-		// this.article = BeanFactory.getArticleInstance();
-		// } else if ("reply".equals(action)) {
-		// this.article = BeanFactory.getArticleInstance();
-		// article.setPid(articleId);
-		// } else if ("edit".equals(action)) {
-		// this.article = forumService.findArticleById(articleId);
-		// }
-
 		dialog = Executions.createComponents("addArticle.zul", view.getFirstChild(), arg);
-	}
-
-	Component dialog;
-
-	private Article article;
-	private String action;
-	ScheduledFuture executionOfTask;
-	EventQueue<Event> eventQueue;
-
-	private final static String APPLICATION_POSTING_QUEUE = "APPLICATION_POSTING_QUEUE";
-	private final static ScheduledExecutorService SCHEDULED_THREAD_POOL = Executors.newScheduledThreadPool(20);
-
-	public String getAction() {
-		return action;
-	}
-
-	public void setAction(String action) {
-		this.action = action;
-	}
-
-	public Article getArticle() {
-		return article;
-	}
-
-	public void setArticle(Article article) {
-		this.article = article;
 	}
 
 	@GlobalCommand("cancelArticle")
@@ -181,7 +170,7 @@ public class ArticleVM {
 		BindUtils.postGlobalCommand(null, EventQueues.DESKTOP, "updateMemo", args);
 	}
 
-	@GlobalCommand("addArticle")
+	@Command("addArticle")
 	public void doLongOp(@ContextParam(ContextType.VIEW) Component comp) {// TODO
 		Runnable task = new Runnable() {
 			@Override
@@ -199,4 +188,33 @@ public class ArticleVM {
 
 		dialog.detach();
 	}
+
+	@Command
+	@NotifyChange({ "selectedArticle" })
+	public void loadDetail(@BindingParam("selectedArticleId") Integer selectedArticleId) {
+		this.selectedArticle = forumService.findArticleById(selectedArticleId);
+	}
+
+	@Command
+	@NotifyChange({ "selectedArticle" })
+	public void delete(@BindingParam("articleId") Integer id) {
+		forumService.deleteArticle(id);
+		this.selectedArticle = forumService.findArticleById(selectedArticle.getId());
+	}
+
+	@Command("reply")
+	public void openReplyDialog(@ContextParam(ContextType.VIEW) Component view, @BindingParam("articleId") Integer articleId) {
+		Map<String, Object> arg = new HashMap<String, Object>();
+		this.article = BeanFactory.getArticleInstance();
+		article.setPid(articleId);
+		dialog = Executions.createComponents("addArticle.zul", view.getFirstChild(), arg);
+	}
+
+	@Command("edit")
+	public void openEditDialog(@ContextParam(ContextType.VIEW) Component view, @BindingParam("articleId") Integer articleId) {
+		Map<String, Object> arg = new HashMap<String, Object>();
+		this.article = forumService.findArticleById(articleId);
+		dialog = Executions.createComponents("addArticle.zul", view.getFirstChild(), arg);
+	}
+
 }

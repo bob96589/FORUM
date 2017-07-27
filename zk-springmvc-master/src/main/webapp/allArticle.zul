@@ -1,6 +1,6 @@
 <zk>
-	<window viewModel="@id('allArticleVm') @init('com.bob.vm.AllArticleVM')" closable="true">
-		<grid model="@bind(allArticleVm.articleList)" mold="paging" pageSize="10" pagingPosition="top">
+	<window closable="true">
+		<grid model="@bind(articleVm.allArticlesForListView)" mold="paging" pageSize="10" pagingPosition="top">
 			<columns>
 				<column label="id" />
 				<column label="pid" />
@@ -23,6 +23,6 @@
 				</row>
 			</template>
 		</grid>
-		<apply templateURI="articleContent.zul" allArticleVm="@load(allArticleVm)"/>
+		<apply templateURI="articleContent.zul" articleVm="@load(articleVm)"/>
 	</window>
 </zk>

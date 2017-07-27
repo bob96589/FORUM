@@ -1,6 +1,6 @@
 <zk>
 	<window>
-		<apply template="template1" article="@load(allArticleVm.selectedArticle)" />
+		<apply template="template1" article="@load(articleVm.selectedArticle)" />
 		<template name="template1">
 			<if test="@load(not empty article)">
 				<div style="border: black 1px solid; padding: 20px 0px 20px 20px;">

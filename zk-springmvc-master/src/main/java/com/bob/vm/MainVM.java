@@ -1,8 +1,5 @@
 package com.bob.vm;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.ContextParam;
@@ -11,7 +8,6 @@ import org.zkoss.bind.annotation.GlobalCommand;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Component;
-import org.zkoss.zk.ui.Executions;
 
 import com.bob.security.SecurityContext;
 
@@ -32,7 +28,6 @@ public class MainVM {
 	public Integer getUserId() {
 		return SecurityContext.getId();
 	}
-
 
 	public String getAccount() {
 		return account;
