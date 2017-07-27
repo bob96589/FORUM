@@ -33,6 +33,7 @@ public class AddArticleVM {
 
 	@WireVariable("forumServiceImpl")
 	private ForumService forumService;
+	
 	private Article article;
 	private String action;
 	ScheduledFuture executionOfTask;
@@ -48,7 +49,6 @@ public class AddArticleVM {
 	public void setAction(String action) {
 		this.action = action;
 	}
-
 
 	public Article getArticle() {
 		return article;
@@ -115,7 +115,7 @@ public class AddArticleVM {
 		args.put("memoVisible", true);
 		BindUtils.postGlobalCommand(null, EventQueues.DESKTOP, "updateMemo", args); // show
 
-		// comp.detach();
+//		 comp.detach();
 		comp.setVisible(false);
 	}
 

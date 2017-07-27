@@ -1,19 +1,17 @@
 <zk>
-	<window mode="modal" title="Dialog"
-		border="normal" viewModel="@id('vm') @init('com.bob.vm.DialogVM',article=arg.article)"
-		width="600px" closable="true">
+	<window mode="modal" title="Dialog" border="normal" width="600px" closable="true">
 		<div>
-			<label value="@init(vm.article.id)" style="font-size: 30px;" />
+			<label value="${arg.article.id}" style="font-size: 30px;" />
 		</div>
 		<div>
-			<label value="@init(vm.article.title)" />
+			<label value="${arg.article.title}" />
 		</div>
 		<div>
-			<label value="@init(vm.article.userId)" />
-			<label value="@init(vm.article.createTime)" />
+			<label value="${arg.article.userId}" />
+			<label value="${arg.article.createTime}" />
 		</div>
 		<div style="min-height: 100px;">
-			<html content="@init(vm.article.content)"></html>
+			<html content="${arg.article.content}"></html>
 		</div>
 	</window>
 </zk>

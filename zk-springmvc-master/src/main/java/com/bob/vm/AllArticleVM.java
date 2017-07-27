@@ -48,19 +48,12 @@ public class AllArticleVM {
 		articleList = forumService.getAllArticle();
 	}
 
-	@GlobalCommand("refreshArticle")
-	@NotifyChange({ "articleList" })
-	public void refreshArticle() {
-		articleList = forumService.getAllArticle();
-	}
-	
 	@Command
 	@NotifyChange({ "selectedArticle" })
 	public void loadDetail(@BindingParam("selectedArticleId") Integer selectedArticleId) {
 		this.selectedArticle = forumService.findArticleById(selectedArticleId);
 	}
-	
-	
+
 	@Command
 	@NotifyChange({ "selectedArticle" })
 	public void delete(@BindingParam("articleId") Integer id) {
@@ -84,11 +77,4 @@ public class AllArticleVM {
 		Executions.createComponents("addArticle.zul", null, arg);
 	}
 
-	@GlobalCommand("refreshRepliedArticle")
-	@NotifyChange({ "selectedArticle" })
-	public void refresh() {
-		this.selectedArticle = forumService.findArticleById(selectedArticle.getId());
-	}
-	
-	
 }

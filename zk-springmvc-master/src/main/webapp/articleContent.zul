@@ -21,8 +21,7 @@
 					</div>
 					<div style="display: inline-block; vertical-align:top;">
 						<button label="(R)Reply" onClick="@command('reply', articleId=article.id)" />
-						<if
-							test="@load((empty article.children) and (article.userId eq mainVm.userId))">
+						<if test="@load((empty article.children) and (article.userId eq mainVm.userId))">
 							<button label="(E)Edittt" onClick="@command('edit', articleId=article.id)" />
 						</if>
 						<button label="(X)Delete"
