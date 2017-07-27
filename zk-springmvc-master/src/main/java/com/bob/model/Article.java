@@ -24,6 +24,8 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
 
+import com.bob.security.SecurityContext;
+
 @Entity
 @Table(name = "ARTICLE")
 @FilterDef(name = "test", defaultCondition = "STATUS = 0")

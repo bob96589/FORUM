@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 import org.zkoss.bind.BindUtils;
@@ -25,6 +26,7 @@ import org.zkoss.zul.Window;
 
 import com.bob.model.Article;
 import com.bob.service.ForumService;
+import com.bob.utils.BeanFactory;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class AddArticleVM {
@@ -34,6 +36,11 @@ public class AddArticleVM {
 	private Article article;
 	private String action;
 	private String refreshCommand;
+	ScheduledFuture executionOfTask;
+	EventQueue<Event> eventQueue;
+
+	private final static String APPLICATION_POSTING_QUEUE = "APPLICATION_POSTING_QUEUE";
+	private final static ScheduledExecutorService SCHEDULED_THREAD_POOL = Executors.newScheduledThreadPool(20);
 
 	public String getAction() {
 		return action;
@@ -64,85 +71,60 @@ public class AddArticleVM {
 			@BindingParam("articleId") Integer articleId) {
 		this.action = action;
 		if ("add".equals(action)) {
-			this.article = new Article();
+			this.article = BeanFactory.getArticleInstance();
 			this.refreshCommand = "refreshArticle";
 		} else if ("reply".equals(action)) {
-			this.article = new Article();
+			this.article = BeanFactory.getArticleInstance();
 			article.setPid(articleId);
 			this.refreshCommand = "refreshRepliedArticle";
 		} else if ("edit".equals(action)) {
 			this.article = forumService.findArticleById(articleId);
 			this.refreshCommand = "refreshRepliedArticle";
 		}
-		// eventQueue, don't unsciubscribe
-
-	}
-
-	String result = "";
-	EventQueue<Event> eventQueue;
-	EventListener<Event> listener;
-	String workingQueueName;
-
-	@GlobalCommand("cancelArticle")
-	public void cancelArticle() {
-		eventQueue = EventQueues.lookup(workingQueueName, EventQueues.APPLICATION, true);
-		eventQueue.unsubscribe(listener);
-		EventQueues.remove(workingQueueName);
-		Map<String, Object> args = new HashMap<String, Object>();
-		args.put("memoVisible", false);
-		args.put("text", "cancel..");
-		BindUtils.postGlobalCommand(null, EventQueues.DESKTOP, "updateMemo", args);
-	}
-	
-	//
-
-	@Command("addArticle")
-	public void doLongOp(@ContextParam(ContextType.VIEW) Window comp) {//TODO
-		workingQueueName = "APPLICATION_POSTING_QUEUE"; //TODO static final
-		eventQueue = EventQueues.lookup(workingQueueName, EventQueues.APPLICATION, true);
-		// init
-		eventQueue.subscribe(listener = new EventListener<Event>() {
+		eventQueue = EventQueues.lookup(APPLICATION_POSTING_QUEUE, EventQueues.APPLICATION, true);
+		eventQueue.subscribe(new EventListener<Event>() {
 			@Override
 			public void onEvent(Event event) throws Exception {
-				//event.getName(): "trigger"
-				//refresh
-				//call back
+				// event.getName(): "trigger"
+				// refresh
+				// call back
 				Map<String, Object> args = new HashMap<String, Object>();
-				args.put("memoVisible", false);
-				args.put("text", result);
 				BindUtils.postGlobalCommand(null, null, refreshCommand, args);
+				
+				// ok
+				args.put("memoVisible", false);
 				BindUtils.postGlobalCommand(null, null, "updateMemo", args);
-				//
-				eventQueue.unsubscribe(listener);
-				EventQueues.remove(workingQueueName);
+				BindUtils.postGlobalCommand(null, null, "refreshArticleDisplay", args);
 			}
 		});
 
-		// final object
-		ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(20); //TODO
-		scheduledThreadPool.schedule(new Runnable() {
+	}
+
+	@GlobalCommand("cancelArticle")
+	public void cancelArticle() {
+		executionOfTask.cancel(false);
+		
+		//ok
+		Map<String, Object> args = new HashMap<String, Object>();
+		args.put("memoVisible", false);
+		BindUtils.postGlobalCommand(null, EventQueues.DESKTOP, "updateMemo", args);
+	}
+
+	@Command("addArticle")
+	public void doLongOp(@ContextParam(ContextType.VIEW) Window comp) {// TODO
+		Runnable task = new Runnable() {
 			@Override
 			public void run() {
-				
-				System.out.println("update article");
-				if ("add".equals(action) || "reply".equals(action)) {
-					// article constructor
-					article.setCreateTime(new Date());
-					article.setStatus(0);
-					// article.setUserId(SecurityContext.getId()); //TODO
-					article.setUserId(1001); // TODO
-					forumService.addArticle(article);
-				} else if ("edit".equals(action)) {
-					forumService.addArticle(article);
-				}
+				forumService.addArticle(article);
 				eventQueue.publish(new Event("trigger"));
 			}
-		}, 3, TimeUnit.SECONDS);
+		};
+		executionOfTask = SCHEDULED_THREAD_POOL.schedule(task, 3, TimeUnit.SECONDS);
 
+		//ok
 		Map<String, Object> args = new HashMap<String, Object>();
 		args.put("memoVisible", true);
-		args.put("text", "Article Sending..");
-		BindUtils.postGlobalCommand(null, EventQueues.DESKTOP, "updateMemo", args); //show
+		BindUtils.postGlobalCommand(null, EventQueues.DESKTOP, "updateMemo", args); // show
 
 		// comp.detach();
 		comp.setVisible(false);

@@ -1,38 +1,39 @@
 <zk>
 	<window>
-		<apply template="template1" objs="@load(vm.articleList)"/>
-		
-		
+		<apply template="template1" article="@load(allArticleVm.selectedArticle)" />
 		<template name="template1">
-			<forEach items="@load(objs)">
-			   	<div style="border: black 1px solid; padding: 20px 0px 20px 20px;">
-				   	<div style="display: inline-block; vertical-align:top; width:80%;">
-				   		<div>
-							<label value="@load(each.id)" style="font-size: 30px;"/>
-				   		</div>
-				   		<div>
-							<label value="@load(each.title)" />
+			<if test="@load(not empty article)">
+				<div style="border: black 1px solid; padding: 20px 0px 20px 20px;">
+					<div style="display: inline-block; vertical-align:top; width:80%;">
+						<div>
+							<label value="@load(article.id)" style="font-size: 30px;" />
 						</div>
-				   		<div>
-							<label value="@load(each.userId)" />
-							<label value="@load(each.createTime)" />
+						<div>
+							<label value="@load(article.title)" />
 						</div>
-				   		<div style="min-height: 100px;">
-							<html content="@load(each.content)"></html>
+						<div>
+							<label value="@load(article.userId)" />
+							<label value="@load(article.createTime)" />
+						</div>
+						<div style="min-height: 100px;">
+							<html content="@load(article.content)"></html>
 						</div>
 					</div>
 					<div style="display: inline-block; vertical-align:top;">
-						<button label="(R)Reply" onClick="@command('reply', articleId=each.id)" />
-<!-- 						<label value="${SecurityContext.getId()}" /> -->
-						<if test="@load((empty each.children) and (each.userId eq mainVm.userId))">
-							<button label="(E)Edittt" onClick="@command('edit', articleId=each.id)" />
+						<button label="(R)Reply" onClick="@command('reply', articleId=article.id)" />
+						<if
+							test="@load((empty article.children) and (article.userId eq mainVm.userId))">
+							<button label="(E)Edittt" onClick="@command('edit', articleId=article.id)" />
 						</if>
-						<button label="(X)Delete" onClick="@command('delete', articleId=each.id) @global-command('refreshArticle')" />
+						<button label="(X)Delete"
+							onClick="@command('delete', articleId=article.id) @global-command('refreshArticle')" />
 					</div>
-					<apply template="template1" objs="@load(each.children)"/>
+					<forEach items="@load(article.children)" var="childArticle">
+						<apply template="template1" article="@load(childArticle)" />
+					</forEach>
 				</div>
-				<separator/>
-			</forEach> 
+				<separator />
+			</if>
 		</template>
 	</window>
 </zk>

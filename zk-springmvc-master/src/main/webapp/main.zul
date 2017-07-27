@@ -21,14 +21,13 @@
 			</west>
 			<center autoscroll="true" viewModel="@id('articleVm') @init('com.bob.vm.ArticleVM')">
 				<div>
-					<apply templateURI="@load(mainVm.includeSrc)" vm="@load(articleVm)"/>
+					<apply templateURI="@load(mainVm.includeSrc)" articleVm="@load(articleVm)"/>
 				</div>
 			</center>
 		</borderlayout>
 		<hbox visible="@load(mainVm.memoVisible)">
-<!-- 		<hbox visible="true"> -->
 			<div style="border: 1px solid black; width: 200px; height: 200px; position: fixed;bottom: 0;right: 0; z-index: 30;">
-				<label value="@load(mainVm.text)"/>
+				<label value="Article Sending"/>
 				<button label="cancel" onClick="@global-command('cancelArticle')"/>
 			</div>
 		</hbox>

@@ -1,6 +1,6 @@
 <zk>
-	<window viewModel="@id('vm') @init('com.bob.vm.AllArticleVM')" closable="true">
-		<grid model="@bind(vm.articleList)" mold="paging" pageSize="10" pagingPosition="top">
+	<window viewModel="@id('allArticleVm') @init('com.bob.vm.AllArticleVM')" closable="true">
+		<grid model="@bind(allArticleVm.articleList)" mold="paging" pageSize="10" pagingPosition="top">
 			<columns>
 				<column label="id" />
 				<column label="pid" />
@@ -19,10 +19,10 @@
 					<label value="@load(article.content)" />
 					<label value="@load(article.createTime)" />
 					<label value="@load(article.status)" />
-					<button label="Detail"  onClick="@global-command('loadDetail', articleId=article.id)"/>
+					<button label="Detail" onClick="@command('loadDetail', selectedArticleId=article.id)"/>
 				</row>
 			</template>
 		</grid>
-		<include src="articleContent.zul" />
+		<apply templateURI="articleContent.zul" allArticleVm="@load(allArticleVm)"/>
 	</window>
 </zk>

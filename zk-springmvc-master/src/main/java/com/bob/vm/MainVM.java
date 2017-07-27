@@ -3,12 +3,12 @@ package com.bob.vm;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.zkoss.bind.annotation.AfterCompose;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.ContextParam;
 import org.zkoss.bind.annotation.ContextType;
 import org.zkoss.bind.annotation.GlobalCommand;
+import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
@@ -19,7 +19,6 @@ public class MainVM {
 
 	private String includeSrc = "latestArticles.zul";
 	private String account;
-	private String text;
 	private boolean memoVisible;
 
 	public boolean isMemoVisible() {
@@ -28,14 +27,6 @@ public class MainVM {
 
 	public void setMemoVisible(boolean memoVisible) {
 		this.memoVisible = memoVisible;
-	}
-
-	public String getText() {
-		return text;
-	}
-
-	public void setText(String text) {
-		this.text = text;
 	}
 
 	public Integer getUserId() {
@@ -59,7 +50,7 @@ public class MainVM {
 		this.includeSrc = includeSrc;
 	}
 
-	@AfterCompose
+	@Init
 	public void initSetup(@ContextParam(ContextType.VIEW) Component view) {
 		account = SecurityContext.getAccount();
 		memoVisible = false;
@@ -81,9 +72,8 @@ public class MainVM {
 
 	@GlobalCommand
 	@NotifyChange({ "memoVisible", "text" })
-	public void updateMemo(@BindingParam("memoVisible") boolean memoVisible, @BindingParam("text") String text) {
+	public void updateMemo(@BindingParam("memoVisible") boolean memoVisible) {
 		this.memoVisible = memoVisible;
-		this.text = text;
 	}
 
 }

@@ -90,7 +90,7 @@ public class ArticleDaoImpl implements ArticleDao {
 	public List<Article> findForArticleTree() {
 		Session session = sessionFactory.getCurrentSession();
 		session.enableFilter("test");
-		Query query = session.createQuery("FROM Article A WHERE A.status = 0");
+		Query query = session.createQuery("FROM Article A WHERE A.status = 0 AND A.pid IS NULL");
 		List<Article> a = query.list();
 		session.disableFilter("test");
 		return a;

@@ -1,7 +1,7 @@
 <zk>
 	<window mode="modal" title="Dialog"
 		border="normal" viewModel="@id('vm') @init('com.bob.vm.DialogVM',article=arg.article)"
-		width="600px">
+		width="600px" closable="true">
 		<div>
 			<label value="@init(vm.article.id)" style="font-size: 30px;" />
 		</div>
@@ -15,8 +15,5 @@
 		<div style="min-height: 100px;">
 			<html content="@init(vm.article.content)"></html>
 		</div>
-		<hbox>
-			<button label="close" onClick="@command('close')" />
-		</hbox>
 	</window>
 </zk>
