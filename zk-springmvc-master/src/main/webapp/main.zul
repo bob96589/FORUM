@@ -6,7 +6,7 @@
 		<borderlayout>
 			<west width="300px">
 				<div>
-					<button label="${c:l('main.btn.01')}" onClick="@command('add')" />
+					<button label="${c:l('main.btn.01')}" onClick="@global-command('add')" />
 <!-- 					<button label="add article" onClick="@command('onNavigate', includeSrc='addArticle.zul')" /> -->
 					<separator/>
 					<button label="${c:l('main.btn.02')}" onClick="@command('onNavigate', includeSrc='latestArticles.zul')" />

@@ -100,4 +100,11 @@ public class ArticleVM {
 		Executions.createComponents("dialog.zul", null, arg);
 	}
 
+	
+	@GlobalCommand("add")
+	public void open(@ContextParam(ContextType.VIEW) Component view) {
+		Map<String, Object> arg = new HashMap<String, Object>();
+		arg.put("action", "add");
+		Executions.createComponents("addArticle.zul", null, arg);
+	}
 }

@@ -63,13 +63,6 @@ public class MainVM {
 		this.includeSrc = includeSrc;
 	}
 
-	@Command("add")
-	public void open(@ContextParam(ContextType.VIEW) Component view) {
-		Map<String, Object> arg = new HashMap<String, Object>();
-		arg.put("action", "add");
-		Executions.createComponents("addArticle.zul", view, arg);
-	}
-
 	@GlobalCommand
 	@NotifyChange({ "memoVisible", "text" })
 	public void updateMemo(@BindingParam("memoVisible") boolean memoVisible) {
