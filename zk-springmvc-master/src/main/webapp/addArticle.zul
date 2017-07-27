@@ -1,7 +1,6 @@
 <zk>
-	<window viewModel="@id('vm') @init('com.bob.vm.AddArticleVM', action=arg.action, articleId=arg.articleId)" 
-	mode="modal" title="Dialog" border="normal" closable="true">
-		<grid width="800px" form="@id('fx') @load(vm.article) @save(vm.article, before='addArticle')">
+	<window mode="modal" title="Dialog" border="normal" closable="true">
+		<grid width="800px" form="@id('fx') @load(articleVm.article) @save(articleVm.article, before='addArticle')">
 			<columns>
 				<column label="Add Article" width="100px" />
 				<column label="" />
@@ -21,6 +20,6 @@
 <!-- 				</row> -->
 			</rows>
 		</grid>
-		<button label="submit" onClick="@command('addArticle')" />
+		<button label="submit" onClick="@global-command('addArticle')" />
 	</window>
 </zk>
