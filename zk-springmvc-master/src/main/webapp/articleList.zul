@@ -1,13 +1,14 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
 <zk>
 	<window closable="true">
 		<columnlayout>
 			<columnchildren width="33%">
 				<grid model="@bind(articleVm.allArticlesForListView)" mold="paging" pageSize="20" pagingPosition="top">
 					<columns>
-						<column label="title"/>
-						<column label="tag"/>
-						<column label="userName" />
-						<column label="createTime" />
+						<column label="${c:l('article.title')}"/>
+						<column label="${c:l('article.tag')}"/>
+						<column label="${c:l('article.userName')}" />
+						<column label="${c:l('article.createTime')}" />
 					</columns>
 					<template name="model" var="article">
 						<row>

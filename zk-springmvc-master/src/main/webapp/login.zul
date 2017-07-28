@@ -1,17 +1,20 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
 <zk xmlns:n="native">
-	<window title="Login" mode="modal" position="center,center" border="normal">
+	<window title="${c:l('login.window.title')}" mode="modal" position="center,center" border="normal">
 		<n:form action="j_spring_security_check" method="post">
 		<grid hflex="min" vflex="1">
 			<rows>
-				<row>Name: <n:input id="j_username" name="j_username" value="bob"/></row>
-				<row>Password: <n:input id="j_password" name="j_password" type="password" value="bob"/></row>
+				<row>
+					<label value="${c:l('login.account')}" />
+					<n:input id="j_username" name="j_username" value="bob"/></row>
+				<row>
+					<label value="${c:l('login.password')}" />
+					<n:input id="j_password" name="j_password" type="password" value="bob"/></row>
+				<row align="right">
+					<cell></cell>
+					<n:input type="submit" value="${c:l('btn.login')}" />
+				</row>
 			</rows>
-			<foot>
-				<footer span="2" style="text-align: right; height: 100px">
-					<n:input type="reset" value="Reset" />
-					<n:input type="submit" value="Login" />
-				</footer>
-			</foot>
 		</grid>
 		</n:form>
 	</window>

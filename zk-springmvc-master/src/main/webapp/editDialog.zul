@@ -1,32 +1,36 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
 <zk>
-	<window mode="modal" title="Dialog" border="normal" closable="true">
+	<window mode="modal" title=" " border="normal" closable="true">
 		<grid width="800px" form="@id('fx') @load(articleVm.articleInEditDialog) @save(articleVm.articleInEditDialog, before='saveOrUpdateArticle')">
-			<columns>
-				<column label="Add Article" width="100px" />
-				<column label="" />
-			</columns>
 			<rows>
 				<row>
-					<label value="title" />
-					<textbox value="@bind(fx.title)" />
+					<cell width="100px">
+						<label value="${c:l('article.title')}" />
+					</cell>
+					<cell>
+						<textbox value="@bind(fx.title)" />
+					</cell>
 				</row>
 				<row>
-					<label value="tag" />
-							<chosenbox 
-								hflex="1" 
-								emptyMessage="type or select tags (existing or new ones)"
-								createMessage="Create new tag: {0}" 
-								
-								creatable="true" 
-								model="@bind(articleVm.tagsModel)" 
-								onSearch="@command('newTag', tagName=event.value)" />
+					<cell>
+						<label value="${c:l('article.tag')}" />
+					</cell>
+					<cell>
+						<chosenbox hflex="1" emptyMessage="${c:l('chosenbox.emptyMessage')}"
+							createMessage="${c:l('chosenbox.createMessage')}" creatable="true"
+							model="@bind(articleVm.tagsModel)" onSearch="@command('newTag', tagName=event.value)" />
+					</cell>
 				</row>
 				<row>
-					<label value="content" />
-					<ckeditor value="@bind(fx.content)"/>
+					<cell>
+						<label value="${c:l('article.content')}" />
+					</cell>
+					<cell>
+						<ckeditor value="@bind(fx.content)"/>
+					</cell>
 				</row>
 			</rows>
 		</grid>
-		<button label="submit" onClick="@command('saveOrUpdateArticle')" />
+		<button label="${c:l('btn.submit')}" onClick="@command('saveOrUpdateArticle')" />
 	</window>
 </zk>

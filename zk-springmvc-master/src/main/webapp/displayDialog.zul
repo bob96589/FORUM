@@ -1,13 +1,11 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
 <zk>
-	<window mode="modal" title="Dialog" border="normal" width="600px" closable="true">
+	<window mode="modal" title=" " border="normal" width="600px" closable="true">
 		<div>
-			<label value="${arg.article.id}" style="font-size: 30px;" />
+			<label value="${arg.article.title}" style="font-size: 30px;" />
 		</div>
 		<div>
-			<label value="${arg.article.title}" />
-		</div>
-		<div>
-			<label value="${arg.article.userId}" />
+			<label value="${arg.article.user.name}" />
 			<label value="${arg.article.createTime}" />
 		</div>
 		<div style="min-height: 100px;">

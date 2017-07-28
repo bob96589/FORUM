@@ -5,9 +5,9 @@
 	<window id="main" border="none" width="100%" height="100%" viewModel="@id('mainVm') @init('com.bob.vm.MainVM')">
 		<borderlayout>
 			<north>
-				<div>
-					<button label="${c:l('main.btn.01')}" onClick="@global-command('openDialogForAdd')" />
-					<button label="Logout" href="j_spring_security_logout"/>
+				<div style="margin: 20px 50px;">
+					<button label="${c:l('btn.add')}" onClick="@global-command('openDialogForAdd')" />
+					<button label="${c:l('btn.logout')}" href="j_spring_security_logout"/>
 				</div>
 			</north>
 			<center autoscroll="true" viewModel="@id('articleVm') @init('com.bob.vm.ArticleVM')">
@@ -16,29 +16,29 @@
 						<columnlayout>
 							<columnchildren  width="33%">
 								<div>
-									<label value="Most latest 10 articles" />
+									<label value="${c:l('main.latestArticles')}" />
 									<apply templateURI="latestArticles.zul" articles="@load(articleVm.latestArticles)" />
 								</div>
 							</columnchildren >
 							<columnchildren width="33%">
 								<div>
-									<label value="Most latest 10 replied articles" />
+									<label value="${c:l('main.repliedArticles')}" />
 									<apply templateURI="latestArticles.zul" articles="@load(articleVm.repliedArticles)" />
 								</div>
 							</columnchildren >
 							<columnchildren width="33%">
 								<div>
-									<label value="Most latest 10 articles related to the current user" />
+									<label value="${c:l('main.myArticles')}" />
 									<apply templateURI="latestArticles.zul" articles="@load(articleVm.myArticles)" />
 								</div>
 							</columnchildren >
 						</columnlayout>
 					</div>
 					<div style="margin: 20px 50px;">
-						<label value="All articles display in " />
+						<label value="${c:l('main.allArticles')}" /> <label value="${c:l('main.displayMode')}" />
 						<combobox width="150px" selectedItem="@bind(mainVm.displayTemplateURL)">
-							<comboitem label="List View" value="articleList.zul"/>
-							<comboitem label="Tree View" value="articleTree.zul"/>
+							<comboitem label="${c:l('main.listview')}" value="articleList.zul"/>
+							<comboitem label="${c:l('main.treeview')}" value="articleTree.zul"/>
 						</combobox>
 						<apply templateURI="@load(mainVm.displayTemplateURL)" articleVm="@load(articleVm)" />
 					</div>

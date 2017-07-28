@@ -1,11 +1,12 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
 <zk>
 	<window>
 		<grid model="@load(articles)" mold="paging" pageSize="10" pagingPosition="top">
 			<columns>
-				<column label="title" width="40%"/>
-				<column label="tag" width="20%"/>
-				<column label="userName" width="15%"/>
-				<column label="createTime" width="25%"/>
+				<column label="${c:l('article.title')}" width="40%"/>
+				<column label="${c:l('article.tag')}" width="20%"/>
+				<column label="${c:l('article.userName')}" width="15%"/>
+				<column label="${c:l('article.createTime')}" width="25%"/>
 			</columns>
 			<template name="model" var="article">
 				<row>
