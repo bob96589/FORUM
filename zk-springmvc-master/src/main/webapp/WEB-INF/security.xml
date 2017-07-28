@@ -9,6 +9,8 @@
 		   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd                        
            http://www.springframework.org/schema/security
            http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+           
+
 
 	<http pattern="/login.zul" security="none" />
 	<http auto-config="true" use-expressions="false">
@@ -23,6 +25,12 @@
 	</authentication-manager>
 	<beans:bean id="userDetailsService" class="com.bob.service.impl.UserDetailsServiceImpl" />
 	<beans:bean id="securityContext" class="com.bob.security.SecurityContext" scope="session" />
+	
+	<beans:bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+	    <beans:property name="basename">
+	        <beans:value>messages</beans:value>
+	    </beans:property>
+	</beans:bean>
 </beans:beans>
 
 

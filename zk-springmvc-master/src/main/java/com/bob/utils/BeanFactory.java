@@ -6,7 +6,7 @@ import com.bob.model.Article;
 import com.bob.security.SecurityContext;
 
 public class BeanFactory {
-	public static Article getArticleInstance(){
+	public static Article createArticle(){
 		Article article = new Article();
 		article.setUserId(SecurityContext.getId());
 		article.setCreateTime(new Date());

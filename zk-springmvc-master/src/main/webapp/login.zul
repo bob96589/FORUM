@@ -2,20 +2,24 @@
 <zk xmlns:n="native">
 	<window title="${c:l('login.window.title')}" mode="modal" position="center,center" border="normal">
 		<n:form action="j_spring_security_check" method="post">
-		<grid hflex="min" vflex="1">
-			<rows>
-				<row>
-					<label value="${c:l('login.account')}" />
-					<n:input id="j_username" name="j_username" value="bob"/></row>
-				<row>
-					<label value="${c:l('login.password')}" />
-					<n:input id="j_password" name="j_password" type="password" value="bob"/></row>
-				<row align="right">
-					<cell></cell>
-					<n:input type="submit" value="${c:l('btn.login')}" />
-				</row>
-			</rows>
-		</grid>
+			<grid hflex="min" vflex="1">
+				<rows>
+					<row>
+						<label value="${SPRING_SECURITY_LAST_EXCEPTION.message}" />
+					</row>
+					<row>
+						<label value="${c:l('login.account')}" />
+						<textbox id="j_username" name="j_username" value="bob"/>
+					</row>
+					<row>
+						<label value="${c:l('login.password')}" />
+						<textbox type="password" id="j_password"  name="j_password" value="bob"/>
+					</row>
+					<row spans="2" align="right">
+						<button type="submit" label="${c:l('btn.login')}" />
+					</row>
+				</rows>
+			</grid>
 		</n:form>
 	</window>
 </zk>

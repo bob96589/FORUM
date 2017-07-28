@@ -12,7 +12,7 @@
 					</columns>
 					<template name="model" var="article">
 						<row>
-							<a><label value="@load(article.title)" onClick="@command('loadDetail', selectedArticleId=article.id)"/></a>
+							<a label="@load(article.title)" onClick="@command('loadDetail', selectedArticleId=article.id)"></a>
 							<label value="@load(article.tagStr)" />
 							<label value="@load(article.user.name)" />
 							<label value="@load(article.createTime) @converter('formatedDate',format='yyyy/MM/dd HH:mm:ss')" />

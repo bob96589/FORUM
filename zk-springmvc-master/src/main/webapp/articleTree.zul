@@ -16,7 +16,7 @@
 				<treeitem>
 					<treerow>
 						<treecell>
-							<a><label value="@load(article.title)" onClick="@command('openDialog', article=article)"/></a>
+							<a label="@load(article.title)" onClick="@command('openDialog', article=article)"></a>
 						</treecell>
 					</treerow>
 					<if test="@load(not empty article.children)">

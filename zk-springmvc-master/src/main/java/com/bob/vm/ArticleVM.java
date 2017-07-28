@@ -1,6 +1,6 @@
 package com.bob.vm;
 
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executors;
@@ -47,7 +47,7 @@ public class ArticleVM {
 	private Article articleInEditDialog;
 	private EventQueue<Event> eventQueue;
 	private ScheduledFuture executionOfTask;
-	
+
 	private List<Map<String, Object>> latestArticles;
 	private List<Map<String, Object>> repliedArticles;
 	private List<Map<String, Object>> myArticles;
@@ -158,7 +158,7 @@ public class ArticleVM {
 	}
 
 	@Command
-	public void saveOrUpdateArticle() {// TODO
+	public void saveOrUpdateArticle() {
 		Runnable task = new Runnable() {
 			@Override
 			public void run() {
@@ -179,25 +179,22 @@ public class ArticleVM {
 
 	@GlobalCommand
 	public void openDialogForAdd(@ContextParam(ContextType.VIEW) Component view) {
-		Map<String, Object> arg = new HashMap<String, Object>();
-		this.articleInEditDialog = BeanFactory.getArticleInstance();
+		this.articleInEditDialog = BeanFactory.createArticle();
 		tagsModel.clearSelection();
-		editDialog = Executions.createComponents("editDialog.zul", view.getFirstChild(), arg);
+		editDialog = Executions.createComponents("editDialog.zul", view.getFirstChild(), null);
 	}
 
 	@Command
 	public void openDialogForReply(@ContextParam(ContextType.VIEW) Component view, @BindingParam("articleId") Integer articleId) {
-		Map<String, Object> arg = new HashMap<String, Object>();
-		this.articleInEditDialog = BeanFactory.getArticleInstance();
+		this.articleInEditDialog = BeanFactory.createArticle();
 		articleInEditDialog.setPid(articleId);
 		tagsModel.clearSelection();
-		editDialog = Executions.createComponents("editDialog.zul", view.getFirstChild(), arg);
+		editDialog = Executions.createComponents("editDialog.zul", view.getFirstChild(), null);
 	}
 
 	@Command
 	@NotifyChange({ "contactsModel" })
 	public void openDialogForEdit(@ContextParam(ContextType.VIEW) Component view, @BindingParam("articleId") Integer articleId) {
-		Map<String, Object> arg = new HashMap<String, Object>();
 		this.articleInEditDialog = forumService.findArticleById(articleId);
 		tagsModel.clearSelection();
 		// tagsModel.setSelection(article.getTags());
@@ -205,9 +202,9 @@ public class ArticleVM {
 			tagsModel.add(tag);
 			tagsModel.addToSelection(tag);
 		}
-		editDialog = Executions.createComponents("editDialog.zul", view.getFirstChild(), arg);
+		editDialog = Executions.createComponents("editDialog.zul", view.getFirstChild(), null);
 	}
-	
+
 	@Command
 	@NotifyChange({ "selectedArticleInListView" })
 	public void delete(@BindingParam("articleId") Integer id) {
@@ -223,9 +220,7 @@ public class ArticleVM {
 
 	@Command
 	public void openDialog(@BindingParam("article") Article article) {
-		Map<String, Object> arg = new HashMap<String, Object>();
-		arg.put("article", article);
-		Executions.createComponents("displayDialog.zul", null, arg);
+		Executions.createComponents("displayDialog.zul", null, Collections.singletonMap("article", article));
 	}
 
 	@Command

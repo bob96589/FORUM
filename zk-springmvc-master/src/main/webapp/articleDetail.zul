@@ -7,15 +7,12 @@
 			<if test="@load(not empty article)">
 				<div style="border: #cfcfcf 1px solid; padding: 20px 5px 20px 20px;">
 					<columnlayout>
-						<columnchildren  width="70%">
+						<columnchildren width="70%">
 							<div>
 								<label value="@load(article.title)" style="font-size: 30px;" />
 							</div>
 							<div>
-								
-								<label value="${c:l('articleDetail.by')}" />
 								<label value="@load(article.user.name)" />
-								<label value="${c:l('articleDetail.on')}" />
 								<label value="@load(article.createTime) @converter('formatedDate',format='yyyy/MM/dd HH:mm:ss')" />
 							</div>
 							<div>
