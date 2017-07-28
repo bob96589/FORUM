@@ -215,7 +215,7 @@ public class ArticleVM {
 		this.selectedArticleInListView = forumService.findArticleById(selectedArticleInListView.getId());
 	}
 
-	@GlobalCommand("cancelArticle")
+	@GlobalCommand
 	public void cancelArticle() {
 		executionOfTask.cancel(false);
 		BindUtils.postGlobalCommand(null, null, "hideMemo", null);
