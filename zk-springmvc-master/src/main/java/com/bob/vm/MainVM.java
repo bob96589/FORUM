@@ -4,6 +4,7 @@ import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.ContextParam;
 import org.zkoss.bind.annotation.ContextType;
+import org.zkoss.bind.annotation.DependsOn;
 import org.zkoss.bind.annotation.GlobalCommand;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
@@ -15,8 +16,17 @@ public class MainVM {
 
 	private String includeSrc = "latestArticles.zul";
 	private String account;
+	private String displayMode;
 	private boolean memoVisible;
 
+	public String getDisplayMode() {
+		return displayMode;
+	}
+
+	public void setDisplayMode(String displayMode) {
+		this.displayMode = displayMode;
+	}
+	
 	public boolean isMemoVisible() {
 		return memoVisible;
 	}
@@ -48,6 +58,7 @@ public class MainVM {
 	@Init
 	public void initSetup(@ContextParam(ContextType.VIEW) Component view) {
 		account = SecurityContext.getAccount();
+		setDisplayMode("articleList.zul");
 		memoVisible = false;
 	}
 

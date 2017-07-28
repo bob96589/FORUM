@@ -1,6 +1,6 @@
 <zk>
 	<window>
-	<tree>
+	<tree mold="paging" pageSize="10" rows="10" pagingPosition="top">
 		<treecols sizable="true">
 			<treecol label="Name" />
 			<treecol label="Description" />

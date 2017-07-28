@@ -4,28 +4,32 @@
 <zk xmlns:n="native">
 	<window id="main" border="none" width="100%" height="100%" viewModel="@id('mainVm') @init('com.bob.vm.MainVM')">
 		<borderlayout>
-			<west width="300px">
+			<north>
 				<div>
 					<button label="${c:l('main.btn.01')}" onClick="@global-command('add')" />
-					<separator/>
-					<button label="${c:l('main.btn.02')}" onClick="@command('onNavigate', includeSrc='latestArticles.zul')" />
-					<separator/>
-					<button label="${c:l('main.btn.05')}" onClick="@command('onNavigate', includeSrc='articleList.zul')" />
-					<separator/>
-					<button label="${c:l('main.btn.06')}" onClick="@command('onNavigate', includeSrc='articleTree.zul')" />
-					<separator/>
 					<button label="Logout" href="j_spring_security_logout"/>
-					<separator/>
 				</div>
-			</west>
+			</north>
 			<center autoscroll="true" viewModel="@id('articleVm') @init('com.bob.vm.ArticleVM')">
 				<div>
-<!-- 					<apply templateURI="@load(mainVm.includeSrc)" articleVm="@load(articleVm)"/> -->
-					<apply templateURI="latestArticles.zul" articles="@load(articleVm.latestArticles)"  style="margin: 100px;"/>
-					<apply templateURI="latestArticles.zul" articles="@load(articleVm.repliedArticles)"  style="margin: 100px;"/>
-					<apply templateURI="latestArticles.zul" articles="@load(articleVm.myArticles)"  style="margin: 100px;"/>
-					<apply templateURI="articleList.zul" articleVm="@load(articleVm)" style="margin: 100px;"/>
-					<apply templateURI="articleTree.zul" articleVm="@load(articleVm)" style="margin: 100px;"/>
+					<div style="margin: 100px;">
+						<apply templateURI="latestArticles.zul" articles="@load(articleVm.latestArticles)" />
+					</div>
+					<div style="margin: 100px;">
+						<apply templateURI="latestArticles.zul" articles="@load(articleVm.repliedArticles)" />
+					</div>
+					<div style="margin: 100px;">
+						<apply templateURI="latestArticles.zul" articles="@load(articleVm.myArticles)" />
+					</div>
+					<div style="margin: 100px;">
+						<combobox width="150px" selectedItem="@bind(mainVm.displayMode)">
+							<comboitem label="List View" value="articleList.zul"/>
+							<comboitem label="Tree View" value="articleTree.zul"/>
+						</combobox>
+<!-- 						<label value="@load(mainVm.shirtImage)"/> -->
+						<label value="@load(mainVm.displayMode)"/>
+						<apply templateURI="@load(mainVm.displayMode)" articleVm="@load(articleVm)" />
+					</div>
 				</div>
 			</center>
 		</borderlayout>

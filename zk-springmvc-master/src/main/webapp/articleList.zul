@@ -2,24 +2,21 @@
 	<window closable="true">
 		<grid model="@bind(articleVm.allArticlesForListView)" mold="paging" pageSize="10" pagingPosition="top">
 			<columns>
-				<column label="id" />
-				<column label="pid" />
-				<column label="userId" />
 				<column label="title"/>
+				<column label="tag"/>
+				<column label="userId" />
 				<column label="content" />
 				<column label="createTime" />
-				<column label="status" />
+				<column label="btn" />
+				
 			</columns>
 			<template name="model" var="article">
 				<row>
-					<label value="@load(article.id)" />
-					<label value="@load(article.pid)" />
-					<label value="@load(article.userId)" />
 					<label value="@load(article.title)" />
-					<label value="@load(article.content)" />
-					<label value="@load(article.createTime)" />
 					<label value="@load(article.tagStr)" />
-					<label value="@load(article.status)" />
+					<label value="@load(article.userId)" />
+					<label value="@load(article.user.name)" />
+					<label value="@load(article.createTime)" />
 					<button label="Detail" onClick="@command('loadDetail', selectedArticleId=article.id)"/>
 				</row>
 			</template>
