@@ -8,6 +8,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.Logger;
 import org.zkoss.bind.BindUtils;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
@@ -38,6 +39,7 @@ public class ArticleVM {
 	private final static String APPLICATION_POSTING_QUEUE = "APPLICATION_POSTING_QUEUE";
 	private final static String REFRESH_ARTICLE_DISPLAY = "REFRESH_ARTICLE_DISPLAY";
 	private final static ScheduledExecutorService SCHEDULED_THREAD_POOL = Executors.newScheduledThreadPool(20);
+	private final static Logger logger = Logger.getLogger(ArticleVM.class);
 
 	@WireVariable("forumServiceImpl")
 	private ForumService forumService;
@@ -119,8 +121,7 @@ public class ArticleVM {
 	}
 
 	@Init
-	public void initSetup(@ContextParam(ContextType.VIEW) Component view) {
-
+	public void initSetup() {
 		latestArticles = forumService.getLatestArticles();
 		repliedArticles = forumService.getRepliedArticles();
 		myArticles = forumService.getMyArticles(SecurityContext.getId());
@@ -135,7 +136,6 @@ public class ArticleVM {
 			@Override
 			public void onEvent(Event event) throws Exception {
 				if (REFRESH_ARTICLE_DISPLAY.equals(event.getName())) {
-					// event.getName(): "trigger", call back, refresh
 					BindUtils.postGlobalCommand(null, null, "refreshArticleDisplay", null);
 					BindUtils.postGlobalCommand(null, null, "hideMemo", null);// TODO
 				}
@@ -158,7 +158,7 @@ public class ArticleVM {
 	}
 
 	@Command
-	public void saveOrUpdateArticle(@ContextParam(ContextType.VIEW) Component comp) {// TODO
+	public void saveOrUpdateArticle() {// TODO
 		Runnable task = new Runnable() {
 			@Override
 			public void run() {
