@@ -29,6 +29,7 @@ http://www.springframework.org/schema/util/spring-util-3.0.xsd">
            		A.*
            		, ISNULL(R.REPLY_CNT, 0) REPLY_CNT
            		, T.TAG_NAME
+           		, U.NAME
 			FROM ARTICLE A
 			LEFT JOIN (
 				SELECT PID, COUNT(*) REPLY_CNT
@@ -42,6 +43,7 @@ http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 				LEFT JOIN TAG T ON T.ID = TD.TAG_ID
 				GROUP BY A.ID
 			) T ON T.ID = A.ID
+			LEFT JOIN USER U ON U.ID = A.USER_ID
 			WHERE A.PID IS NULL
 			AND A.STATUS = 0
 			ORDER BY A.CREATE_TIME DESC
@@ -53,6 +55,7 @@ http://www.springframework.org/schema/util/spring-util-3.0.xsd">
            		A.*
            		, ISNULL(R.REPLY_CNT, 0) REPLY_CNT
            		, T.TAG_NAME
+           		, U.NAME
 			FROM ARTICLE A
 			LEFT JOIN (
 				SELECT PID, COUNT(*) REPLY_CNT
@@ -66,6 +69,7 @@ http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 				LEFT JOIN TAG T ON T.ID = TD.TAG_ID
 				GROUP BY A.ID
 			) T ON T.ID = A.ID
+			LEFT JOIN USER U ON U.ID = A.USER_ID
 			WHERE A.PID IS NOT NULL
 			AND A.STATUS = 0
 			ORDER BY A.CREATE_TIME DESC
@@ -77,6 +81,7 @@ http://www.springframework.org/schema/util/spring-util-3.0.xsd">
            		A.*
            		, ISNULL(R.REPLY_CNT, 0) REPLY_CNT
            		, T.TAG_NAME
+           		, U.NAME
 			FROM ARTICLE A
 			LEFT JOIN (
 				SELECT PID, COUNT(*) REPLY_CNT
@@ -90,6 +95,7 @@ http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 				LEFT JOIN TAG T ON T.ID = TD.TAG_ID
 				GROUP BY A.ID
 			) T ON T.ID = A.ID
+			LEFT JOIN USER U ON U.ID = A.USER_ID
 			WHERE A.USER_ID = :userId 
 			AND A.STATUS = 0
 			ORDER BY A.CREATE_TIME DESC

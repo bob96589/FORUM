@@ -24,6 +24,6 @@
 				</row>
 			</template>
 		</grid>
-		<apply templateURI="articleContent.zul" articleVm="@load(articleVm)"/>
+		<apply templateURI="articleDetail.zul" articleVm="@load(articleVm)"/>
 	</window>
 </zk>

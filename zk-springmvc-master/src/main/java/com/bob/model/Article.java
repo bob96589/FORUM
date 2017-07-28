@@ -55,9 +55,8 @@ public class Article {
 	private Integer status;
 
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "TAGDETAIL", joinColumns = {
-			@JoinColumn(name = "ARTICLE_ID", nullable = false, updatable = false) }, inverseJoinColumns = {
-					@JoinColumn(name = "TAG_ID", nullable = false, updatable = false) })
+	@JoinTable(name = "TAGDETAIL", joinColumns = { @JoinColumn(name = "ARTICLE_ID", nullable = false, updatable = false) }, inverseJoinColumns = {
+			@JoinColumn(name = "TAG_ID", nullable = false, updatable = false) })
 	private Set<Tag> tags;
 
 	@ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
@@ -65,9 +64,21 @@ public class Article {
 	private Article parent;
 
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "parent")
-	@OrderBy("createTime")	
-	@Filter(name="test", condition="STATUS = 0")
+	@OrderBy("createTime")
+	@Filter(name = "test", condition = "STATUS = 0")
 	private Set<Article> children = new HashSet<Article>();
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "USER_ID", insertable = false, updatable = false)
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public Article getParent() {
 		return parent;
@@ -151,10 +162,9 @@ public class Article {
 
 	@Override
 	public String toString() {
-		return "Article [id=" + id + ", pid=" + pid + ", userId=" + userId + ", title=" + title + ", content=" + content
-				+ ", createTime=" + createTime + ", status=" + status + "]";
+		return "Article [id=" + id + ", pid=" + pid + ", userId=" + userId + ", title=" + title + ", content=" + content + ", createTime=" + createTime + ", status=" + status + "]";
 	}
-	
+
 	public String getTagStr() {
 		return this.tags.toString();
 	}

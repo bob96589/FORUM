@@ -7,11 +7,10 @@
 			<west width="300px">
 				<div>
 					<button label="${c:l('main.btn.01')}" onClick="@global-command('add')" />
-<!-- 					<button label="add article" onClick="@command('onNavigate', includeSrc='addArticle.zul')" /> -->
 					<separator/>
 					<button label="${c:l('main.btn.02')}" onClick="@command('onNavigate', includeSrc='latestArticles.zul')" />
 					<separator/>
-					<button label="${c:l('main.btn.05')}" onClick="@command('onNavigate', includeSrc='allArticle.zul')" />
+					<button label="${c:l('main.btn.05')}" onClick="@command('onNavigate', includeSrc='articleList.zul')" />
 					<separator/>
 					<button label="${c:l('main.btn.06')}" onClick="@command('onNavigate', includeSrc='articleTree.zul')" />
 					<separator/>
@@ -21,10 +20,12 @@
 			</west>
 			<center autoscroll="true" viewModel="@id('articleVm') @init('com.bob.vm.ArticleVM')">
 				<div>
-					<apply templateURI="@load(mainVm.includeSrc)" articleVm="@load(articleVm)"/>
-<!-- 					<apply templateURI="latestArticles.zul" articleVm="@load(articleVm)"/> -->
-<!-- 					<apply templateURI="allArticle.zul" articleVm="@load(articleVm)"/> -->
-<!-- 					<apply templateURI="articleTree.zul" articleVm="@load(articleVm)"/> -->
+<!-- 					<apply templateURI="@load(mainVm.includeSrc)" articleVm="@load(articleVm)"/> -->
+					<apply templateURI="latestArticles.zul" articles="@load(articleVm.latestArticles)"  style="margin: 100px;"/>
+					<apply templateURI="latestArticles.zul" articles="@load(articleVm.repliedArticles)"  style="margin: 100px;"/>
+					<apply templateURI="latestArticles.zul" articles="@load(articleVm.myArticles)"  style="margin: 100px;"/>
+					<apply templateURI="articleList.zul" articleVm="@load(articleVm)" style="margin: 100px;"/>
+					<apply templateURI="articleTree.zul" articleVm="@load(articleVm)" style="margin: 100px;"/>
 				</div>
 			</center>
 		</borderlayout>

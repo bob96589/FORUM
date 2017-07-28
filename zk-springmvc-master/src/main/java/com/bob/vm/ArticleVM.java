@@ -172,7 +172,7 @@ public class ArticleVM {
 		Map<String, Object> arg = new HashMap<String, Object>();
 		this.article = BeanFactory.getArticleInstance();
 		tagsModel.clearSelection();
-		dialog = Executions.createComponents("addArticle.zul", view.getFirstChild(), arg);
+		dialog = Executions.createComponents("editArticleDialog.zul", view.getFirstChild(), arg);
 	}
 
 	@GlobalCommand("cancelArticle")
@@ -223,7 +223,7 @@ public class ArticleVM {
 		this.article = BeanFactory.getArticleInstance();
 		article.setPid(articleId);
 		tagsModel.clearSelection();
-		dialog = Executions.createComponents("addArticle.zul", view.getFirstChild(), arg);
+		dialog = Executions.createComponents("editArticleDialog.zul", view.getFirstChild(), arg);
 	}
 
 	@Command("edit")
@@ -237,7 +237,7 @@ public class ArticleVM {
 			tagsModel.add(tag);
 			tagsModel.addToSelection(tag);
 		}
-		dialog = Executions.createComponents("addArticle.zul", view.getFirstChild(), arg);
+		dialog = Executions.createComponents("editArticleDialog.zul", view.getFirstChild(), arg);
 	}
 
 	@Command

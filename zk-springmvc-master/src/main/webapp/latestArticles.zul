@@ -1,25 +1,22 @@
 <zk>
 	<window>
-		<apply template="template1" objs="@load(articleVm.latestArticles)" />
-		<apply template="template1" objs="@load(articleVm.repliedArticles)" />
-		<apply template="template1" objs="@load(articleVm.myArticles)" />
-		<template name="template1">
-			<grid model="@load(objs)" mold="paging" pageSize="10" pagingPosition="top">
-				<columns>
-					<column label="userId" />
-					<column label="title" />
-					<column label="createTime" />
-					<column label="tag" />
-				</columns>
-				<template name="model" var="article">
-					<row>
-						<label value="@load(article.USER_ID)" />
-						<label value="@load(article.TITLE)" />
-						<label value="@load(article.CREATE_TIME)" />
-						<label value="@load(article.TAG_NAME)" />
-					</row>
-				</template>
-			</grid>
-		</template>
+		<grid model="@load(articles)" mold="paging" pageSize="10" pagingPosition="top">
+			<columns>
+				<column label="title" />
+				<column label="tag" />
+				<column label="userId" />
+				<column label="userName" />
+				<column label="createTime" />
+			</columns>
+			<template name="model" var="article">
+				<row>
+					<label value="@load(article.TITLE)" />
+					<label value="@load(article.TAG_NAME)" />
+					<label value="@load(article.USER_ID)" />
+					<label value="@load(article.NAME)" />
+					<label value="@load(article.CREATE_TIME)" />
+				</row>
+			</template>
+		</grid>
 	</window>
 </zk>
