@@ -1,7 +1,5 @@
 package com.bob.service.impl;
 
-import java.util.Date;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -29,54 +27,9 @@ public class ForumServiceImpl implements ForumService {
 	@Autowired
 	TagDao tagDao;
 
-	public Set<Tag> doSomething() {
-		// List<Article> list = articleDao.list(0, 4);
-		// Article a = list.get(0);
-		// Set<Tag> tags = a.getTags();
-
-		Article a = new Article();
-		a.setContent("aa");
-		a.setStatus(0);
-		a.setTitle("title");
-		a.setUserId(44);
-		a.setCreateTime(new Date());
-
-		Set<Tag> set = new HashSet<Tag>();
-		for (int i = 0; i < 5; i++) {
-			Tag t1 = new Tag();
-			t1.setName("tag" + i);
-			tagDao.saveOrUpdate(t1);
-			set.add(t1);
-		}
-		a.setTags(set);
-		articleDao.saveOrUpdate(a);
-		return null;
-		// Article a = list.get(0);
-		// return a.getTags();
-	}
-
-	@Override
-	public List<Article> getAllArticle() {
-		// List<Article> list = articleDao.list();
-		// Article a = list.get(0);
-		// Set<Article> set = a.getChildren();
-		// System.out.println(set);
-		return articleDao.list();
-	}
-
-	@Override
-	public List<Article> getArticleForDetail() {
-		return articleDao.findForDetail();
-	}
-
 	@Override
 	public List<Map<String, Object>> getLatestArticles() {
-		return articleDao.getNewArticles();
-	}
-
-	@Override
-	public Article findArticleById(int articleId) {
-		return articleDao.findById(articleId);
+		return articleDao.getLatestArticles();
 	}
 
 	@Override
@@ -85,22 +38,32 @@ public class ForumServiceImpl implements ForumService {
 	}
 
 	@Override
-	public User findUserByAccount(String username) {
-		return userDao.findByAccount(username);
-	}
-
-	@Override
 	public List<Map<String, Object>> getMyArticles(int id) {
 		return articleDao.getMyArticles(id);
 	}
 
 	@Override
-	public void addArticle(Article article, Set<Tag> tags) {
-		for(Tag tag : tags){
+	public List<Article> getArticlesForListView() {
+		return articleDao.getArticlesForListView();
+	}
+
+	@Override
+	public List<Article> getArticlesForTreeView() {
+		return articleDao.getArticlesForTreeView();
+	}
+
+	@Override
+	public Article findArticleById(int articleId) {
+		return articleDao.findById(articleId);
+	}
+
+	@Override
+	public void saveOrUpdateArticle(Article article, Set<Tag> tags) {
+		for (Tag tag : tags) {
 			tagDao.saveOrUpdate(tag);
 		}
 		article.setTags(tags);
-		articleDao.save(article);
+		articleDao.saveOrUpdate(article);
 	}
 
 	@Override
@@ -111,14 +74,14 @@ public class ForumServiceImpl implements ForumService {
 		while (!list.isEmpty()) {
 			Article temp = list.poll();
 			temp.setStatus(1);
-			articleDao.save(temp);
+			articleDao.saveOrUpdate(temp);
 			list.addAll(temp.getChildren());
 		}
 	}
 
 	@Override
-	public List<Article> findForArticleTree() {
-		return articleDao.findForArticleTree();
+	public User findUserByAccount(String username) {
+		return userDao.findByAccount(username);
 	}
 
 	@Override

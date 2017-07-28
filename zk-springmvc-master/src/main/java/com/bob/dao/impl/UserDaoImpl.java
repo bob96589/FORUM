@@ -12,11 +12,11 @@ import com.bob.model.User;
 public class UserDaoImpl implements UserDao {
 
 	@Autowired
-	SessionFactory session;
+	SessionFactory sessionFactory;
 
 	@Override
 	public User findByAccount(String username) {
-		Query query = session.getCurrentSession().createQuery("FROM User U WHERE U.account = :account");
+		Query query = sessionFactory.getCurrentSession().createQuery("FROM User U WHERE U.account = :account");
 		query.setParameter("account", username);
 		User user = (User) query.uniqueResult();
 		return user;

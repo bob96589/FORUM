@@ -1,6 +1,6 @@
 <zk>
 	<window mode="modal" title="Dialog" border="normal" closable="true">
-		<grid width="800px" form="@id('fx') @load(articleVm.article) @save(articleVm.article, before='addArticle')">
+		<grid width="800px" form="@id('fx') @load(articleVm.articleInEditDialog) @save(articleVm.articleInEditDialog, before='saveOrUpdateArticle')">
 			<columns>
 				<column label="Add Article" width="100px" />
 				<column label="" />
@@ -27,6 +27,6 @@
 				</row>
 			</rows>
 		</grid>
-		<button label="submit" onClick="@command('addArticle')" />
+		<button label="submit" onClick="@command('saveOrUpdateArticle')" />
 	</window>
 </zk>

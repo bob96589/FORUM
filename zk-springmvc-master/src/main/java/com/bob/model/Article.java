@@ -28,7 +28,7 @@ import com.bob.security.SecurityContext;
 
 @Entity
 @Table(name = "ARTICLE")
-@FilterDef(name = "test", defaultCondition = "STATUS = 0")
+@FilterDef(name = "statusFilter", defaultCondition = "STATUS = 0")
 public class Article {
 
 	@Id
@@ -65,7 +65,7 @@ public class Article {
 
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "parent")
 	@OrderBy("createTime")
-	@Filter(name = "test", condition = "STATUS = 0")
+	@Filter(name = "statusFilter", condition = "STATUS = 0")
 	private Set<Article> children = new HashSet<Article>();
 
 	@ManyToOne(fetch = FetchType.EAGER)

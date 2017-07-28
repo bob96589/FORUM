@@ -1,36 +1,35 @@
 <zk>
 	<window>
-	<tree mold="paging" pageSize="10" rows="10" pagingPosition="top">
-		<treecols sizable="true">
-			<treecol label="Name" />
-			<treecol label="Description" />
-		</treecols>
-		<if test="@load(not empty articleVm.allArticlesForTreeView)">
-			<treechildren>
-				<apply template="template1" objs="@load(articleVm.allArticlesForTreeView)" />
-			</treechildren>
-		</if>
-	</tree>
-	<template name="template1">
-		<forEach items="@load(objs)">
-			<treeitem>
-				<treerow>
-					<treecell>
-						<label value="@load(each.id)" style="font-size: 30px;" />
-						<label value="@load(each.title)" />
-						<label value="@load(each.userId)" />
-						<label value="@load(each.createTime)" />
-						<label value="@load(each.tagStr)" />
-						<button label="Detail"  onClick="@command('openDialog', article=each)"/>
-					</treecell>
-				</treerow>
-				<if test="@load(not empty each.children)">
-					<treechildren>
-						<apply template="template1" objs="@load(each.children)" />
-					</treechildren>
-				</if>
-			</treeitem>
-		</forEach>
-	</template>
+		<tree mold="paging" pageSize="10" rows="10" pagingPosition="top">
+			<treecols sizable="true">
+				<treecol label="Name" />
+			</treecols>
+			<if test="@load(not empty articleVm.allArticlesForTreeView)">
+				<treechildren>
+					<apply template="treeitemTemplate" articles="@load(articleVm.allArticlesForTreeView)" />
+				</treechildren>
+			</if>
+		</tree>
+		<template name="treeitemTemplate">
+			<forEach items="@load(articles)" var="article">
+				<treeitem>
+					<treerow>
+						<treecell>
+							<label value="@load(article.id)" style="font-size: 30px;" />
+							<label value="@load(article.title)" />
+							<label value="@load(article.userId)" />
+							<label value="@load(article.createTime)" />
+							<label value="@load(article.tagStr)" />
+							<button label="Detail"  onClick="@command('openDialog', article=article)"/>
+						</treecell>
+					</treerow>
+					<if test="@load(not empty article.children)">
+						<treechildren>
+							<apply template="treeitemTemplate" articles="@load(article.children)" />
+						</treechildren>
+					</if>
+				</treeitem>
+			</forEach>
+		</template>
 	</window>
 </zk>

@@ -6,7 +6,7 @@
 		<borderlayout>
 			<north>
 				<div>
-					<button label="${c:l('main.btn.01')}" onClick="@global-command('add')" />
+					<button label="${c:l('main.btn.01')}" onClick="@global-command('openDialogForAdd')" />
 					<button label="Logout" href="j_spring_security_logout"/>
 				</div>
 			</north>
@@ -22,13 +22,11 @@
 						<apply templateURI="latestArticles.zul" articles="@load(articleVm.myArticles)" />
 					</div>
 					<div style="margin: 100px;">
-						<combobox width="150px" selectedItem="@bind(mainVm.displayMode)">
+						<combobox width="150px" selectedItem="@bind(mainVm.displayTemplateURL)">
 							<comboitem label="List View" value="articleList.zul"/>
 							<comboitem label="Tree View" value="articleTree.zul"/>
 						</combobox>
-<!-- 						<label value="@load(mainVm.shirtImage)"/> -->
-						<label value="@load(mainVm.displayMode)"/>
-						<apply templateURI="@load(mainVm.displayMode)" articleVm="@load(articleVm)" />
+						<apply templateURI="@load(mainVm.displayTemplateURL)" articleVm="@load(articleVm)" />
 					</div>
 				</div>
 			</center>

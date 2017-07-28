@@ -8,7 +8,6 @@
 				<column label="content" />
 				<column label="createTime" />
 				<column label="btn" />
-				
 			</columns>
 			<template name="model" var="article">
 				<row>

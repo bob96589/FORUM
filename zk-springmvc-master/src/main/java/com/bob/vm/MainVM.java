@@ -1,10 +1,8 @@
 package com.bob.vm;
 
 import org.zkoss.bind.annotation.BindingParam;
-import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.ContextParam;
 import org.zkoss.bind.annotation.ContextType;
-import org.zkoss.bind.annotation.DependsOn;
 import org.zkoss.bind.annotation.GlobalCommand;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
@@ -14,19 +12,17 @@ import com.bob.security.SecurityContext;
 
 public class MainVM {
 
-	private String includeSrc = "latestArticles.zul";
-	private String account;
-	private String displayMode;
+	private String displayTemplateURL;
 	private boolean memoVisible;
 
-	public String getDisplayMode() {
-		return displayMode;
+	public String getDisplayTemplateURL() {
+		return displayTemplateURL;
 	}
 
-	public void setDisplayMode(String displayMode) {
-		this.displayMode = displayMode;
+	public void setDisplayTemplateURL(String displayTemplateURL) {
+		this.displayTemplateURL = displayTemplateURL;
 	}
-	
+
 	public boolean isMemoVisible() {
 		return memoVisible;
 	}
@@ -39,40 +35,22 @@ public class MainVM {
 		return SecurityContext.getId();
 	}
 
-	public String getAccount() {
-		return account;
-	}
-
-	public void setAccount(String account) {
-		this.account = account;
-	}
-
-	public String getIncludeSrc() {
-		return includeSrc;
-	}
-
-	public void setIncludeSrc(String includeSrc) {
-		this.includeSrc = includeSrc;
-	}
-
 	@Init
 	public void initSetup(@ContextParam(ContextType.VIEW) Component view) {
-		account = SecurityContext.getAccount();
-		setDisplayMode("articleList.zul");
+		displayTemplateURL = "articleList.zul";
 		memoVisible = false;
 	}
 
-	@Command
 	@GlobalCommand
-	@NotifyChange("includeSrc")
-	public void onNavigate(@BindingParam("includeSrc") String includeSrc) {
-		this.includeSrc = includeSrc;
+	@NotifyChange({ "memoVisible" })
+	public void showMemo() {
+		this.memoVisible = true;
 	}
-
+	
 	@GlobalCommand
-	@NotifyChange({ "memoVisible", "text" })
-	public void updateMemo(@BindingParam("memoVisible") boolean memoVisible) {
-		this.memoVisible = memoVisible;
+	@NotifyChange({ "memoVisible" })
+	public void hideMemo() {
+		this.memoVisible = false;
 	}
 
 }

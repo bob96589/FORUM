@@ -1,7 +1,7 @@
 <zk>
 	<window>
-		<apply template="template1" article="@load(articleVm.selectedArticle)" />
-		<template name="template1">
+		<apply template="detailTemplate" article="@load(articleVm.selectedArticleInListView)" />
+		<template name="detailTemplate">
 			<if test="@load(not empty article)">
 				<div style="border: black 1px solid; padding: 20px 0px 20px 20px;">
 					<div style="display: inline-block; vertical-align:top; width:80%;">
@@ -23,15 +23,14 @@
 						</div>
 					</div>
 					<div style="display: inline-block; vertical-align:top;">
-						<button label="(R)Reply" onClick="@command('reply', articleId=article.id)" />
+						<button label="(R)Reply" onClick="@command('openDialogForReply', articleId=article.id)" />
 						<if test="@load((empty article.children) and (article.userId eq mainVm.userId))">
-							<button label="(E)Edittt" onClick="@command('edit', articleId=article.id)" />
+							<button label="(E)Edittt" onClick="@command('openDialogForEdit', articleId=article.id)" />
 						</if>
-						<button label="(X)Delete"
-							onClick="@command('delete', articleId=article.id) @global-command('refreshArticleDisplay')" />
+						<button label="(X)Delete" onClick="@command('delete', articleId=article.id) @global-command('refreshArticleDisplay')" />
 					</div>
 					<forEach items="@load(article.children)" var="childArticle">
-						<apply template="template1" article="@load(childArticle)" />
+						<apply template="detailTemplate" article="@load(childArticle)" />
 					</forEach>
 				</div>
 				<separator />

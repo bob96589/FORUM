@@ -13,7 +13,6 @@ import org.springframework.stereotype.Repository;
 
 import com.bob.dao.ArticleDao;
 import com.bob.model.Article;
-import com.bob.model.User;
 import com.bob.utils.SqlStatement;
 
 @Repository
@@ -26,50 +25,32 @@ public class ArticleDaoImpl implements ArticleDao {
 	@Autowired
 	NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
+	@Override
 	public void saveOrUpdate(Article article) {
-		sessionFactory.getCurrentSession().persist(article);
-	}
-
-	public List<Article> list() {
-		Query query = sessionFactory.getCurrentSession()
-				.createQuery("FROM Article A WHERE A.status = 0 ORDER BY A.createTime DESC");
-		List<Article> list = query.list();
-		return list;
-	}
-
-	@Override
-	public List<Article> findForDetail() {
-		Query query = sessionFactory.getCurrentSession().createQuery("FROM Article A WHERE A.pid = NULL ");
-		List<Article> list = query.list();
-		return list;
-	}
-
-	@Override
-	public List<Map<String, Object>> getNewArticles() {
-		String sql = sqlStatement.getValue("article_getNewArticles");
-		Map<String, Object> map = new HashMap<String, Object>();
-		List<Map<String, Object>> result = namedParameterJdbcTemplate.queryForList(sql, map);
-		return result;
+		sessionFactory.getCurrentSession().saveOrUpdate(article);
 	}
 
 	@Override
 	public Article findById(int articleId) {
 		Session session = sessionFactory.getCurrentSession();
-		session.enableFilter("test");
+		session.enableFilter("statusFilter");
 		Query query = session.createQuery("FROM Article A WHERE A.id = :articleId AND A.status = 0");
 		query.setParameter("articleId", articleId);
-		Article a = (Article) query.uniqueResult();
-		// Article a = (Article) session.get(Article.class, articleId);
-		session.disableFilter("test");
-		return a;
+		Article article = (Article) query.uniqueResult();
+		session.disableFilter("statusFilter");
+		return article;
+	}
+
+	@Override
+	public List<Map<String, Object>> getLatestArticles() {
+		String sql = sqlStatement.getValue("article_getLatestArticles");
+		return namedParameterJdbcTemplate.queryForList(sql, new HashMap<String, Object>());
 	}
 
 	@Override
 	public List<Map<String, Object>> getRepliedArticles() {
 		String sql = sqlStatement.getValue("article_getRepliedArticles");
-		Map<String, Object> map = new HashMap<String, Object>();
-		List<Map<String, Object>> result = namedParameterJdbcTemplate.queryForList(sql, map);
-		return result;
+		return namedParameterJdbcTemplate.queryForList(sql, new HashMap<String, Object>());
 	}
 
 	@Override
@@ -77,23 +58,23 @@ public class ArticleDaoImpl implements ArticleDao {
 		String sql = sqlStatement.getValue("article_getMyArticles");
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("userId", id);
-		List<Map<String, Object>> result = namedParameterJdbcTemplate.queryForList(sql, map);
-		return result;
+		return namedParameterJdbcTemplate.queryForList(sql, map);
+	}
+
+	public List<Article> getArticlesForListView() {
+		Query query = sessionFactory.getCurrentSession().createQuery("FROM Article A WHERE A.status = 0 ORDER BY A.createTime DESC");
+		List<Article> list = query.list();
+		return list;
 	}
 
 	@Override
-	public void save(Article article) {
-		sessionFactory.getCurrentSession().saveOrUpdate(article);
-	}
-
-	@Override
-	public List<Article> findForArticleTree() {
+	public List<Article> getArticlesForTreeView() {
 		Session session = sessionFactory.getCurrentSession();
-		session.enableFilter("test");
+		session.enableFilter("statusFilter");
 		Query query = session.createQuery("FROM Article A WHERE A.status = 0 AND A.pid IS NULL");
-		List<Article> a = query.list();
-		session.disableFilter("test");
-		return a;
+		List<Article> list = query.list();
+		session.disableFilter("statusFilter");
+		return list;
 	}
 
 }

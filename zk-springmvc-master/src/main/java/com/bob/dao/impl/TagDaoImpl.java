@@ -8,18 +8,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.bob.dao.TagDao;
-import com.bob.model.Article;
 import com.bob.model.Tag;
 
 @Repository
 public class TagDaoImpl implements TagDao {
-	
-    @Autowired
-    SessionFactory sessionFactory;
-    
-    public void saveOrUpdate(Tag tag) {
-    	sessionFactory.getCurrentSession().saveOrUpdate(tag);
-    }
+
+	@Autowired
+	SessionFactory sessionFactory;
+
+	public void saveOrUpdate(Tag tag) {
+		sessionFactory.getCurrentSession().saveOrUpdate(tag);
+	}
 
 	@Override
 	public List<Tag> getAll() {

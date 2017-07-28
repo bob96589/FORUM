@@ -18,14 +18,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	private ForumService forumService;
 
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException, DataAccessException {
-		UserDetails user = null;
-		try {
-			com.bob.model.User dbUser = forumService.findUserByAccount(username);
-			user = new ForumUserDetails(dbUser.getId(), dbUser.getAccount(), dbUser.getPassword().toLowerCase(), true,
-					true, true, true, new ArrayList<GrantedAuthority>());
-		} catch (Exception e) {
-			throw new UsernameNotFoundException("Error in retrieving user");
-		}
+		com.bob.model.User dbUser = forumService.findUserByAccount(username);
+		UserDetails user = new ForumUserDetails(dbUser.getId(), dbUser.getAccount(), dbUser.getPassword().toLowerCase(), true,
+				true, true, true, new ArrayList<GrantedAuthority>());
 		return user;
 	}
 }

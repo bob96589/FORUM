@@ -10,27 +10,23 @@ import com.bob.model.User;
 
 public interface ForumService {
 
-	Set<Tag> doSomething();
-
-	List<Article> getAllArticle();
-
-	List<Article> getArticleForDetail();
-
 	List<Map<String, Object>> getLatestArticles();
-
-	Article findArticleById(int articleId);
 
 	List<Map<String, Object>> getRepliedArticles();
 
-	User findUserByAccount(String username);
-
 	List<Map<String, Object>> getMyArticles(int id);
 
-	void addArticle(Article article, Set<Tag> tags);
+	List<Article> getArticlesForListView();
+
+	List<Article> getArticlesForTreeView();
+
+	Article findArticleById(int articleId);
+
+	void saveOrUpdateArticle(Article article, Set<Tag> tags);
 
 	void deleteArticle(Integer articleId);
 
-	List<Article> findForArticleTree();
+	User findUserByAccount(String username);
 
 	List<Tag> getAllTag();
 
