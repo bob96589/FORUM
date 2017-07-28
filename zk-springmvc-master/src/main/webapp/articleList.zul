@@ -1,25 +1,27 @@
 <zk>
 	<window closable="true">
-		<grid model="@bind(articleVm.allArticlesForListView)" mold="paging" pageSize="10" pagingPosition="top">
-			<columns>
-				<column label="title"/>
-				<column label="tag"/>
-				<column label="userId" />
-				<column label="content" />
-				<column label="createTime" />
-				<column label="btn" />
-			</columns>
-			<template name="model" var="article">
-				<row>
-					<label value="@load(article.title)" />
-					<label value="@load(article.tagStr)" />
-					<label value="@load(article.userId)" />
-					<label value="@load(article.user.name)" />
-					<label value="@load(article.createTime)" />
-					<button label="Detail" onClick="@command('loadDetail', selectedArticleId=article.id)"/>
-				</row>
-			</template>
-		</grid>
-		<apply templateURI="articleDetail.zul" articleVm="@load(articleVm)"/>
+		<columnlayout>
+			<columnchildren width="33%">
+				<grid model="@bind(articleVm.allArticlesForListView)" mold="paging" pageSize="20" pagingPosition="top">
+					<columns>
+						<column label="title"/>
+						<column label="tag"/>
+						<column label="userName" />
+						<column label="createTime" />
+					</columns>
+					<template name="model" var="article">
+						<row>
+							<a><label value="@load(article.title)" onClick="@command('loadDetail', selectedArticleId=article.id)"/></a>
+							<label value="@load(article.tagStr)" />
+							<label value="@load(article.user.name)" />
+							<label value="@load(article.createTime) @converter('formatedDate',format='yyyy/MM/dd HH:mm:ss')" />
+						</row>
+					</template>
+				</grid>
+			</columnchildren>
+			<columnchildren width="66%">
+				<apply templateURI="articleDetail.zul" articleVm="@load(articleVm)"/>
+			</columnchildren>
+		</columnlayout>
 	</window>
 </zk>

@@ -12,16 +12,30 @@
 			</north>
 			<center autoscroll="true" viewModel="@id('articleVm') @init('com.bob.vm.ArticleVM')">
 				<div>
-					<div style="margin: 100px;">
-						<apply templateURI="latestArticles.zul" articles="@load(articleVm.latestArticles)" />
+					<div style="margin: 20px 50px;">
+						<columnlayout>
+							<columnchildren  width="33%">
+								<div>
+									<label value="Most latest 10 articles" />
+									<apply templateURI="latestArticles.zul" articles="@load(articleVm.latestArticles)" />
+								</div>
+							</columnchildren >
+							<columnchildren width="33%">
+								<div>
+									<label value="Most latest 10 replied articles" />
+									<apply templateURI="latestArticles.zul" articles="@load(articleVm.repliedArticles)" />
+								</div>
+							</columnchildren >
+							<columnchildren width="33%">
+								<div>
+									<label value="Most latest 10 articles related to the current user" />
+									<apply templateURI="latestArticles.zul" articles="@load(articleVm.myArticles)" />
+								</div>
+							</columnchildren >
+						</columnlayout>
 					</div>
-					<div style="margin: 100px;">
-						<apply templateURI="latestArticles.zul" articles="@load(articleVm.repliedArticles)" />
-					</div>
-					<div style="margin: 100px;">
-						<apply templateURI="latestArticles.zul" articles="@load(articleVm.myArticles)" />
-					</div>
-					<div style="margin: 100px;">
+					<div style="margin: 20px 50px;">
+						<label value="All articles display in " />
 						<combobox width="150px" selectedItem="@bind(mainVm.displayTemplateURL)">
 							<comboitem label="List View" value="articleList.zul"/>
 							<comboitem label="Tree View" value="articleTree.zul"/>
@@ -32,8 +46,8 @@
 			</center>
 		</borderlayout>
 		<hbox visible="@load(mainVm.memoVisible)">
-			<div style="border: 1px solid black; width: 200px; height: 200px; position: fixed;bottom: 0;right: 0; z-index: 30;">
-				<label value="Article Sending"/>
+			<div style="padding: 10px; background: white; border: 1px solid #cfcfcf; width: 200px; height: 100px; position: fixed;bottom: 0;right: 0; z-index: 30;">
+				<label value="Article Sending..."/>
 				<button label="cancel" onClick="@global-command('cancelArticle')"/>
 			</div>
 		</hbox>

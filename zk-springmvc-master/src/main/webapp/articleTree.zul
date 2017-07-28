@@ -1,6 +1,6 @@
 <zk>
 	<window>
-		<tree mold="paging" pageSize="10" rows="10" pagingPosition="top">
+		<tree mold="paging" pageSize="20" rows="20" pagingPosition="top">
 			<treecols sizable="true">
 				<treecol label="Name" />
 			</treecols>
@@ -15,12 +15,7 @@
 				<treeitem>
 					<treerow>
 						<treecell>
-							<label value="@load(article.id)" style="font-size: 30px;" />
-							<label value="@load(article.title)" />
-							<label value="@load(article.userId)" />
-							<label value="@load(article.createTime)" />
-							<label value="@load(article.tagStr)" />
-							<button label="Detail"  onClick="@command('openDialog', article=article)"/>
+							<a><label value="@load(article.title)" onClick="@command('openDialog', article=article)"/></a>
 						</treecell>
 					</treerow>
 					<if test="@load(not empty article.children)">

@@ -1,34 +1,34 @@
 <zk>
 	<window>
 		<apply template="detailTemplate" article="@load(articleVm.selectedArticleInListView)" />
+		
 		<template name="detailTemplate">
 			<if test="@load(not empty article)">
-				<div style="border: black 1px solid; padding: 20px 0px 20px 20px;">
-					<div style="display: inline-block; vertical-align:top; width:80%;">
-						<div>
-							<label value="@load(article.id)" style="font-size: 30px;" />
-						</div>
-						<div>
-							<label value="@load(article.title)" />
-						</div>
-						<div>
-							<label value="@load(article.userId)" />
-							<label value="@load(article.createTime)" />
-						</div>
-						<div>
-							<label value="@load(article.tagStr)" />
-						</div>
-						<div style="min-height: 100px;">
-							<html content="@load(article.content)"></html>
-						</div>
-					</div>
-					<div style="display: inline-block; vertical-align:top;">
-						<button label="(R)Reply" onClick="@command('openDialogForReply', articleId=article.id)" />
-						<if test="@load((empty article.children) and (article.userId eq mainVm.userId))">
-							<button label="(E)Edittt" onClick="@command('openDialogForEdit', articleId=article.id)" />
-						</if>
-						<button label="(X)Delete" onClick="@command('delete', articleId=article.id) @global-command('refreshArticleDisplay')" />
-					</div>
+				<div style="border: #cfcfcf 1px solid; padding: 20px 5px 20px 20px;">
+					<columnlayout>
+						<columnchildren  width="70%">
+							<div>
+								<label value="@load(article.title)" style="font-size: 30px;" />
+							</div>
+							<div>
+								<label value="@load(article.user.name)" />
+								<label value="@load(article.createTime) @converter('formatedDate',format='yyyy/MM/dd HH:mm:ss')" />
+							</div>
+							<div>
+								<label value="@load(article.tagStr)" />
+							</div>
+							<div style="min-height: 100px;">
+								<html content="@load(article.content)"></html>
+							</div>
+						</columnchildren>
+						<columnchildren  width="30%">	
+							<button label="(R)Reply" onClick="@command('openDialogForReply', articleId=article.id)" />
+							<if test="@load((empty article.children) and (article.userId eq mainVm.userId))">
+								<button label="(E)Edittt" onClick="@command('openDialogForEdit', articleId=article.id)" />
+							</if>
+							<button label="(X)Delete" onClick="@command('delete', articleId=article.id) @global-command('refreshArticleDisplay')" />
+						</columnchildren>
+					</columnlayout>
 					<forEach items="@load(article.children)" var="childArticle">
 						<apply template="detailTemplate" article="@load(childArticle)" />
 					</forEach>
@@ -36,5 +36,6 @@
 				<separator />
 			</if>
 		</template>
+		
 	</window>
 </zk>
