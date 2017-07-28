@@ -13,14 +13,13 @@
 				<row>
 					<label value="tag" />
 							<chosenbox 
-								sclass="mailinput" 
 								hflex="1" 
-								emptyMessage="type or select contacts (existing or new ones)"
-								createMessage="Create new contact: {0}" 
+								emptyMessage="type or select tags (existing or new ones)"
+								createMessage="Create new tag: {0}" 
 								
 								creatable="true" 
-								model="@bind(articleVm.contactsModel)" 
-								onSearch="@command('newContact', contact=event.value)" />
+								model="@bind(articleVm.tagsModel)" 
+								onSearch="@command('newTag', tagName=event.value)" />
 				</row>
 				<row>
 					<label value="content" />

@@ -37,26 +37,6 @@ public class ArticleVM {
 
 	@WireVariable("forumServiceImpl")
 	private ForumService forumService;
-	
-	
-	
-	
-	
-	public ListModelList<Tag> getContactsModel() {
-		return contactsModel;
-	}
-
-	public void setContactsModel(ListModelList<Tag> contactsModel) {
-		this.contactsModel = contactsModel;
-	}
-
-	private ListModelList<Tag> contactsModel;
-	@Command("newContact")
-	public void newContact(@BindingParam("contact") String tagName) {
-		Tag tag = new Tag(tagName);
-		contactsModel.add(tag);
-		contactsModel.addToSelection(tag);
-	}
 
 	private List<Map<String, Object>> latestArticles;
 	private List<Map<String, Object>> repliedArticles;
@@ -70,6 +50,16 @@ public class ArticleVM {
 	private EventQueue<Event> eventQueue;
 	private final static String APPLICATION_POSTING_QUEUE = "APPLICATION_POSTING_QUEUE";
 	private final static ScheduledExecutorService SCHEDULED_THREAD_POOL = Executors.newScheduledThreadPool(20);
+
+	public ListModelList<Tag> getTagsModel() {
+		return tagsModel;
+	}
+
+	public void setTagsModel(ListModelList<Tag> tagsModel) {
+		this.tagsModel = tagsModel;
+	}
+
+	private ListModelList<Tag> tagsModel;
 
 	public Article getSelectedArticle() {
 		return selectedArticle;
@@ -135,9 +125,8 @@ public class ArticleVM {
 
 		allArticlesForListView = forumService.getAllArticle();
 		allArticlesForTreeView = forumService.findForArticleTree();
-		contactsModel = new ListModelList<Tag>(forumService.getAllTag());
-		contactsModel.setMultiple(true);
-		
+		tagsModel = new ListModelList<Tag>(forumService.getAllTag());
+		tagsModel.setMultiple(true);
 
 		eventQueue = EventQueues.lookup(APPLICATION_POSTING_QUEUE, EventQueues.APPLICATION, true);
 		eventQueue.subscribe(new EventListener<Event>() {
@@ -182,7 +171,7 @@ public class ArticleVM {
 	public void open(@ContextParam(ContextType.VIEW) Component view) {
 		Map<String, Object> arg = new HashMap<String, Object>();
 		this.article = BeanFactory.getArticleInstance();
-		contactsModel.clearSelection();
+		tagsModel.clearSelection();
 		dialog = Executions.createComponents("addArticle.zul", view.getFirstChild(), arg);
 	}
 
@@ -201,7 +190,7 @@ public class ArticleVM {
 		Runnable task = new Runnable() {
 			@Override
 			public void run() {
-				forumService.addArticle(article, contactsModel.getSelection());
+				forumService.addArticle(article, tagsModel.getSelection());
 				eventQueue.publish(new Event("trigger"));
 			}
 		};
@@ -233,7 +222,7 @@ public class ArticleVM {
 		Map<String, Object> arg = new HashMap<String, Object>();
 		this.article = BeanFactory.getArticleInstance();
 		article.setPid(articleId);
-		contactsModel.clearSelection();
+		tagsModel.clearSelection();
 		dialog = Executions.createComponents("addArticle.zul", view.getFirstChild(), arg);
 	}
 
@@ -242,13 +231,20 @@ public class ArticleVM {
 	public void openEditDialog(@ContextParam(ContextType.VIEW) Component view, @BindingParam("articleId") Integer articleId) {
 		Map<String, Object> arg = new HashMap<String, Object>();
 		this.article = forumService.findArticleById(articleId);
-		contactsModel.clearSelection();
-//		contactsModel.setSelection(article.getTags());
-		for(Tag tag : article.getTags()){
-			contactsModel.add(tag);
-			contactsModel.addToSelection(tag);
+		tagsModel.clearSelection();
+		// tagsModel.setSelection(article.getTags());
+		for (Tag tag : article.getTags()) {
+			tagsModel.add(tag);
+			tagsModel.addToSelection(tag);
 		}
 		dialog = Executions.createComponents("addArticle.zul", view.getFirstChild(), arg);
+	}
+
+	@Command
+	public void newTag(@BindingParam("tagName") String tagName) {
+		Tag tag = new Tag(tagName);
+		tagsModel.add(tag);
+		tagsModel.addToSelection(tag);
 	}
 
 }
