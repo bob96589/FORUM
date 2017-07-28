@@ -49,4 +49,22 @@ public class Tag {
 		this.name = name;
 	}
 
+	public Tag() {
+		super();
+	}
+
+	public Tag(String name) {
+		super();
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return name;
+	}
+	
+	
+	
+	
+
 }

@@ -54,7 +54,7 @@ public class Article {
 	@Column(name = "STATUS")
 	private Integer status;
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "TAGDETAIL", joinColumns = {
 			@JoinColumn(name = "ARTICLE_ID", nullable = false, updatable = false) }, inverseJoinColumns = {
 					@JoinColumn(name = "TAG_ID", nullable = false, updatable = false) })
@@ -153,6 +153,10 @@ public class Article {
 	public String toString() {
 		return "Article [id=" + id + ", pid=" + pid + ", userId=" + userId + ", title=" + title + ", content=" + content
 				+ ", createTime=" + createTime + ", status=" + status + "]";
+	}
+	
+	public String getTagStr() {
+		return this.tags.toString();
 	}
 
 }

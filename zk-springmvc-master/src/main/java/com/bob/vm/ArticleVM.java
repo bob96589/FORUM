@@ -24,8 +24,10 @@ import org.zkoss.zk.ui.event.EventQueue;
 import org.zkoss.zk.ui.event.EventQueues;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
+import org.zkoss.zul.ListModelList;
 
 import com.bob.model.Article;
+import com.bob.model.Tag;
 import com.bob.security.SecurityContext;
 import com.bob.service.ForumService;
 import com.bob.utils.BeanFactory;
@@ -35,6 +37,26 @@ public class ArticleVM {
 
 	@WireVariable("forumServiceImpl")
 	private ForumService forumService;
+	
+	
+	
+	
+	
+	public ListModelList<Tag> getContactsModel() {
+		return contactsModel;
+	}
+
+	public void setContactsModel(ListModelList<Tag> contactsModel) {
+		this.contactsModel = contactsModel;
+	}
+
+	private ListModelList<Tag> contactsModel;
+	@Command("newContact")
+	public void newContact(@BindingParam("contact") String tagName) {
+		Tag tag = new Tag(tagName);
+		contactsModel.add(tag);
+		contactsModel.addToSelection(tag);
+	}
 
 	private List<Map<String, Object>> latestArticles;
 	private List<Map<String, Object>> repliedArticles;
@@ -113,6 +135,9 @@ public class ArticleVM {
 
 		allArticlesForListView = forumService.getAllArticle();
 		allArticlesForTreeView = forumService.findForArticleTree();
+		contactsModel = new ListModelList<Tag>(forumService.getAllTag());
+		contactsModel.setMultiple(true);
+		
 
 		eventQueue = EventQueues.lookup(APPLICATION_POSTING_QUEUE, EventQueues.APPLICATION, true);
 		eventQueue.subscribe(new EventListener<Event>() {
@@ -157,6 +182,7 @@ public class ArticleVM {
 	public void open(@ContextParam(ContextType.VIEW) Component view) {
 		Map<String, Object> arg = new HashMap<String, Object>();
 		this.article = BeanFactory.getArticleInstance();
+		contactsModel.clearSelection();
 		dialog = Executions.createComponents("addArticle.zul", view.getFirstChild(), arg);
 	}
 
@@ -175,7 +201,7 @@ public class ArticleVM {
 		Runnable task = new Runnable() {
 			@Override
 			public void run() {
-				forumService.addArticle(article);
+				forumService.addArticle(article, contactsModel.getSelection());
 				eventQueue.publish(new Event("trigger"));
 			}
 		};
@@ -207,13 +233,21 @@ public class ArticleVM {
 		Map<String, Object> arg = new HashMap<String, Object>();
 		this.article = BeanFactory.getArticleInstance();
 		article.setPid(articleId);
+		contactsModel.clearSelection();
 		dialog = Executions.createComponents("addArticle.zul", view.getFirstChild(), arg);
 	}
 
 	@Command("edit")
+	@NotifyChange({ "contactsModel" })
 	public void openEditDialog(@ContextParam(ContextType.VIEW) Component view, @BindingParam("articleId") Integer articleId) {
 		Map<String, Object> arg = new HashMap<String, Object>();
 		this.article = forumService.findArticleById(articleId);
+		contactsModel.clearSelection();
+//		contactsModel.setSelection(article.getTags());
+		for(Tag tag : article.getTags()){
+			contactsModel.add(tag);
+			contactsModel.addToSelection(tag);
+		}
 		dialog = Executions.createComponents("addArticle.zul", view.getFirstChild(), arg);
 	}
 

@@ -18,6 +18,7 @@
 					<label value="@load(article.title)" />
 					<label value="@load(article.content)" />
 					<label value="@load(article.createTime)" />
+					<label value="@load(article.tagStr)" />
 					<label value="@load(article.status)" />
 					<button label="Detail" onClick="@command('loadDetail', selectedArticleId=article.id)"/>
 				</row>

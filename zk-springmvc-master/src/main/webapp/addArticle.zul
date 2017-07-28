@@ -11,13 +11,21 @@
 					<textbox value="@bind(fx.title)" />
 				</row>
 				<row>
+					<label value="tag" />
+							<chosenbox 
+								sclass="mailinput" 
+								hflex="1" 
+								emptyMessage="type or select contacts (existing or new ones)"
+								createMessage="Create new contact: {0}" 
+								
+								creatable="true" 
+								model="@bind(articleVm.contactsModel)" 
+								onSearch="@command('newContact', contact=event.value)" />
+				</row>
+				<row>
 					<label value="content" />
 					<ckeditor value="@bind(fx.content)"/>
 				</row>
-<!-- 				<row> -->
-<!-- 					<label value="tag" /> -->
-<!-- 					<textbox value="@bind(fx.tags)"/> -->
-<!-- 				</row> -->
 			</rows>
 		</grid>
 		<button label="submit" onClick="@command('addArticle')" />

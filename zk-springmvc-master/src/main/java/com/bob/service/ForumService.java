@@ -26,10 +26,12 @@ public interface ForumService {
 
 	List<Map<String, Object>> getMyArticles(int id);
 
-	void addArticle(Article article);
+	void addArticle(Article article, Set<Tag> tags);
 
 	void deleteArticle(Integer articleId);
 
 	List<Article> findForArticleTree();
+
+	List<Tag> getAllTag();
 
 }

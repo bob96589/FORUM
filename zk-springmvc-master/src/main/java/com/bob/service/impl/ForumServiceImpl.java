@@ -95,7 +95,11 @@ public class ForumServiceImpl implements ForumService {
 	}
 
 	@Override
-	public void addArticle(Article article) {
+	public void addArticle(Article article, Set<Tag> tags) {
+		for(Tag tag : tags){
+			tagDao.saveOrUpdate(tag);
+		}
+		article.setTags(tags);
 		articleDao.save(article);
 	}
 
@@ -115,6 +119,11 @@ public class ForumServiceImpl implements ForumService {
 	@Override
 	public List<Article> findForArticleTree() {
 		return articleDao.findForArticleTree();
+	}
+
+	@Override
+	public List<Tag> getAllTag() {
+		return tagDao.getAll();
 	}
 
 }

@@ -15,6 +15,9 @@
 							<label value="@load(article.userId)" />
 							<label value="@load(article.createTime)" />
 						</div>
+						<div>
+							<label value="@load(article.tagStr)" />
+						</div>
 						<div style="min-height: 100px;">
 							<html content="@load(article.content)"></html>
 						</div>

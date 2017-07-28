@@ -20,6 +20,7 @@
 						<label value="@load(each.title)" />
 						<label value="@load(each.userId)" />
 						<label value="@load(each.createTime)" />
+						<label value="@load(each.tagStr)" />
 						<button label="Detail"  onClick="@command('openDialog', article=each)"/>
 					</treecell>
 				</treerow>
