@@ -1,42 +1,37 @@
 <?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
 <zk>
 	<window>
-		<apply template="detailTemplate" article="@load(articleVm.selectedArticleInListView)" />
-		
-		<template name="detailTemplate">
-			<if test="@load(not empty article)">
-				<div style="border: #cfcfcf 1px solid; padding: 20px 5px 20px 20px;">
-					<columnlayout>
-						<columnchildren width="70%">
-							<div>
-								<label value="@load(article.title)" style="font-size: 30px;" />
-							</div>
-							<div>
-								<label value="@load(article.user.name)" />
-								<label value="@load(article.createTime) @converter('formatedDate',format='yyyy/MM/dd HH:mm:ss')" />
-							</div>
-							<div>
-								<label value="@load(article.tagStr)" />
-							</div>
-							<div style="min-height: 100px;">
-								<html content="@load(article.content)"></html>
-							</div>
-						</columnchildren>
-						<columnchildren  width="30%">	
-							<button label="${c:l('btn.reply')}" onClick="@command('openDialogForReply', articleId=article.id)" />
-							<if test="@load((empty article.children) and (article.userId eq mainVm.userId))">
-								<button label="${c:l('btn.edit')}" onClick="@command('openDialogForEdit', articleId=article.id)" />
-							</if>
-							<button label="${c:l('btn.delete')}" onClick="@command('delete', articleId=article.id) @global-command('refreshArticleDisplay')" />
-						</columnchildren>
-					</columnlayout>
-					<forEach items="@load(article.children)" var="childArticle">
-						<apply template="detailTemplate" article="@load(childArticle)" />
-					</forEach>
-				</div>
-				<separator />
-			</if>
-		</template>
-		
+		<if test="@load(not empty article)">
+			<div style="border: #cfcfcf 1px solid; padding: 20px 5px 20px 20px;">
+				<columnlayout>
+					<columnchildren width="70%">
+						<div>
+							<label value="@load(article.title)" style="font-size: 30px;" />
+						</div>
+						<div>
+							<label value="@load(article.user.name)" />
+							<label value="@load(article.createTime) @converter('formatedDate',format='yyyy/MM/dd HH:mm:ss')" />
+						</div>
+						<div>
+							<label value="@load(article.tagStr)" />
+						</div>
+						<div style="min-height: 100px;">
+							<html content="@load(article.content)"></html>
+						</div>
+					</columnchildren>
+					<columnchildren  width="30%">	
+						<button label="${c:l('btn.reply')}" onClick="@command('openDialogForReply', articleId=article.id)" />
+						<if test="@load((empty article.children) and (article.userId eq mainVm.userId))">
+							<button label="${c:l('btn.edit')}" onClick="@command('openDialogForEdit', articleId=article.id)" />
+						</if>
+						<button label="${c:l('btn.delete')}" onClick="@command('delete', articleId=article.id) @global-command('refreshArticleDisplay')" />
+					</columnchildren>
+				</columnlayout>
+				<forEach items="@load(article.children)" var="childArticle">
+					<apply templateURI="articleDetail.zul" article="@load(childArticle)" />
+				</forEach>
+			</div>
+			<separator />
+		</if>
 	</window>
 </zk>

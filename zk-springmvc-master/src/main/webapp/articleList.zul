@@ -21,7 +21,7 @@
 				</grid>
 			</columnchildren>
 			<columnchildren width="66%">
-				<apply templateURI="articleDetail.zul" articleVm="@load(articleVm)"/>
+				<apply templateURI="articleDetail.zul" article="@load(articleVm.selectedArticleInListView)"/>
 			</columnchildren>
 		</columnlayout>
 	</window>
