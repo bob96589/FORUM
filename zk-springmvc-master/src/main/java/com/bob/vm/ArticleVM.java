@@ -40,13 +40,14 @@ public class ArticleVM {
 	private final static String APPLICATION_POSTING_QUEUE = "APPLICATION_POSTING_QUEUE";
 	private final static String REFRESH_ARTICLE_DISPLAY = "REFRESH_ARTICLE_DISPLAY";
 	private final static ScheduledExecutorService SCHEDULED_THREAD_POOL = Executors.newScheduledThreadPool(20);
-	//private final static Logger logger = Logger.class
+	// private final static Logger logger = Logger.class
 	private final Logger logger = LoggerFactory.getLogger(ArticleVM.class);
 
 	@WireVariable("forumServiceImpl")
 	private ForumService forumService;
 	private Component editDialog;
 	private Article articleInEditDialog;
+	private String actionInEditDialog;
 	private EventQueue<Event> eventQueue;
 	private ScheduledFuture executionOfTask;
 
@@ -57,6 +58,14 @@ public class ArticleVM {
 	private List<Article> allArticlesForTreeView;
 	private Article selectedArticleInListView;
 	private ListModelList<Tag> tagsModel;
+
+	public String getActionInEditDialog() {
+		return actionInEditDialog;
+	}
+
+	public void setActionInEditDialog(String actionInEditDialog) {
+		this.actionInEditDialog = actionInEditDialog;
+	}
 
 	public Article getArticleInEditDialog() {
 		return articleInEditDialog;
@@ -146,7 +155,8 @@ public class ArticleVM {
 	}
 
 	@GlobalCommand
-	@NotifyChange({ "latestArticles", "repliedArticles", "myArticles", "allArticlesForListView", "allArticlesForTreeView", "selectedArticleInListView" })
+	@NotifyChange({ "latestArticles", "repliedArticles", "myArticles", "allArticlesForListView",
+			"allArticlesForTreeView", "selectedArticleInListView" })
 	public void refreshArticleDisplay() {
 		latestArticles = forumService.getLatestArticles();
 		repliedArticles = forumService.getRepliedArticles();
@@ -161,16 +171,21 @@ public class ArticleVM {
 
 	@Command
 	public void saveOrUpdateArticle() {
-		Runnable task = new Runnable() {
-			@Override
-			public void run() {
-				forumService.saveOrUpdateArticle(articleInEditDialog, tagsModel.getSelection());
-				eventQueue.publish(new Event(REFRESH_ARTICLE_DISPLAY));
-			}
-		};
-		executionOfTask = SCHEDULED_THREAD_POOL.schedule(task, 3, TimeUnit.SECONDS);
-		BindUtils.postGlobalCommand(null, null, "showMemo", null);
 		editDialog.detach();
+		if ("add".equals(actionInEditDialog)) {
+			Runnable task = new Runnable() {
+				@Override
+				public void run() {
+					forumService.saveOrUpdateArticle(articleInEditDialog, tagsModel.getSelection());
+					eventQueue.publish(new Event(REFRESH_ARTICLE_DISPLAY));
+				}
+			};
+			executionOfTask = SCHEDULED_THREAD_POOL.schedule(task, 3, TimeUnit.SECONDS);
+			BindUtils.postGlobalCommand(null, null, "showMemo", null);
+		} else {
+			forumService.saveOrUpdateArticle(articleInEditDialog, tagsModel.getSelection());
+			BindUtils.postGlobalCommand(null, null, "refreshArticleDisplay", null);
+		}
 	}
 
 	@Command
@@ -181,14 +196,17 @@ public class ArticleVM {
 
 	@GlobalCommand
 	public void openDialogForAdd(@ContextParam(ContextType.VIEW) Component view) {
-		logger.info("hihi");
+		// logger.info("hihi");
+		this.actionInEditDialog = "add";
 		this.articleInEditDialog = BeanFactory.createArticle();
 		tagsModel.clearSelection();
 		editDialog = Executions.createComponents("editDialog.zul", view.getFirstChild(), null);
 	}
 
 	@Command
-	public void openDialogForReply(@ContextParam(ContextType.VIEW) Component view, @BindingParam("articleId") Integer articleId) {
+	public void openDialogForReply(@ContextParam(ContextType.VIEW) Component view,
+			@BindingParam("articleId") Integer articleId) {
+		this.actionInEditDialog = "reply";
 		this.articleInEditDialog = BeanFactory.createArticle();
 		articleInEditDialog.setPid(articleId);
 		tagsModel.clearSelection();
@@ -197,7 +215,9 @@ public class ArticleVM {
 
 	@Command
 	@NotifyChange({ "contactsModel" })
-	public void openDialogForEdit(@ContextParam(ContextType.VIEW) Component view, @BindingParam("articleId") Integer articleId) {
+	public void openDialogForEdit(@ContextParam(ContextType.VIEW) Component view,
+			@BindingParam("articleId") Integer articleId) {
+		this.actionInEditDialog = "edit";
 		this.articleInEditDialog = forumService.findArticleById(articleId);
 		tagsModel.clearSelection();
 		// tagsModel.setSelection(article.getTags());
