@@ -28,15 +28,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Bob/.m2/repository/org/zkoss/zk/zkbind/8.0.5-Eval/zkbind-8.0.5-Eval.jar" sourcepath="C:/Users/Bob/.m2/repository/org/zkoss/zk/zkbind/8.0.5-Eval/zkbind-8.0.5-Eval-sources.jar">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="org.eclipse.jst.component.archivename" value="zkbind-8.0.5-Eval.jar"/>
-			<attribute name="maven.groupId" value="org.zkoss.zk"/>
-			<attribute name="maven.artifactId" value="zkbind"/>
-			<attribute name="maven.version" value="8.0.5-Eval"/>
-			<attribute name="maven.scope" value="compile"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

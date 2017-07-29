@@ -3,12 +3,18 @@
 	<window title="${c:l('login.window.title')}" mode="modal" position="center,center" border="normal">
 		<n:form action="j_spring_security_check" method="post">
 			<grid hflex="min" vflex="1">
+				<columns>
+					<column label="" width="100px"/>
+					<column label="" width="200px"/>
+				</columns>
 				<rows>
+					<if test="${not empty param.login_error}">
+						<row spans="2">
+							<label value="${SPRING_SECURITY_LAST_EXCEPTION.message}" style="color:red"/>
+						</row>
+					</if>
 					<row>
-						<label value="${SPRING_SECURITY_LAST_EXCEPTION.message}" />
-					</row>
-					<row>
-						<label value="${c:l('login.account')}" />
+						<label value="${c:l('login.account')}"/>
 						<textbox id="j_username" name="j_username" value="bob"/>
 					</row>
 					<row>

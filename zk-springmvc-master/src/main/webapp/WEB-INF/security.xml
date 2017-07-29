@@ -28,7 +28,7 @@
 	
 	<beans:bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
 	    <beans:property name="basename">
-	        <beans:value>messages</beans:value>
+	        <beans:value>security/messages</beans:value>
 	    </beans:property>
 	</beans:bean>
 </beans:beans>
