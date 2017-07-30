@@ -50,9 +50,9 @@ public class ArticleVM {
 	private Component editDialog;
 	private Article articleInEditDialog;
 	private String actionInEditDialog;
-	// private EventQueue<Event> defaultEventQueue;
 	private EventQueue<Event> eventQueue;
 	private ScheduledFuture executionOfTask;
+	private String desktopId;
 
 	private List<Map<String, Object>> latestArticles;
 	private List<Map<String, Object>> repliedArticles;
@@ -150,15 +150,17 @@ public class ArticleVM {
 		tagsModel = new ListModelList<Tag>(forumService.getAllTag());
 		tagsModel.setMultiple(true);
 
-		// defaultEventQueue = EventQueues.lookup(BinderCtrl.DEFAULT_QUEUE_NAME,
-		// BinderCtrl.DEFAULT_QUEUE_SCOPE, false);
+		desktopId = Executions.getCurrent().getDesktop().getId();
+
 		eventQueue = EventQueues.lookup(APPLICATION_POSTING_QUEUE, EventQueues.APPLICATION, true);
 		eventQueue.subscribe(new EventListener<Event>() {
 			@Override
 			public void onEvent(Event event) throws Exception {
 				if (REFRESH_ARTICLE_DISPLAY.equals(event.getName())) {
 					BindUtils.postGlobalCommand(null, null, "refreshArticleDisplay", null);
-					BindUtils.postGlobalCommand(null, null, "hideMemo", null);// TODO
+					if (event.getData().equals(Executions.getCurrent().getDesktop().getId())) {
+						BindUtils.postGlobalCommand(null, null, "hideMemo", null);
+					}
 				}
 			}
 		});
@@ -186,16 +188,8 @@ public class ArticleVM {
 			Runnable task = new Runnable() {
 				@Override
 				public void run() {
-					// Session s = Sessions.getCurrent();
-					// Execution e = Executions.getCurrent();
-					// BindUtils.postNotifyChange(queueName, queueScope, bean,
-					// property);
-					// defaultEventQueue.publish(new GlobalCommandEvent(null,
-					// "hideMemo", null));
-					// BindUtils.postGlobalCommand(null, null, "hideMemo",
-					// null);// TODO
 					forumService.saveOrUpdateArticle(articleInEditDialog, tagsModel.getSelection());
-					eventQueue.publish(new Event(REFRESH_ARTICLE_DISPLAY));
+					eventQueue.publish(new Event(REFRESH_ARTICLE_DISPLAY, null, desktopId));
 				}
 			};
 			executionOfTask = SCHEDULED_THREAD_POOL.schedule(task, 3, TimeUnit.SECONDS);
