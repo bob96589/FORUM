@@ -53,7 +53,7 @@ public class ArticleVM {
 	private Component editDialog;
 	private Article articleInEditDialog;
 	private String actionInEditDialog;
-//	private EventQueue<Event> defaultEventQueue;
+	// private EventQueue<Event> defaultEventQueue;
 	private EventQueue<Event> eventQueue;
 	private ScheduledFuture executionOfTask;
 
@@ -139,6 +139,7 @@ public class ArticleVM {
 
 	@Init
 	public void initSetup() {
+		logger.info("initSetup");// TODO
 		latestArticles = forumService.getLatestArticles();
 		repliedArticles = forumService.getRepliedArticles();
 		myArticles = forumService.getMyArticles(SecurityContext.getId());
@@ -148,7 +149,8 @@ public class ArticleVM {
 		tagsModel = new ListModelList<Tag>(forumService.getAllTag());
 		tagsModel.setMultiple(true);
 
-//		defaultEventQueue = EventQueues.lookup(BinderCtrl.DEFAULT_QUEUE_NAME, BinderCtrl.DEFAULT_QUEUE_SCOPE, false);
+		// defaultEventQueue = EventQueues.lookup(BinderCtrl.DEFAULT_QUEUE_NAME,
+		// BinderCtrl.DEFAULT_QUEUE_SCOPE, false);
 		eventQueue = EventQueues.lookup(APPLICATION_POSTING_QUEUE, EventQueues.APPLICATION, true);
 		eventQueue.subscribe(new EventListener<Event>() {
 			@Override
@@ -183,11 +185,14 @@ public class ArticleVM {
 			Runnable task = new Runnable() {
 				@Override
 				public void run() {
-//					Session s = Sessions.getCurrent();
-//					Execution e = Executions.getCurrent();
-//					BindUtils.postNotifyChange(queueName, queueScope, bean, property);
-//					defaultEventQueue.publish(new GlobalCommandEvent(null, "hideMemo", null));
-//					BindUtils.postGlobalCommand(null, null, "hideMemo", null);// TODO
+					// Session s = Sessions.getCurrent();
+					// Execution e = Executions.getCurrent();
+					// BindUtils.postNotifyChange(queueName, queueScope, bean,
+					// property);
+					// defaultEventQueue.publish(new GlobalCommandEvent(null,
+					// "hideMemo", null));
+					// BindUtils.postGlobalCommand(null, null, "hideMemo",
+					// null);// TODO
 					forumService.saveOrUpdateArticle(articleInEditDialog, tagsModel.getSelection());
 					eventQueue.publish(new Event(REFRESH_ARTICLE_DISPLAY));
 				}
@@ -209,6 +214,7 @@ public class ArticleVM {
 	@GlobalCommand
 	public void openDialogForAdd(@ContextParam(ContextType.VIEW) Component view) {
 		// logger.info("hihi");
+		logger.info("openDialogForAdd");// TODO
 		this.actionInEditDialog = "add";
 		this.articleInEditDialog = BeanFactory.createArticle();
 		tagsModel.clearSelection();
