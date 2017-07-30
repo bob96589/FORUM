@@ -8,7 +8,7 @@
 						<label value="${c:l('article.title')}" />
 					</cell>
 					<cell>
-						<textbox value="@bind(fx.title)" />
+						<textbox value="@bind(fx.title)" constraint="no empty"/>
 					</cell>
 				</row>
 				<row>
@@ -26,7 +26,7 @@
 						<label value="${c:l('article.content')}" />
 					</cell>
 					<cell>
-						<ckeditor value="@bind(fx.content)"/>
+						<ckeditor value="@bind(fx.content) @validator(articleVm.emptyCKEditorValidator)"/>
 					</cell>
 				</row>
 			</rows>

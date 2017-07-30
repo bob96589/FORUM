@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.zkoss.bind.BindUtils;
-import org.zkoss.bind.GlobalCommandEvent;
+import org.zkoss.bind.Validator;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.ContextParam;
@@ -19,12 +19,8 @@ import org.zkoss.bind.annotation.ContextType;
 import org.zkoss.bind.annotation.GlobalCommand;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
-import org.zkoss.bind.sys.BinderCtrl;
 import org.zkoss.zk.ui.Component;
-import org.zkoss.zk.ui.Execution;
 import org.zkoss.zk.ui.Executions;
-import org.zkoss.zk.ui.Session;
-import org.zkoss.zk.ui.Sessions;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
 import org.zkoss.zk.ui.event.EventQueue;
@@ -38,6 +34,7 @@ import com.bob.model.Tag;
 import com.bob.security.SecurityContext;
 import com.bob.service.ForumService;
 import com.bob.utils.BeanFactory;
+import com.bob.validator.EmptyCKEditorValidator;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class ArticleVM {
@@ -45,8 +42,8 @@ public class ArticleVM {
 	private final static String APPLICATION_POSTING_QUEUE = "APPLICATION_POSTING_QUEUE";
 	private final static String REFRESH_ARTICLE_DISPLAY = "REFRESH_ARTICLE_DISPLAY";
 	private final static ScheduledExecutorService SCHEDULED_THREAD_POOL = Executors.newScheduledThreadPool(20);
-	// private final static Logger logger = Logger.class
-	private final Logger logger = LoggerFactory.getLogger(ArticleVM.class);
+	private final static Validator EMPTY_CKEDITOR_VALIDATOR = new EmptyCKEditorValidator();
+	private final static Logger logger = LoggerFactory.getLogger(ArticleVM.class);
 
 	@WireVariable("forumServiceImpl")
 	private ForumService forumService;
@@ -64,6 +61,10 @@ public class ArticleVM {
 	private List<Article> allArticlesForTreeView;
 	private Article selectedArticleInListView;
 	private ListModelList<Tag> tagsModel;
+
+	public Validator getEmptyCKEditorValidator() {
+		return EMPTY_CKEDITOR_VALIDATOR;
+	}
 
 	public String getActionInEditDialog() {
 		return actionInEditDialog;
