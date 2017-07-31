@@ -147,9 +147,6 @@ public class ArticleVM {
 		allArticlesForListView = forumService.getArticlesForListView();
 		allArticlesForTreeView = forumService.getArticlesForTreeView();
 
-		tagsModel = new ListModelList<Tag>(forumService.getAllTag());
-		tagsModel.setMultiple(true);
-
 		desktopId = Executions.getCurrent().getDesktop().getId();
 
 		eventQueue = EventQueues.lookup(APPLICATION_POSTING_QUEUE, EventQueues.APPLICATION, true);
@@ -208,11 +205,10 @@ public class ArticleVM {
 
 	@GlobalCommand
 	public void openDialogForAdd(@ContextParam(ContextType.VIEW) Component view) {
-		// logger.info("hihi");
 		logger.info("openDialogForAdd");// TODO
 		this.actionInEditDialog = "add";
 		this.articleInEditDialog = BeanFactory.createArticle();
-		tagsModel.clearSelection();
+		tagsModel = createTagsModel();
 		editDialog = Executions.createComponents("editDialog.zul", view.getFirstChild(), null);
 	}
 
@@ -222,7 +218,7 @@ public class ArticleVM {
 		this.actionInEditDialog = "reply";
 		this.articleInEditDialog = BeanFactory.createArticle();
 		articleInEditDialog.setPid(articleId);
-		tagsModel.clearSelection();
+		tagsModel = createTagsModel();
 		editDialog = Executions.createComponents("editDialog.zul", view.getFirstChild(), null);
 	}
 
@@ -232,12 +228,8 @@ public class ArticleVM {
 			@BindingParam("articleId") Integer articleId) {
 		this.actionInEditDialog = "edit";
 		this.articleInEditDialog = forumService.findArticleById(articleId);
-		tagsModel.clearSelection();
-		// tagsModel.setSelection(article.getTags());
-		for (Tag tag : articleInEditDialog.getTags()) {
-			tagsModel.add(tag);
-			tagsModel.addToSelection(tag);
-		}
+		tagsModel = createTagsModel();
+		tagsModel.setSelection(articleInEditDialog.getTags());
 		editDialog = Executions.createComponents("editDialog.zul", view.getFirstChild(), null);
 	}
 
@@ -264,6 +256,12 @@ public class ArticleVM {
 		Tag tag = new Tag(tagName);
 		tagsModel.add(tag);
 		tagsModel.addToSelection(tag);
+	}
+	
+	private ListModelList<Tag> createTagsModel(){
+		ListModelList<Tag> tagsModel = new ListModelList<Tag>(forumService.getAllTag());
+		tagsModel.setMultiple(true);
+		return tagsModel;
 	}
 
 }
