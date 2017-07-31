@@ -1,457 +1,159 @@
-[2017/07/31 17:53:56][INFO][][][org.springframework.web.context.ContextLoader line.305][initWebApplicationContext] Root WebApplicationContext: initialization started
-[2017/07/31 17:53:57][INFO][][][org.springframework.context.support.AbstractApplicationContext line.578][prepareRefresh] Refreshing Root WebApplicationContext: startup date [Mon Jul 31 17:53:57 CST 2017]; root of context hierarchy
-[2017/07/31 17:53:57][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
-[2017/07/31 17:53:57][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/sqlStatement.xml]
-[2017/07/31 17:53:57][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/database.xml]
-[2017/07/31 17:53:57][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/security.xml]
-[2017/07/31 17:53:57][INFO][][][org.springframework.security.core.SpringSecurityCoreVersion line.33][<clinit>] You are running with Spring Security Core 3.1.6.RELEASE
-[2017/07/31 17:53:57][ERROR][][][org.springframework.security.core.SpringSecurityCoreVersion line.35][<clinit>] *** Spring Major version '3' expected, but you are running with version: 4.2.6.RELEASE. Please check your classpath for unwanted jar files.
-[2017/07/31 17:53:57][INFO][][][org.springframework.security.config.SecurityNamespaceHandler line.59][<init>] Spring Security 'config' module version is 3.1.6.RELEASE
-[2017/07/31 17:53:57][INFO][][][org.springframework.security.config.http.HttpSecurityBeanDefinitionParser line.264][checkFilterChainOrder] Checking sorted filter chain: [Root bean: class [org.springframework.security.web.context.SecurityContextPersistenceFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 200, Root bean: class [org.springframework.security.web.authentication.logout.LogoutFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 400, <org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter#0>, order = 800, Root bean: class [org.springframework.security.web.authentication.www.BasicAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1200, Root bean: class [org.springframework.security.web.savedrequest.RequestCacheAwareFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1300, Root bean: class [org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1400, Root bean: class [org.springframework.security.web.authentication.AnonymousAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1700, Root bean: class [org.springframework.security.web.session.SessionManagementFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1800, Root bean: class [org.springframework.security.web.access.ExceptionTranslationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1900, <org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0>, order = 2000]
-[2017/07/31 17:53:57][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/logger.xml]
-[2017/07/31 17:53:58][INFO][][][org.hibernate.annotations.common.Version line.37][<clinit>] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
-[2017/07/31 17:53:58][INFO][][][org.hibernate.Version line.41][logVersion] HHH000412: Hibernate Core {4.1.0.Final}
-[2017/07/31 17:53:58][INFO][][][org.hibernate.cfg.Environment line.239][<clinit>] HHH000206: hibernate.properties not found
-[2017/07/31 17:53:58][INFO][][][org.hibernate.cfg.Environment line.342][buildBytecodeProvider] HHH000021: Bytecode provider name : javassist
-[2017/07/31 17:53:59][INFO][][][org.hibernate.dialect.Dialect line.122][<init>] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
-[2017/07/31 17:53:59][INFO][][][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator line.68][initiateService] HHH000399: Using default transaction strategy (direct JDBC transactions)
-[2017/07/31 17:53:59][INFO][][][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory line.48][<init>] HHH000397: Using ASTQueryTranslatorFactory
-[2017/07/31 17:54:00][INFO][][][org.springframework.orm.hibernate4.HibernateTransactionManager line.360][afterPropertiesSet] Using DataSource [org.apache.commons.dbcp.BasicDataSource@869d87c] of Hibernate SessionFactory for HibernateTransactionManager
-[2017/07/31 17:54:00][INFO][][][org.springframework.security.web.DefaultSecurityFilterChain line.28][<init>] Creating filter chain: Ant [pattern='/login.zul'], []
-[2017/07/31 17:54:00][INFO][][][org.springframework.security.web.DefaultSecurityFilterChain line.28][<init>] Creating filter chain: org.springframework.security.web.util.AnyRequestMatcher@1, [org.springframework.security.web.context.SecurityContextPersistenceFilter@493b01ef, org.springframework.security.web.authentication.logout.LogoutFilter@36c2d629, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@55fee662, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@54089484, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@45adc393, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@65fe2691, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@479111ba, org.springframework.security.web.session.SessionManagementFilter@57ad1178, org.springframework.security.web.access.ExceptionTranslationFilter@7c37f145, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@68699afc]
-[2017/07/31 17:54:00][INFO][][][org.springframework.security.config.http.DefaultFilterChainValidator line.122][checkLoginPageIsntProtected] Checking whether login URL '/login.zul' is accessible with your configuration
-[2017/07/31 17:54:00][INFO][][][org.springframework.web.context.ContextLoader line.345][initWebApplicationContext] Root WebApplicationContext: initialization completed in 3782 ms
-[2017/07/31 17:54:00][INFO][][][org.zkoss.zk.ui.http.WebManager line.117][<init>] Starting ZK 8.0.5 EE (build: 2017051613)
-[2017/07/31 17:54:00][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.168][parseConfigXml] Loading system default
-[2017/07/31 17:54:00][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing jar:file:/C:/Users/Bob/.m2/repository/org/zkoss/zk/zul/8.0.5-Eval/zul-8.0.5-Eval.jar!/metainfo/zk/zk.xml
-[2017/07/31 17:54:00][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing jar:file:/C:/Users/Bob/.m2/repository/org/zkoss/zk/zkex/8.0.5-Eval/zkex-8.0.5-Eval.jar!/metainfo/zk/zk.xml
-[2017/07/31 17:54:00][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing jar:file:/C:/Users/Bob/.m2/repository/org/zkoss/zk/zkmax/8.0.5-Eval/zkmax-8.0.5-Eval.jar!/metainfo/zk/zk.xml
-[2017/07/31 17:54:00][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing file:/C:/project/ZK_FORUM/ZK_FORUM_GIT/zk-springmvc-master/src/main/webapp/WEB-INF/zk.xml
-[2017/07/31 17:54:01][ERROR][][][org.zkoss.zkex.init.WebAppInit line.?][init] This is an evaluation copy of ZK EE and will terminate after sixty days from the first date of installation. Should you require an open source license or commercial license for ZK EE please contact us at info@zkoss.org for more information. Alternatively you can download ZK CE which is licensed under the LGPL.
-[2017/07/31 17:54:06][INFO][][][org.zkoss.util.resource.impl.LabelLoaderImpl line.239][loadLabels] Loading labels for zh_TW
-[2017/07/31 17:54:06][INFO][][][org.zkoss.util.resource.impl.LabelLoaderImpl line.239][loadLabels] Loading labels for zh
-[2017/07/31 17:54:06][INFO][][][org.zkoss.util.resource.impl.LabelLoaderImpl line.414][load] Opening file:/C:/project/ZK_FORUM/ZK_FORUM_GIT/zk-springmvc-master/src/main/webapp/WEB-INF/i3-label_zh.properties
-[2017/07/31 17:54:06][ERROR][][][org.zkoss.zkex.rt.Runtime line.?][error] This is an evaluation copy of ZK EE and the default limit for concurrent users is 5. If you require an extended evaluation copy or a commercial license, please contact us at info@zkoss.org.
+[2017/07/31 18:13:50][INFO][][][org.springframework.web.context.ContextLoader line.305][initWebApplicationContext] Root WebApplicationContext: initialization started
+[2017/07/31 18:13:50][INFO][][][org.springframework.context.support.AbstractApplicationContext line.578][prepareRefresh] Refreshing Root WebApplicationContext: startup date [Mon Jul 31 18:13:50 CST 2017]; root of context hierarchy
+[2017/07/31 18:13:50][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+[2017/07/31 18:13:50][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/sqlStatement.xml]
+[2017/07/31 18:13:51][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/database.xml]
+[2017/07/31 18:13:51][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/security.xml]
+[2017/07/31 18:13:51][INFO][][][org.springframework.security.core.SpringSecurityCoreVersion line.33][<clinit>] You are running with Spring Security Core 3.1.6.RELEASE
+[2017/07/31 18:13:51][ERROR][][][org.springframework.security.core.SpringSecurityCoreVersion line.35][<clinit>] *** Spring Major version '3' expected, but you are running with version: 4.2.6.RELEASE. Please check your classpath for unwanted jar files.
+[2017/07/31 18:13:51][INFO][][][org.springframework.security.config.SecurityNamespaceHandler line.59][<init>] Spring Security 'config' module version is 3.1.6.RELEASE
+[2017/07/31 18:13:51][INFO][][][org.springframework.security.config.http.HttpSecurityBeanDefinitionParser line.264][checkFilterChainOrder] Checking sorted filter chain: [Root bean: class [org.springframework.security.web.context.SecurityContextPersistenceFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 200, Root bean: class [org.springframework.security.web.authentication.logout.LogoutFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 400, <org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter#0>, order = 800, Root bean: class [org.springframework.security.web.authentication.www.BasicAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1200, Root bean: class [org.springframework.security.web.savedrequest.RequestCacheAwareFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1300, Root bean: class [org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1400, Root bean: class [org.springframework.security.web.authentication.AnonymousAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1700, Root bean: class [org.springframework.security.web.session.SessionManagementFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1800, Root bean: class [org.springframework.security.web.access.ExceptionTranslationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1900, <org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0>, order = 2000]
+[2017/07/31 18:13:51][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/logger.xml]
+[2017/07/31 18:13:52][INFO][][][org.hibernate.annotations.common.Version line.37][<clinit>] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+[2017/07/31 18:13:52][INFO][][][org.hibernate.Version line.41][logVersion] HHH000412: Hibernate Core {4.1.0.Final}
+[2017/07/31 18:13:52][INFO][][][org.hibernate.cfg.Environment line.239][<clinit>] HHH000206: hibernate.properties not found
+[2017/07/31 18:13:52][INFO][][][org.hibernate.cfg.Environment line.342][buildBytecodeProvider] HHH000021: Bytecode provider name : javassist
+[2017/07/31 18:13:52][INFO][][][org.hibernate.dialect.Dialect line.122][<init>] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+[2017/07/31 18:13:52][INFO][][][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator line.68][initiateService] HHH000399: Using default transaction strategy (direct JDBC transactions)
+[2017/07/31 18:13:52][INFO][][][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory line.48][<init>] HHH000397: Using ASTQueryTranslatorFactory
+[2017/07/31 18:13:53][INFO][][][org.springframework.orm.hibernate4.HibernateTransactionManager line.360][afterPropertiesSet] Using DataSource [org.apache.commons.dbcp.BasicDataSource@2f3166a] of Hibernate SessionFactory for HibernateTransactionManager
+[2017/07/31 18:13:53][INFO][][][org.springframework.security.web.DefaultSecurityFilterChain line.28][<init>] Creating filter chain: Ant [pattern='/login.zul'], []
+[2017/07/31 18:13:54][INFO][][][org.springframework.security.web.DefaultSecurityFilterChain line.28][<init>] Creating filter chain: org.springframework.security.web.util.AnyRequestMatcher@1, [org.springframework.security.web.context.SecurityContextPersistenceFilter@2f382a5e, org.springframework.security.web.authentication.logout.LogoutFilter@12b5736c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@539a138b, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2cd4e16a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@42505474, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7b477141, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@784223e9, org.springframework.security.web.session.SessionManagementFilter@7316523a, org.springframework.security.web.access.ExceptionTranslationFilter@33a55bd8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@73a8e994]
+[2017/07/31 18:13:54][INFO][][][org.springframework.security.config.http.DefaultFilterChainValidator line.122][checkLoginPageIsntProtected] Checking whether login URL '/login.zul' is accessible with your configuration
+[2017/07/31 18:13:54][INFO][][][org.springframework.web.context.ContextLoader line.345][initWebApplicationContext] Root WebApplicationContext: initialization completed in 3756 ms
+[2017/07/31 18:13:54][INFO][][][org.zkoss.zk.ui.http.WebManager line.117][<init>] Starting ZK 8.0.5 EE (build: 2017051613)
+[2017/07/31 18:13:54][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.168][parseConfigXml] Loading system default
+[2017/07/31 18:13:54][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing jar:file:/C:/Users/Bob/.m2/repository/org/zkoss/zk/zul/8.0.5-Eval/zul-8.0.5-Eval.jar!/metainfo/zk/zk.xml
+[2017/07/31 18:13:54][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing jar:file:/C:/Users/Bob/.m2/repository/org/zkoss/zk/zkex/8.0.5-Eval/zkex-8.0.5-Eval.jar!/metainfo/zk/zk.xml
+[2017/07/31 18:13:54][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing jar:file:/C:/Users/Bob/.m2/repository/org/zkoss/zk/zkmax/8.0.5-Eval/zkmax-8.0.5-Eval.jar!/metainfo/zk/zk.xml
+[2017/07/31 18:13:54][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing file:/C:/project/ZK_FORUM/ZK_FORUM_GIT/zk-springmvc-master/src/main/webapp/WEB-INF/zk.xml
+[2017/07/31 18:13:54][ERROR][][][org.zkoss.zkex.init.WebAppInit line.?][init] This is an evaluation copy of ZK EE and will terminate after sixty days from the first date of installation. Should you require an open source license or commercial license for ZK EE please contact us at info@zkoss.org for more information. Alternatively you can download ZK CE which is licensed under the LGPL.
+[2017/07/31 18:14:07][INFO][][][org.zkoss.util.resource.impl.LabelLoaderImpl line.239][loadLabels] Loading labels for zh_TW
+[2017/07/31 18:14:07][INFO][][][org.zkoss.util.resource.impl.LabelLoaderImpl line.239][loadLabels] Loading labels for zh
+[2017/07/31 18:14:07][INFO][][][org.zkoss.util.resource.impl.LabelLoaderImpl line.414][load] Opening file:/C:/project/ZK_FORUM/ZK_FORUM_GIT/zk-springmvc-master/src/main/webapp/WEB-INF/i3-label_zh.properties
+[2017/07/31 18:14:07][ERROR][][][org.zkoss.zkex.rt.Runtime line.?][error] This is an evaluation copy of ZK EE and the default limit for concurrent users is 5. If you require an extended evaluation copy or a commercial license, please contact us at info@zkoss.org.
 
-[2017/07/31 17:54:08][ERROR][15cef2jksnfanwz69zm8sl9w8][][org.zkoss.zkex.rt.Runtime line.?][error] This is an evaluation copy of ZK EE and the default limit for concurrent users is 5. If you require an extended evaluation copy or a commercial license, please contact us at info@zkoss.org.
+[2017/07/31 18:14:10][ERROR][2ggfeufmoj3g10ernypq75u1y][][org.zkoss.zkex.rt.Runtime line.?][error] This is an evaluation copy of ZK EE and the default limit for concurrent users is 5. If you require an extended evaluation copy or a commercial license, please contact us at info@zkoss.org.
 
-[2017/07/31 17:54:08][INFO][15cef2jksnfanwz69zm8sl9w8][][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.findUserByAccount
-[2017/07/31 17:54:08][INFO][squ1owo48y5y1h40rvbk29bg][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
-[2017/07/31 17:54:08][INFO][squ1owo48y5y1h40rvbk29bg][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
-[2017/07/31 17:54:08][INFO][squ1owo48y5y1h40rvbk29bg][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
-[2017/07/31 17:54:09][INFO][squ1owo48y5y1h40rvbk29bg][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
-[2017/07/31 17:54:10][INFO][squ1owo48y5y1h40rvbk29bg][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
-[2017/07/31 17:54:10][INFO][squ1owo48y5y1h40rvbk29bg][bob][com.bob.vm.ArticleVM line.164][initSetup] Subscribe event from APPLICATION_POSTING_QUEUE.
-[2017/07/31 17:54:11][INFO][squ1owo48y5y1h40rvbk29bg][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getAllTag
-[2017/07/31 17:54:14][INFO][squ1owo48y5y1h40rvbk29bg][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
-[2017/07/31 17:54:17][INFO][squ1owo48y5y1h40rvbk29bg][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle
-[2017/07/31 17:54:17][INFO][squ1owo48y5y1h40rvbk29bg][bob][com.bob.vm.ArticleVM$2 line.191][run] Processing article(action: add) succeeds.
-[2017/07/31 17:54:17][INFO][squ1owo48y5y1h40rvbk29bg][bob][com.bob.vm.ArticleVM$2 line.193][run] Publish event to APPLICATION_POSTING_QUEUE.
-[2017/07/31 17:54:17][INFO][squ1owo48y5y1h40rvbk29bg][bob][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
-[2017/07/31 17:54:17][INFO][squ1owo48y5y1h40rvbk29bg][bob][com.bob.vm.ArticleVM$1 line.159][onEvent] Trigger global command: hideMemo.
-[2017/07/31 17:54:17][INFO][squ1owo48y5y1h40rvbk29bg][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
-[2017/07/31 17:54:17][INFO][squ1owo48y5y1h40rvbk29bg][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
-[2017/07/31 17:54:17][INFO][squ1owo48y5y1h40rvbk29bg][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
-[2017/07/31 17:54:17][INFO][squ1owo48y5y1h40rvbk29bg][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
-[2017/07/31 17:54:18][INFO][squ1owo48y5y1h40rvbk29bg][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
-[2017/07/31 17:54:23][INFO][squ1owo48y5y1h40rvbk29bg][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.findArticleById
-[2017/07/31 17:54:24][INFO][squ1owo48y5y1h40rvbk29bg][bob][com.bob.aop.LogAdvice line.23][logAfterThrowingException] Exception: class com.bob.service.impl.ForumServiceImpl.deleteArticle {}
-java.lang.NullPointerException
-	at com.bob.service.impl.ForumServiceImpl.deleteArticle(ForumServiceImpl.java:72)
-	at com.bob.service.impl.ForumServiceImpl$$FastClassBySpringCGLIB$$d39c42a3.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:720)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
-	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
-	at com.bob.aop.LogAdvice.logAroundExecute(LogAdvice.java:14)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:620)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:609)
-	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:68)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:52)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:59)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:281)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:655)
-	at com.bob.service.impl.ForumServiceImpl$$EnhancerBySpringCGLIB$$7237e339.deleteArticle(<generated>)
-	at com.bob.vm.ArticleVM.delete(ArticleVM.java:243)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.zkoss.bind.impl.ParamCall.call(ParamCall.java:149)
-	at org.zkoss.bind.impl.BinderImpl.doExecute(BinderImpl.java:2035)
-	at org.zkoss.bind.impl.BinderImpl.doCommand(BinderImpl.java:1748)
-	at org.zkoss.bind.impl.BinderImpl.access$1300(BinderImpl.java:131)
-	at org.zkoss.bind.impl.BinderImpl$CommandEventListener.onEvent0(BinderImpl.java:1595)
-	at org.zkoss.bind.impl.BinderImpl$CommandEventListener.onEvent(BinderImpl.java:1548)
-	at org.zkoss.zk.ui.AbstractComponent.onEvent(AbstractComponent.java:3165)
-	at org.zkoss.zk.ui.AbstractComponent.service(AbstractComponent.java:3135)
-	at org.zkoss.zk.ui.AbstractComponent.service(AbstractComponent.java:3077)
-	at org.zkoss.zk.ui.impl.EventProcessor.process(EventProcessor.java:138)
-	at org.zkoss.zk.ui.impl.UiEngineImpl.processEvent(UiEngineImpl.java:1846)
-	at org.zkoss.zk.ui.impl.UiEngineImpl.process(UiEngineImpl.java:1618)
-	at org.zkoss.zk.ui.impl.UiEngineImpl.execUpdate(UiEngineImpl.java:1321)
-	at org.zkoss.zk.au.http.DHtmlUpdateServlet.process(DHtmlUpdateServlet.java:606)
-	at org.zkoss.zk.au.http.DHtmlUpdateServlet.doGet(DHtmlUpdateServlet.java:482)
-	at org.zkoss.zk.au.http.DHtmlUpdateServlet.doPost(DHtmlUpdateServlet.java:490)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
-	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
-	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
-	at com.bob.filter.logContextFilter.doFilter(logContextFilter.java:37)
-	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:330)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:118)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:84)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:103)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:113)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:54)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:45)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilter(BasicAuthenticationFilter.java:150)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:183)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:105)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:87)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:192)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:160)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
-	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:121)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
-	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
-	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
-	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
-	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
-	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
-	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
-	at org.mortbay.jetty.Server.handle(Server.java:326)
-	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
-	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:945)
-	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:756)
-	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:218)
-	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
-	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
-	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
-[2017/07/31 17:54:24][ERROR][squ1owo48y5y1h40rvbk29bg][bob][org.zkoss.bind.impl.ParamCall line.156][call] 
-java.lang.NullPointerException
-	at com.bob.service.impl.ForumServiceImpl.deleteArticle(ForumServiceImpl.java:72)
-	at com.bob.service.impl.ForumServiceImpl$$FastClassBySpringCGLIB$$d39c42a3.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:720)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
-	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
-	at com.bob.aop.LogAdvice.logAroundExecute(LogAdvice.java:14)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:620)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:609)
-	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:68)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:52)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:59)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:281)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:655)
-	at com.bob.service.impl.ForumServiceImpl$$EnhancerBySpringCGLIB$$7237e339.deleteArticle(<generated>)
-	at com.bob.vm.ArticleVM.delete(ArticleVM.java:243)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.zkoss.bind.impl.ParamCall.call(ParamCall.java:149)
-	at org.zkoss.bind.impl.BinderImpl.doExecute(BinderImpl.java:2035)
-	at org.zkoss.bind.impl.BinderImpl.doCommand(BinderImpl.java:1748)
-	at org.zkoss.bind.impl.BinderImpl.access$1300(BinderImpl.java:131)
-	at org.zkoss.bind.impl.BinderImpl$CommandEventListener.onEvent0(BinderImpl.java:1595)
-	at org.zkoss.bind.impl.BinderImpl$CommandEventListener.onEvent(BinderImpl.java:1548)
-	at org.zkoss.zk.ui.AbstractComponent.onEvent(AbstractComponent.java:3165)
-	at org.zkoss.zk.ui.AbstractComponent.service(AbstractComponent.java:3135)
-	at org.zkoss.zk.ui.AbstractComponent.service(AbstractComponent.java:3077)
-	at org.zkoss.zk.ui.impl.EventProcessor.process(EventProcessor.java:138)
-	at org.zkoss.zk.ui.impl.UiEngineImpl.processEvent(UiEngineImpl.java:1846)
-	at org.zkoss.zk.ui.impl.UiEngineImpl.process(UiEngineImpl.java:1618)
-	at org.zkoss.zk.ui.impl.UiEngineImpl.execUpdate(UiEngineImpl.java:1321)
-	at org.zkoss.zk.au.http.DHtmlUpdateServlet.process(DHtmlUpdateServlet.java:606)
-	at org.zkoss.zk.au.http.DHtmlUpdateServlet.doGet(DHtmlUpdateServlet.java:482)
-	at org.zkoss.zk.au.http.DHtmlUpdateServlet.doPost(DHtmlUpdateServlet.java:490)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
-	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
-	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
-	at com.bob.filter.logContextFilter.doFilter(logContextFilter.java:37)
-	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:330)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:118)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:84)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:103)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:113)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:54)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:45)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilter(BasicAuthenticationFilter.java:150)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:183)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:105)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:87)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:192)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:160)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
-	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:121)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
-	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
-	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
-	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
-	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
-	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
-	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
-	at org.mortbay.jetty.Server.handle(Server.java:326)
-	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
-	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:945)
-	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:756)
-	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:218)
-	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
-	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
-	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
-[2017/07/31 17:54:24][ERROR][squ1owo48y5y1h40rvbk29bg][bob][org.zkoss.bind.impl.BinderImpl$CommandEventListener line.1550][onEvent] 
-java.lang.NullPointerException
-	at com.bob.service.impl.ForumServiceImpl.deleteArticle(ForumServiceImpl.java:72)
-	at com.bob.service.impl.ForumServiceImpl$$FastClassBySpringCGLIB$$d39c42a3.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:720)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
-	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
-	at com.bob.aop.LogAdvice.logAroundExecute(LogAdvice.java:14)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:620)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:609)
-	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:68)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:52)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:59)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:281)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:655)
-	at com.bob.service.impl.ForumServiceImpl$$EnhancerBySpringCGLIB$$7237e339.deleteArticle(<generated>)
-	at com.bob.vm.ArticleVM.delete(ArticleVM.java:243)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.zkoss.bind.impl.ParamCall.call(ParamCall.java:149)
-	at org.zkoss.bind.impl.BinderImpl.doExecute(BinderImpl.java:2035)
-	at org.zkoss.bind.impl.BinderImpl.doCommand(BinderImpl.java:1748)
-	at org.zkoss.bind.impl.BinderImpl.access$1300(BinderImpl.java:131)
-	at org.zkoss.bind.impl.BinderImpl$CommandEventListener.onEvent0(BinderImpl.java:1595)
-	at org.zkoss.bind.impl.BinderImpl$CommandEventListener.onEvent(BinderImpl.java:1548)
-	at org.zkoss.zk.ui.AbstractComponent.onEvent(AbstractComponent.java:3165)
-	at org.zkoss.zk.ui.AbstractComponent.service(AbstractComponent.java:3135)
-	at org.zkoss.zk.ui.AbstractComponent.service(AbstractComponent.java:3077)
-	at org.zkoss.zk.ui.impl.EventProcessor.process(EventProcessor.java:138)
-	at org.zkoss.zk.ui.impl.UiEngineImpl.processEvent(UiEngineImpl.java:1846)
-	at org.zkoss.zk.ui.impl.UiEngineImpl.process(UiEngineImpl.java:1618)
-	at org.zkoss.zk.ui.impl.UiEngineImpl.execUpdate(UiEngineImpl.java:1321)
-	at org.zkoss.zk.au.http.DHtmlUpdateServlet.process(DHtmlUpdateServlet.java:606)
-	at org.zkoss.zk.au.http.DHtmlUpdateServlet.doGet(DHtmlUpdateServlet.java:482)
-	at org.zkoss.zk.au.http.DHtmlUpdateServlet.doPost(DHtmlUpdateServlet.java:490)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
-	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
-	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
-	at com.bob.filter.logContextFilter.doFilter(logContextFilter.java:37)
-	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:330)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:118)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:84)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:103)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:113)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:54)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:45)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilter(BasicAuthenticationFilter.java:150)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:183)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:105)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:87)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:192)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:160)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
-	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:121)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
-	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
-	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
-	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
-	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
-	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
-	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
-	at org.mortbay.jetty.Server.handle(Server.java:326)
-	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
-	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:945)
-	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:756)
-	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:218)
-	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
-	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
-	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
-[2017/07/31 17:54:24][ERROR][squ1owo48y5y1h40rvbk29bg][bob][org.zkoss.zk.ui.impl.UiEngineImpl line.1474][handleError] 
-java.lang.NullPointerException
-	at com.bob.service.impl.ForumServiceImpl.deleteArticle(ForumServiceImpl.java:72)
-	at com.bob.service.impl.ForumServiceImpl$$FastClassBySpringCGLIB$$d39c42a3.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:720)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
-	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:85)
-	at com.bob.aop.LogAdvice.logAroundExecute(LogAdvice.java:14)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:620)
-	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:609)
-	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:68)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:52)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:59)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:281)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:655)
-	at com.bob.service.impl.ForumServiceImpl$$EnhancerBySpringCGLIB$$7237e339.deleteArticle(<generated>)
-	at com.bob.vm.ArticleVM.delete(ArticleVM.java:243)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.zkoss.bind.impl.ParamCall.call(ParamCall.java:149)
-	at org.zkoss.bind.impl.BinderImpl.doExecute(BinderImpl.java:2035)
-	at org.zkoss.bind.impl.BinderImpl.doCommand(BinderImpl.java:1748)
-	at org.zkoss.bind.impl.BinderImpl.access$1300(BinderImpl.java:131)
-	at org.zkoss.bind.impl.BinderImpl$CommandEventListener.onEvent0(BinderImpl.java:1595)
-	at org.zkoss.bind.impl.BinderImpl$CommandEventListener.onEvent(BinderImpl.java:1548)
-	at org.zkoss.zk.ui.AbstractComponent.onEvent(AbstractComponent.java:3165)
-	at org.zkoss.zk.ui.AbstractComponent.service(AbstractComponent.java:3135)
-	at org.zkoss.zk.ui.AbstractComponent.service(AbstractComponent.java:3077)
-	at org.zkoss.zk.ui.impl.EventProcessor.process(EventProcessor.java:138)
-	at org.zkoss.zk.ui.impl.UiEngineImpl.processEvent(UiEngineImpl.java:1846)
-	at org.zkoss.zk.ui.impl.UiEngineImpl.process(UiEngineImpl.java:1618)
-	at org.zkoss.zk.ui.impl.UiEngineImpl.execUpdate(UiEngineImpl.java:1321)
-	at org.zkoss.zk.au.http.DHtmlUpdateServlet.process(DHtmlUpdateServlet.java:606)
-	at org.zkoss.zk.au.http.DHtmlUpdateServlet.doGet(DHtmlUpdateServlet.java:482)
-	at org.zkoss.zk.au.http.DHtmlUpdateServlet.doPost(DHtmlUpdateServlet.java:490)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
-	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:511)
-	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1221)
-	at com.bob.filter.logContextFilter.doFilter(logContextFilter.java:37)
-	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:330)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:118)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:84)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:103)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:113)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:54)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:45)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilter(BasicAuthenticationFilter.java:150)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:183)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:105)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:87)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:192)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:160)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
-	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:121)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
-	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1212)
-	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:399)
-	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:216)
-	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:182)
-	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:766)
-	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:450)
-	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:152)
-	at org.mortbay.jetty.Server.handle(Server.java:326)
-	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:542)
-	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:945)
-	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:756)
-	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:218)
-	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
-	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
-	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+[2017/07/31 18:14:10][INFO][2ggfeufmoj3g10ernypq75u1y][][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.findUserByAccount
+[2017/07/31 18:14:10][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
+[2017/07/31 18:14:10][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
+[2017/07/31 18:14:10][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
+[2017/07/31 18:14:11][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
+[2017/07/31 18:14:11][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
+[2017/07/31 18:14:11][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM line.164][initSetup] Subscribe event from APPLICATION_POSTING_QUEUE.
+[2017/07/31 18:14:14][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getAllTag
+[2017/07/31 18:14:20][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
+[2017/07/31 18:14:24][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle
+[2017/07/31 18:14:24][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM$2 line.191][run] Processing article(action: add) succeeds.
+[2017/07/31 18:14:24][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM$2 line.193][run] Publish event to APPLICATION_POSTING_QUEUE.
+[2017/07/31 18:14:24][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/07/31 18:14:24][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM$1 line.159][onEvent] Trigger global command: hideMemo.
+[2017/07/31 18:14:24][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
+[2017/07/31 18:14:24][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
+[2017/07/31 18:14:24][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
+[2017/07/31 18:14:24][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
+[2017/07/31 18:14:24][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
+[2017/07/31 18:14:27][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getAllTag
+[2017/07/31 18:14:30][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
+[2017/07/31 18:14:32][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM line.252][cancelArticle] Article was cancelled.
+[2017/07/31 18:14:36][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.findArticleById
+[2017/07/31 18:14:40][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.deleteArticle
+[2017/07/31 18:14:40][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.findArticleById
+[2017/07/31 18:14:40][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM line.245][delete] Article was deleted.
+[2017/07/31 18:14:40][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
+[2017/07/31 18:14:40][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
+[2017/07/31 18:14:40][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
+[2017/07/31 18:14:40][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
+[2017/07/31 18:14:40][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
+[2017/07/31 18:17:02][INFO][14ee80sjmlxfv12jedlskpbn2j][][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.findUserByAccount
+[2017/07/31 18:18:31][INFO][14ee80sjmlxfv12jedlskpbn2j][][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.findUserByAccount
+[2017/07/31 18:18:31][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
+[2017/07/31 18:18:31][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
+[2017/07/31 18:18:31][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
+[2017/07/31 18:18:31][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
+[2017/07/31 18:18:32][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
+[2017/07/31 18:18:32][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM line.164][initSetup] Subscribe event from APPLICATION_POSTING_QUEUE.
+[2017/07/31 18:18:37][INFO][1kwacbqh4yn68ucqwwynlx4x][][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.findUserByAccount
+[2017/07/31 18:18:37][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
+[2017/07/31 18:18:37][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
+[2017/07/31 18:18:37][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
+[2017/07/31 18:18:37][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
+[2017/07/31 18:18:37][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
+[2017/07/31 18:18:37][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.vm.ArticleVM line.164][initSetup] Subscribe event from APPLICATION_POSTING_QUEUE.
+[2017/07/31 18:18:39][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getAllTag
+[2017/07/31 18:18:43][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getAllTag
+[2017/07/31 18:18:47][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
+[2017/07/31 18:18:49][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
+[2017/07/31 18:18:50][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle
+[2017/07/31 18:18:50][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM$2 line.191][run] Processing article(action: add) succeeds.
+[2017/07/31 18:18:50][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM$2 line.193][run] Publish event to APPLICATION_POSTING_QUEUE.
+[2017/07/31 18:18:50][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/07/31 18:18:50][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/07/31 18:18:50][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM$1 line.159][onEvent] Trigger global command: hideMemo.
+[2017/07/31 18:18:50][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
+[2017/07/31 18:18:50][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
+[2017/07/31 18:18:50][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
+[2017/07/31 18:18:50][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
+[2017/07/31 18:18:50][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
+[2017/07/31 18:18:50][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
+[2017/07/31 18:18:51][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
+[2017/07/31 18:18:51][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
+[2017/07/31 18:18:51][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
+[2017/07/31 18:18:51][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
+[2017/07/31 18:18:52][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle
+[2017/07/31 18:18:52][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM$2 line.191][run] Processing article(action: add) succeeds.
+[2017/07/31 18:18:52][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM$2 line.193][run] Publish event to APPLICATION_POSTING_QUEUE.
+[2017/07/31 18:18:52][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/07/31 18:18:52][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.vm.ArticleVM$1 line.159][onEvent] Trigger global command: hideMemo.
+[2017/07/31 18:18:52][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/07/31 18:18:52][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
+[2017/07/31 18:18:52][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
+[2017/07/31 18:18:52][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
+[2017/07/31 18:18:52][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
+[2017/07/31 18:18:52][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
+[2017/07/31 18:18:52][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
+[2017/07/31 18:18:53][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
+[2017/07/31 18:18:53][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
+[2017/07/31 18:18:53][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
+[2017/07/31 18:18:53][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
+[2017/07/31 18:22:26][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getAllTag
+[2017/07/31 18:22:33][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
+[2017/07/31 18:22:36][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle
+[2017/07/31 18:22:36][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM$2 line.191][run] Processing article(action: add) succeeds.
+[2017/07/31 18:22:36][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM$2 line.193][run] Publish event to APPLICATION_POSTING_QUEUE.
+[2017/07/31 18:22:36][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/07/31 18:22:36][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM$1 line.159][onEvent] Trigger global command: hideMemo.
+[2017/07/31 18:22:36][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
+[2017/07/31 18:22:36][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
+[2017/07/31 18:22:36][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
+[2017/07/31 18:22:36][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
+[2017/07/31 18:22:36][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
+[2017/07/31 18:22:37][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/07/31 18:22:37][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
+[2017/07/31 18:22:37][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
+[2017/07/31 18:22:37][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
+[2017/07/31 18:22:37][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
+[2017/07/31 18:22:37][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
+[2017/07/31 18:22:39][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.findArticleById
+[2017/07/31 18:22:41][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.findArticleById
+[2017/07/31 18:22:41][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getAllTag
+[2017/07/31 18:22:48][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
+[2017/07/31 18:22:48][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle
+[2017/07/31 18:22:48][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM line.200][saveOrUpdateArticle] Processing article(action: edit) succeeds.
+[2017/07/31 18:22:48][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
+[2017/07/31 18:22:48][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
+[2017/07/31 18:22:48][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
+[2017/07/31 18:22:49][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
+[2017/07/31 18:22:49][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
+[2017/07/31 18:22:49][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.findArticleById
+[2017/07/31 18:22:50][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getAllTag
+[2017/07/31 18:22:58][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
+[2017/07/31 18:22:58][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle
+[2017/07/31 18:22:58][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM line.200][saveOrUpdateArticle] Processing article(action: reply) succeeds.
+[2017/07/31 18:22:58][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
+[2017/07/31 18:22:58][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
+[2017/07/31 18:22:58][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
+[2017/07/31 18:22:59][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
+[2017/07/31 18:22:59][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
+[2017/07/31 18:22:59][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.findArticleById

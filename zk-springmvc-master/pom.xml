@@ -6,14 +6,10 @@
 	<version>1.0.0</version>
 	<properties>
 		<zk.version>8.0.5-Eval</zk.version>
-		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
-		<packname>-${project.version}-${maven.build.timestamp}</packname>
 		<spring.version>4.2.6.RELEASE</spring.version>
-		<spring-security.version>3.1.6.RELEASE</spring-security.version>
+		<spring.security.version>3.1.6.RELEASE</spring.security.version>
 	</properties>
 	<packaging>war</packaging>
-	<name>The zk-springmvc Project</name>
-	<description>The zk-springmvc Project</description>
 	<licenses>
 		<license>
 			<name>GNU LESSER GENERAL PUBLIC LICENSE, Version 3</name>
@@ -119,17 +115,17 @@
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
-			<version>${spring-security.version}</version>
+			<version>${spring.security.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
-			<version>${spring-security.version}</version>
+			<version>${spring.security.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
-			<version>${spring-security.version}</version>
+			<version>${spring.security.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-dbcp</groupId>
