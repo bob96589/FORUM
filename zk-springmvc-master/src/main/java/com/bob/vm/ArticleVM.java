@@ -50,17 +50,16 @@ public class ArticleVM {
 	private Component editDialog;
 	private Article articleInEditDialog;
 	private String actionInEditDialog;
+	private ListModelList<Tag> tagsModel;
 	private EventQueue<Event> eventQueue;
 	private ScheduledFuture executionOfTask;
 	private String desktopId;
-
 	private List<Map<String, Object>> latestArticles;
 	private List<Map<String, Object>> repliedArticles;
 	private List<Map<String, Object>> myArticles;
 	private List<Article> allArticlesForListView;
 	private List<Article> allArticlesForTreeView;
 	private Article selectedArticleInListView;
-	private ListModelList<Tag> tagsModel;
 
 	public Validator getEmptyCKEditorValidator() {
 		return EMPTY_CKEDITOR_VALIDATOR;
@@ -140,7 +139,6 @@ public class ArticleVM {
 
 	@Init
 	public void initSetup() {
-		logger.info("initSetup");// TODO
 		latestArticles = forumService.getLatestArticles();
 		repliedArticles = forumService.getRepliedArticles();
 		myArticles = forumService.getMyArticles(SecurityContext.getId());
@@ -155,12 +153,15 @@ public class ArticleVM {
 			public void onEvent(Event event) throws Exception {
 				if (REFRESH_ARTICLE_DISPLAY.equals(event.getName())) {
 					BindUtils.postGlobalCommand(null, null, "refreshArticleDisplay", null);
+					logger.info("Trigger global command: refreshArticleDisplay.");
 					if (event.getData().equals(Executions.getCurrent().getDesktop().getId())) {
 						BindUtils.postGlobalCommand(null, null, "hideMemo", null);
+						logger.info("Trigger global command: hideMemo.");
 					}
 				}
 			}
 		});
+		logger.info("Subscribe event from {}.", APPLICATION_POSTING_QUEUE);
 	}
 
 	@GlobalCommand
@@ -180,19 +181,23 @@ public class ArticleVM {
 
 	@Command
 	public void saveOrUpdateArticle() {
+		logger.info("Submit article form.");
 		editDialog.detach();
 		if ("add".equals(actionInEditDialog)) {
 			Runnable task = new Runnable() {
 				@Override
 				public void run() {
 					forumService.saveOrUpdateArticle(articleInEditDialog, tagsModel.getSelection());
+					logger.info("Processing article(action: {}) succeeds.", actionInEditDialog);
 					eventQueue.publish(new Event(REFRESH_ARTICLE_DISPLAY, null, desktopId));
+					logger.info("Publish event to {}.", APPLICATION_POSTING_QUEUE);
 				}
 			};
 			executionOfTask = SCHEDULED_THREAD_POOL.schedule(task, 3, TimeUnit.SECONDS);
 			BindUtils.postGlobalCommand(null, null, "showMemo", null);
 		} else {
 			forumService.saveOrUpdateArticle(articleInEditDialog, tagsModel.getSelection());
+			logger.info("Processing article(action: {}) succeeds.", actionInEditDialog);
 			BindUtils.postGlobalCommand(null, null, "refreshArticleDisplay", null);
 		}
 	}
@@ -205,7 +210,6 @@ public class ArticleVM {
 
 	@GlobalCommand
 	public void openDialogForAdd(@ContextParam(ContextType.VIEW) Component view) {
-		logger.info("openDialogForAdd");// TODO
 		this.actionInEditDialog = "add";
 		this.articleInEditDialog = BeanFactory.createArticle();
 		tagsModel = createTagsModel();
@@ -238,12 +242,15 @@ public class ArticleVM {
 	public void delete(@BindingParam("articleId") Integer id) {
 		forumService.deleteArticle(id);
 		this.selectedArticleInListView = forumService.findArticleById(selectedArticleInListView.getId());
+		logger.info("Article was deleted.");
 	}
 
 	@GlobalCommand
 	public void cancelArticle() {
-		executionOfTask.cancel(false);
-		BindUtils.postGlobalCommand(null, null, "hideMemo", null);
+		if(executionOfTask.cancel(false)){
+			BindUtils.postGlobalCommand(null, null, "hideMemo", null);
+			logger.info("Article was cancelled.");
+		}
 	}
 
 	@Command

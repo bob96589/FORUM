@@ -50,6 +50,14 @@
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	<filter>
+		<filter-name>logContextFilter</filter-name>
+		<filter-class>com.bob.filter.logContextFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>logContextFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 	<servlet>
 		<description>ZK loader for ZUML pages</description>
 		<servlet-name>zkLoader</servlet-name>
