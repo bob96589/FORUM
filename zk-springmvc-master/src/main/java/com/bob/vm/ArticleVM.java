@@ -20,6 +20,8 @@ import org.zkoss.bind.annotation.GlobalCommand;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.Component;
+import org.zkoss.zk.ui.Desktop;
+import org.zkoss.zk.ui.DesktopUnavailableException;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
@@ -43,7 +45,6 @@ public class ArticleVM {
 	private final static String REFRESH_ARTICLE_DISPLAY = "REFRESH_ARTICLE_DISPLAY";
 	private final static ScheduledExecutorService SCHEDULED_THREAD_POOL = Executors.newScheduledThreadPool(20);
 	private final static Validator EMPTY_CKEDITOR_VALIDATOR = new EmptyCKEditorValidator();
-	private final static Logger logger = LoggerFactory.getLogger(ArticleVM.class);
 
 	@WireVariable("forumServiceImpl")
 	private ForumService forumService;
@@ -53,13 +54,13 @@ public class ArticleVM {
 	private ListModelList<Tag> tagsModel;
 	private EventQueue<Event> eventQueue;
 	private ScheduledFuture executionOfTask;
-	private String desktopId;
 	private List<Map<String, Object>> latestArticles;
 	private List<Map<String, Object>> repliedArticles;
 	private List<Map<String, Object>> myArticles;
 	private List<Article> allArticlesForListView;
 	private List<Article> allArticlesForTreeView;
 	private Article selectedArticleInListView;
+	private final Logger logger = LoggerFactory.getLogger(ArticleVM.class);
 
 	public Validator getEmptyCKEditorValidator() {
 		return EMPTY_CKEDITOR_VALIDATOR;
@@ -145,19 +146,13 @@ public class ArticleVM {
 		allArticlesForListView = forumService.getArticlesForListView();
 		allArticlesForTreeView = forumService.getArticlesForTreeView();
 
-		desktopId = Executions.getCurrent().getDesktop().getId();
-
 		eventQueue = EventQueues.lookup(APPLICATION_POSTING_QUEUE, EventQueues.APPLICATION, true);
 		eventQueue.subscribe(new EventListener<Event>() {
 			@Override
 			public void onEvent(Event event) throws Exception {
 				if (REFRESH_ARTICLE_DISPLAY.equals(event.getName())) {
 					BindUtils.postGlobalCommand(null, null, "refreshArticleDisplay", null);
-					logger.info("Trigger global command: refreshArticleDisplay.");
-					if (event.getData().equals(Executions.getCurrent().getDesktop().getId())) {
-						BindUtils.postGlobalCommand(null, null, "hideMemo", null);
-						logger.info("Trigger global command: hideMemo.");
-					}
+					logger.debug("Trigger global command: refreshArticleDisplay.");
 				}
 			}
 		});
@@ -183,13 +178,23 @@ public class ArticleVM {
 	public void saveOrUpdateArticle() {
 		logger.info("Submit article form.");
 		editDialog.detach();
+		Desktop desktop = Executions.getCurrent().getDesktop();
 		if ("add".equals(actionInEditDialog)) {
 			Runnable task = new Runnable() {
 				@Override
 				public void run() {
+					try {
+						Executions.activate(desktop);
+						BindUtils.postGlobalCommand(null, null, "hideMemo", null);
+						logger.debug("Trigger global command: hideMemo.");
+					} catch (DesktopUnavailableException | InterruptedException e) {
+						e.printStackTrace();
+					} finally {
+						Executions.deactivate(desktop);
+					}
 					forumService.saveOrUpdateArticle(articleInEditDialog, tagsModel.getSelection());
 					logger.info("Processing article(action: {}) succeeds.", actionInEditDialog);
-					eventQueue.publish(new Event(REFRESH_ARTICLE_DISPLAY, null, desktopId));
+					eventQueue.publish(new Event(REFRESH_ARTICLE_DISPLAY));
 					logger.info("Publish event to {}.", APPLICATION_POSTING_QUEUE);
 				}
 			};
@@ -241,13 +246,13 @@ public class ArticleVM {
 	@NotifyChange({ "selectedArticleInListView" })
 	public void delete(@BindingParam("articleId") Integer id) {
 		forumService.deleteArticle(id);
-		this.selectedArticleInListView = forumService.findArticleById(selectedArticleInListView.getId());
 		logger.info("Article was deleted.");
+		this.selectedArticleInListView = forumService.findArticleById(selectedArticleInListView.getId());
 	}
 
 	@GlobalCommand
 	public void cancelArticle() {
-		if(executionOfTask.cancel(false)){
+		if (executionOfTask.cancel(false)) {
 			BindUtils.postGlobalCommand(null, null, "hideMemo", null);
 			logger.info("Article was cancelled.");
 		}
@@ -264,8 +269,8 @@ public class ArticleVM {
 		tagsModel.add(tag);
 		tagsModel.addToSelection(tag);
 	}
-	
-	private ListModelList<Tag> createTagsModel(){
+
+	private ListModelList<Tag> createTagsModel() {
 		ListModelList<Tag> tagsModel = new ListModelList<Tag>(forumService.getAllTag());
 		tagsModel.setMultiple(true);
 		return tagsModel;

@@ -7,20 +7,24 @@ import org.slf4j.LoggerFactory;
 
 public class LogAdvice {
 
-	private final static Logger logger = LoggerFactory.getLogger(LogAdvice.class);
+	private final Logger logger = LoggerFactory.getLogger(LogAdvice.class);
 
 	public Object logAroundExecute(ProceedingJoinPoint pjp) throws Throwable {
-		logger.debug("{}.{}(start)", pjp.getTarget().getClass(), pjp.getSignature().getName());
+		if (logger.isDebugEnabled()) {
+			logger.debug("{}.{}(start)", pjp.getTarget().getClass(), pjp.getSignature().getName());
+		}
 		Object obj = pjp.proceed();
 		return obj;
 	}
 
 	public void logAfterExecute(JoinPoint joinPoint, Object reVal) {
-		logger.info("{}.{}(end)", joinPoint.getTarget().getClass(), joinPoint.getSignature().getName());
+		if (logger.isDebugEnabled()) {
+			logger.debug("{}.{}(end)", joinPoint.getTarget().getClass(), joinPoint.getSignature().getName());
+		}
 	}
 
 	public void logAfterThrowingException(JoinPoint joinPoint, Exception exception) {
-		logger.info("{}.{}(Exception: {})", joinPoint.getTarget().getClass(), joinPoint.getSignature().getName(),
+		logger.error("{}.{}(Exception: {})", joinPoint.getTarget().getClass(), joinPoint.getSignature().getName(),
 				exception);
 	}
 

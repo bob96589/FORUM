@@ -162,7 +162,8 @@ public class Article {
 
 	@Override
 	public String toString() {
-		return "Article [id=" + id + ", pid=" + pid + ", userId=" + userId + ", title=" + title + ", content=" + content + ", createTime=" + createTime + ", status=" + status + "]";
+		return "Article [id=" + id + ", pid=" + pid + ", userId=" + userId + ", title=" + title + ", content=" + content
+				+ ", createTime=" + createTime + ", status=" + status + ", tags=" + tags + ", user=" + user + "]";
 	}
 
 	public String getTagStr() {

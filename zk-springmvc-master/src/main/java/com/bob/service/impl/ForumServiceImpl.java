@@ -6,6 +6,8 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,9 +18,12 @@ import com.bob.model.Article;
 import com.bob.model.Tag;
 import com.bob.model.User;
 import com.bob.service.ForumService;
+import com.bob.vm.ArticleVM;
 
 @Service
 public class ForumServiceImpl implements ForumService {
+	
+	private final Logger logger = LoggerFactory.getLogger(ArticleVM.class);
 
 	@Autowired
 	UserDao userDao;
@@ -64,6 +69,7 @@ public class ForumServiceImpl implements ForumService {
 		}
 		article.setTags(tags);
 		articleDao.saveOrUpdate(article);
+		logger.debug("Article: {}", article);
 	}
 
 	@Override
@@ -75,6 +81,7 @@ public class ForumServiceImpl implements ForumService {
 			Article temp = list.poll();
 			temp.setStatus(1);
 			articleDao.saveOrUpdate(temp);
+			logger.debug("Delete article: {}", temp);
 			list.addAll(temp.getChildren());
 		}
 	}
@@ -86,7 +93,9 @@ public class ForumServiceImpl implements ForumService {
 
 	@Override
 	public List<Tag> getAllTag() {
-		return tagDao.getAll();
+		List<Tag> tags = tagDao.getAll();
+		logger.debug("Tags: {}", tags);
+		return tags;
 	}
 
 }
