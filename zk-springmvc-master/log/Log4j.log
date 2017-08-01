@@ -1,159 +1,484 @@
-[2017/07/31 18:13:50][INFO][][][org.springframework.web.context.ContextLoader line.305][initWebApplicationContext] Root WebApplicationContext: initialization started
-[2017/07/31 18:13:50][INFO][][][org.springframework.context.support.AbstractApplicationContext line.578][prepareRefresh] Refreshing Root WebApplicationContext: startup date [Mon Jul 31 18:13:50 CST 2017]; root of context hierarchy
-[2017/07/31 18:13:50][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
-[2017/07/31 18:13:50][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/sqlStatement.xml]
-[2017/07/31 18:13:51][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/database.xml]
-[2017/07/31 18:13:51][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/security.xml]
-[2017/07/31 18:13:51][INFO][][][org.springframework.security.core.SpringSecurityCoreVersion line.33][<clinit>] You are running with Spring Security Core 3.1.6.RELEASE
-[2017/07/31 18:13:51][ERROR][][][org.springframework.security.core.SpringSecurityCoreVersion line.35][<clinit>] *** Spring Major version '3' expected, but you are running with version: 4.2.6.RELEASE. Please check your classpath for unwanted jar files.
-[2017/07/31 18:13:51][INFO][][][org.springframework.security.config.SecurityNamespaceHandler line.59][<init>] Spring Security 'config' module version is 3.1.6.RELEASE
-[2017/07/31 18:13:51][INFO][][][org.springframework.security.config.http.HttpSecurityBeanDefinitionParser line.264][checkFilterChainOrder] Checking sorted filter chain: [Root bean: class [org.springframework.security.web.context.SecurityContextPersistenceFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 200, Root bean: class [org.springframework.security.web.authentication.logout.LogoutFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 400, <org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter#0>, order = 800, Root bean: class [org.springframework.security.web.authentication.www.BasicAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1200, Root bean: class [org.springframework.security.web.savedrequest.RequestCacheAwareFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1300, Root bean: class [org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1400, Root bean: class [org.springframework.security.web.authentication.AnonymousAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1700, Root bean: class [org.springframework.security.web.session.SessionManagementFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1800, Root bean: class [org.springframework.security.web.access.ExceptionTranslationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1900, <org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0>, order = 2000]
-[2017/07/31 18:13:51][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/logger.xml]
-[2017/07/31 18:13:52][INFO][][][org.hibernate.annotations.common.Version line.37][<clinit>] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
-[2017/07/31 18:13:52][INFO][][][org.hibernate.Version line.41][logVersion] HHH000412: Hibernate Core {4.1.0.Final}
-[2017/07/31 18:13:52][INFO][][][org.hibernate.cfg.Environment line.239][<clinit>] HHH000206: hibernate.properties not found
-[2017/07/31 18:13:52][INFO][][][org.hibernate.cfg.Environment line.342][buildBytecodeProvider] HHH000021: Bytecode provider name : javassist
-[2017/07/31 18:13:52][INFO][][][org.hibernate.dialect.Dialect line.122][<init>] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
-[2017/07/31 18:13:52][INFO][][][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator line.68][initiateService] HHH000399: Using default transaction strategy (direct JDBC transactions)
-[2017/07/31 18:13:52][INFO][][][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory line.48][<init>] HHH000397: Using ASTQueryTranslatorFactory
-[2017/07/31 18:13:53][INFO][][][org.springframework.orm.hibernate4.HibernateTransactionManager line.360][afterPropertiesSet] Using DataSource [org.apache.commons.dbcp.BasicDataSource@2f3166a] of Hibernate SessionFactory for HibernateTransactionManager
-[2017/07/31 18:13:53][INFO][][][org.springframework.security.web.DefaultSecurityFilterChain line.28][<init>] Creating filter chain: Ant [pattern='/login.zul'], []
-[2017/07/31 18:13:54][INFO][][][org.springframework.security.web.DefaultSecurityFilterChain line.28][<init>] Creating filter chain: org.springframework.security.web.util.AnyRequestMatcher@1, [org.springframework.security.web.context.SecurityContextPersistenceFilter@2f382a5e, org.springframework.security.web.authentication.logout.LogoutFilter@12b5736c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@539a138b, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2cd4e16a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@42505474, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7b477141, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@784223e9, org.springframework.security.web.session.SessionManagementFilter@7316523a, org.springframework.security.web.access.ExceptionTranslationFilter@33a55bd8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@73a8e994]
-[2017/07/31 18:13:54][INFO][][][org.springframework.security.config.http.DefaultFilterChainValidator line.122][checkLoginPageIsntProtected] Checking whether login URL '/login.zul' is accessible with your configuration
-[2017/07/31 18:13:54][INFO][][][org.springframework.web.context.ContextLoader line.345][initWebApplicationContext] Root WebApplicationContext: initialization completed in 3756 ms
-[2017/07/31 18:13:54][INFO][][][org.zkoss.zk.ui.http.WebManager line.117][<init>] Starting ZK 8.0.5 EE (build: 2017051613)
-[2017/07/31 18:13:54][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.168][parseConfigXml] Loading system default
-[2017/07/31 18:13:54][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing jar:file:/C:/Users/Bob/.m2/repository/org/zkoss/zk/zul/8.0.5-Eval/zul-8.0.5-Eval.jar!/metainfo/zk/zk.xml
-[2017/07/31 18:13:54][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing jar:file:/C:/Users/Bob/.m2/repository/org/zkoss/zk/zkex/8.0.5-Eval/zkex-8.0.5-Eval.jar!/metainfo/zk/zk.xml
-[2017/07/31 18:13:54][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing jar:file:/C:/Users/Bob/.m2/repository/org/zkoss/zk/zkmax/8.0.5-Eval/zkmax-8.0.5-Eval.jar!/metainfo/zk/zk.xml
-[2017/07/31 18:13:54][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing file:/C:/project/ZK_FORUM/ZK_FORUM_GIT/zk-springmvc-master/src/main/webapp/WEB-INF/zk.xml
-[2017/07/31 18:13:54][ERROR][][][org.zkoss.zkex.init.WebAppInit line.?][init] This is an evaluation copy of ZK EE and will terminate after sixty days from the first date of installation. Should you require an open source license or commercial license for ZK EE please contact us at info@zkoss.org for more information. Alternatively you can download ZK CE which is licensed under the LGPL.
-[2017/07/31 18:14:07][INFO][][][org.zkoss.util.resource.impl.LabelLoaderImpl line.239][loadLabels] Loading labels for zh_TW
-[2017/07/31 18:14:07][INFO][][][org.zkoss.util.resource.impl.LabelLoaderImpl line.239][loadLabels] Loading labels for zh
-[2017/07/31 18:14:07][INFO][][][org.zkoss.util.resource.impl.LabelLoaderImpl line.414][load] Opening file:/C:/project/ZK_FORUM/ZK_FORUM_GIT/zk-springmvc-master/src/main/webapp/WEB-INF/i3-label_zh.properties
-[2017/07/31 18:14:07][ERROR][][][org.zkoss.zkex.rt.Runtime line.?][error] This is an evaluation copy of ZK EE and the default limit for concurrent users is 5. If you require an extended evaluation copy or a commercial license, please contact us at info@zkoss.org.
+[2017/08/01 09:13:04][INFO][][][org.springframework.web.context.ContextLoader line.305][initWebApplicationContext] Root WebApplicationContext: initialization started
+[2017/08/01 09:13:05][INFO][][][org.springframework.context.support.AbstractApplicationContext line.578][prepareRefresh] Refreshing Root WebApplicationContext: startup date [Tue Aug 01 09:13:05 CST 2017]; root of context hierarchy
+[2017/08/01 09:13:05][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+[2017/08/01 09:13:05][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/sqlStatement.xml]
+[2017/08/01 09:13:05][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/database.xml]
+[2017/08/01 09:13:05][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/security.xml]
+[2017/08/01 09:13:05][INFO][][][org.springframework.security.core.SpringSecurityCoreVersion line.33][<clinit>] You are running with Spring Security Core 3.1.6.RELEASE
+[2017/08/01 09:13:05][ERROR][][][org.springframework.security.core.SpringSecurityCoreVersion line.35][<clinit>] *** Spring Major version '3' expected, but you are running with version: 4.2.6.RELEASE. Please check your classpath for unwanted jar files.
+[2017/08/01 09:13:05][INFO][][][org.springframework.security.config.SecurityNamespaceHandler line.59][<init>] Spring Security 'config' module version is 3.1.6.RELEASE
+[2017/08/01 09:13:05][INFO][][][org.springframework.security.config.http.HttpSecurityBeanDefinitionParser line.264][checkFilterChainOrder] Checking sorted filter chain: [Root bean: class [org.springframework.security.web.context.SecurityContextPersistenceFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 200, Root bean: class [org.springframework.security.web.authentication.logout.LogoutFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 400, <org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter#0>, order = 800, Root bean: class [org.springframework.security.web.authentication.www.BasicAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1200, Root bean: class [org.springframework.security.web.savedrequest.RequestCacheAwareFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1300, Root bean: class [org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1400, Root bean: class [org.springframework.security.web.authentication.AnonymousAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1700, Root bean: class [org.springframework.security.web.session.SessionManagementFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1800, Root bean: class [org.springframework.security.web.access.ExceptionTranslationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1900, <org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0>, order = 2000]
+[2017/08/01 09:13:05][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/logger.xml]
+[2017/08/01 09:13:06][INFO][][][org.hibernate.annotations.common.Version line.37][<clinit>] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+[2017/08/01 09:13:06][INFO][][][org.hibernate.Version line.41][logVersion] HHH000412: Hibernate Core {4.1.0.Final}
+[2017/08/01 09:13:06][INFO][][][org.hibernate.cfg.Environment line.239][<clinit>] HHH000206: hibernate.properties not found
+[2017/08/01 09:13:06][INFO][][][org.hibernate.cfg.Environment line.342][buildBytecodeProvider] HHH000021: Bytecode provider name : javassist
+[2017/08/01 09:13:07][INFO][][][org.hibernate.dialect.Dialect line.122][<init>] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+[2017/08/01 09:13:07][INFO][][][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator line.68][initiateService] HHH000399: Using default transaction strategy (direct JDBC transactions)
+[2017/08/01 09:13:07][INFO][][][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory line.48][<init>] HHH000397: Using ASTQueryTranslatorFactory
+[2017/08/01 09:13:08][INFO][][][org.springframework.orm.hibernate4.HibernateTransactionManager line.360][afterPropertiesSet] Using DataSource [org.apache.commons.dbcp.BasicDataSource@2f3166a] of Hibernate SessionFactory for HibernateTransactionManager
+[2017/08/01 09:13:08][INFO][][][org.springframework.security.web.DefaultSecurityFilterChain line.28][<init>] Creating filter chain: Ant [pattern='/login.zul'], []
+[2017/08/01 09:13:08][INFO][][][org.springframework.security.web.DefaultSecurityFilterChain line.28][<init>] Creating filter chain: org.springframework.security.web.util.AnyRequestMatcher@1, [org.springframework.security.web.context.SecurityContextPersistenceFilter@36c2d629, org.springframework.security.web.authentication.logout.LogoutFilter@55fee662, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@54089484, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@45adc393, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@65fe2691, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@479111ba, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@57ad1178, org.springframework.security.web.session.SessionManagementFilter@7c37f145, org.springframework.security.web.access.ExceptionTranslationFilter@68699afc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@273a5a8a]
+[2017/08/01 09:13:08][INFO][][][org.springframework.security.config.http.DefaultFilterChainValidator line.122][checkLoginPageIsntProtected] Checking whether login URL '/login.zul' is accessible with your configuration
+[2017/08/01 09:13:08][INFO][][][org.springframework.web.context.ContextLoader line.345][initWebApplicationContext] Root WebApplicationContext: initialization completed in 3914 ms
+[2017/08/01 09:13:08][INFO][][][org.zkoss.zk.ui.http.WebManager line.117][<init>] Starting ZK 8.0.5 EE (build: 2017051613)
+[2017/08/01 09:13:08][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.168][parseConfigXml] Loading system default
+[2017/08/01 09:13:08][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing jar:file:/C:/Users/Bob/.m2/repository/org/zkoss/zk/zul/8.0.5-Eval/zul-8.0.5-Eval.jar!/metainfo/zk/zk.xml
+[2017/08/01 09:13:09][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing jar:file:/C:/Users/Bob/.m2/repository/org/zkoss/zk/zkex/8.0.5-Eval/zkex-8.0.5-Eval.jar!/metainfo/zk/zk.xml
+[2017/08/01 09:13:09][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing jar:file:/C:/Users/Bob/.m2/repository/org/zkoss/zk/zkmax/8.0.5-Eval/zkmax-8.0.5-Eval.jar!/metainfo/zk/zk.xml
+[2017/08/01 09:13:09][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing file:/C:/project/ZK_FORUM/ZK_FORUM_GIT/zk-springmvc-master/src/main/webapp/WEB-INF/zk.xml
+[2017/08/01 09:13:09][ERROR][][][org.zkoss.zkex.init.WebAppInit line.?][init] This is an evaluation copy of ZK EE and will terminate after sixty days from the first date of installation. Should you require an open source license or commercial license for ZK EE please contact us at info@zkoss.org for more information. Alternatively you can download ZK CE which is licensed under the LGPL.
+[2017/08/01 09:13:15][INFO][][][org.zkoss.util.resource.impl.LabelLoaderImpl line.239][loadLabels] Loading labels for zh_TW
+[2017/08/01 09:13:15][INFO][][][org.zkoss.util.resource.impl.LabelLoaderImpl line.239][loadLabels] Loading labels for zh
+[2017/08/01 09:13:15][INFO][][][org.zkoss.util.resource.impl.LabelLoaderImpl line.414][load] Opening file:/C:/project/ZK_FORUM/ZK_FORUM_GIT/zk-springmvc-master/src/main/webapp/WEB-INF/i3-label_zh.properties
+[2017/08/01 09:13:17][INFO][1fhwk7gd7gjok1wjh64qghyisd][][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.findUserByAccount(finish)
+[2017/08/01 09:13:17][INFO][brzcc5qmojpu7umn442mkgtq][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(finish)
+[2017/08/01 09:13:17][INFO][brzcc5qmojpu7umn442mkgtq][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(finish)
+[2017/08/01 09:13:17][INFO][brzcc5qmojpu7umn442mkgtq][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(finish)
+[2017/08/01 09:13:18][INFO][brzcc5qmojpu7umn442mkgtq][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(finish)
+[2017/08/01 09:13:19][INFO][brzcc5qmojpu7umn442mkgtq][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(finish)
+[2017/08/01 09:13:19][INFO][brzcc5qmojpu7umn442mkgtq][bob][com.bob.vm.ArticleVM line.164][initSetup] Subscribe event from APPLICATION_POSTING_QUEUE.
+[2017/08/01 09:13:21][INFO][brzcc5qmojpu7umn442mkgtq][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getAllTag(finish)
+[2017/08/01 09:13:35][INFO][h3mj0df7azfp17j9iovzita6v][][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.findUserByAccount(finish)
+[2017/08/01 09:13:35][INFO][16tsbp4mbaxdda1hxylllq4u][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(finish)
+[2017/08/01 09:13:35][INFO][16tsbp4mbaxdda1hxylllq4u][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(finish)
+[2017/08/01 09:13:35][INFO][16tsbp4mbaxdda1hxylllq4u][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(finish)
+[2017/08/01 09:13:35][INFO][16tsbp4mbaxdda1hxylllq4u][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(finish)
+[2017/08/01 09:13:36][INFO][16tsbp4mbaxdda1hxylllq4u][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(finish)
+[2017/08/01 09:13:36][INFO][16tsbp4mbaxdda1hxylllq4u][bob][com.bob.vm.ArticleVM line.164][initSetup] Subscribe event from APPLICATION_POSTING_QUEUE.
+[2017/08/01 09:13:41][INFO][9ht182icen36eo39gvsvq7uc][][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.findUserByAccount(finish)
+[2017/08/01 09:13:47][INFO][9ht182icen36eo39gvsvq7uc][][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.findUserByAccount(finish)
+[2017/08/01 09:13:47][INFO][1i0x37ewk0tcp1x0g0d1t7t7vr][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(finish)
+[2017/08/01 09:13:47][INFO][1i0x37ewk0tcp1x0g0d1t7t7vr][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(finish)
+[2017/08/01 09:13:47][INFO][1i0x37ewk0tcp1x0g0d1t7t7vr][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(finish)
+[2017/08/01 09:13:47][INFO][1i0x37ewk0tcp1x0g0d1t7t7vr][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(finish)
+[2017/08/01 09:13:48][INFO][1i0x37ewk0tcp1x0g0d1t7t7vr][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(finish)
+[2017/08/01 09:13:48][INFO][1i0x37ewk0tcp1x0g0d1t7t7vr][andy][com.bob.vm.ArticleVM line.164][initSetup] Subscribe event from APPLICATION_POSTING_QUEUE.
+[2017/08/01 09:13:50][INFO][1i0x37ewk0tcp1x0g0d1t7t7vr][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getAllTag(finish)
+[2017/08/01 09:13:53][INFO][brzcc5qmojpu7umn442mkgtq][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
+[2017/08/01 09:13:56][INFO][brzcc5qmojpu7umn442mkgtq][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle(finish)
+[2017/08/01 09:13:56][INFO][brzcc5qmojpu7umn442mkgtq][bob][com.bob.vm.ArticleVM$2 line.191][run] Processing article(action: add) succeeds.
+[2017/08/01 09:13:56][INFO][brzcc5qmojpu7umn442mkgtq][bob][com.bob.vm.ArticleVM$2 line.193][run] Publish event to APPLICATION_POSTING_QUEUE.
+[2017/08/01 09:13:56][INFO][1i0x37ewk0tcp1x0g0d1t7t7vr][andy][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:13:56][INFO][brzcc5qmojpu7umn442mkgtq][bob][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:13:56][INFO][brzcc5qmojpu7umn442mkgtq][bob][com.bob.vm.ArticleVM$1 line.159][onEvent] Trigger global command: hideMemo.
+[2017/08/01 09:13:56][INFO][1i0x37ewk0tcp1x0g0d1t7t7vr][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(finish)
+[2017/08/01 09:13:56][INFO][1i0x37ewk0tcp1x0g0d1t7t7vr][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(finish)
+[2017/08/01 09:13:56][INFO][1i0x37ewk0tcp1x0g0d1t7t7vr][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(finish)
+[2017/08/01 09:13:56][INFO][brzcc5qmojpu7umn442mkgtq][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(finish)
+[2017/08/01 09:13:56][INFO][brzcc5qmojpu7umn442mkgtq][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(finish)
+[2017/08/01 09:13:56][INFO][brzcc5qmojpu7umn442mkgtq][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(finish)
+[2017/08/01 09:13:56][INFO][1i0x37ewk0tcp1x0g0d1t7t7vr][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(finish)
+[2017/08/01 09:13:57][INFO][brzcc5qmojpu7umn442mkgtq][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(finish)
+[2017/08/01 09:13:57][INFO][1i0x37ewk0tcp1x0g0d1t7t7vr][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(finish)
+[2017/08/01 09:13:57][INFO][brzcc5qmojpu7umn442mkgtq][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(finish)
+[2017/08/01 09:14:11][INFO][1i0x37ewk0tcp1x0g0d1t7t7vr][][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.findUserByAccount(finish)
+[2017/08/01 09:14:11][INFO][js6dg9hhutjohtu2fnyu98ne][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(finish)
+[2017/08/01 09:14:11][INFO][js6dg9hhutjohtu2fnyu98ne][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(finish)
+[2017/08/01 09:14:11][INFO][js6dg9hhutjohtu2fnyu98ne][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(finish)
+[2017/08/01 09:14:11][INFO][js6dg9hhutjohtu2fnyu98ne][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(finish)
+[2017/08/01 09:14:12][INFO][js6dg9hhutjohtu2fnyu98ne][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(finish)
+[2017/08/01 09:14:12][INFO][js6dg9hhutjohtu2fnyu98ne][bob][com.bob.vm.ArticleVM line.164][initSetup] Subscribe event from APPLICATION_POSTING_QUEUE.
+[2017/08/01 09:14:17][INFO][1i0x37ewk0tcp1x0g0d1t7t7vr][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.findUserByAccount(finish)
+[2017/08/01 09:14:17][INFO][1ogu7hqfumx19g6v9mpa3qcr7][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(finish)
+[2017/08/01 09:14:17][INFO][1ogu7hqfumx19g6v9mpa3qcr7][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(finish)
+[2017/08/01 09:14:17][INFO][1ogu7hqfumx19g6v9mpa3qcr7][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(finish)
+[2017/08/01 09:14:18][INFO][1ogu7hqfumx19g6v9mpa3qcr7][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(finish)
+[2017/08/01 09:14:18][INFO][1ogu7hqfumx19g6v9mpa3qcr7][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(finish)
+[2017/08/01 09:14:18][INFO][1ogu7hqfumx19g6v9mpa3qcr7][andy][com.bob.vm.ArticleVM line.164][initSetup] Subscribe event from APPLICATION_POSTING_QUEUE.
+[2017/08/01 09:14:21][INFO][js6dg9hhutjohtu2fnyu98ne][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getAllTag(finish)
+[2017/08/01 09:14:23][INFO][js6dg9hhutjohtu2fnyu98ne][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
+[2017/08/01 09:14:26][INFO][brzcc5qmojpu7umn442mkgtq][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle(finish)
+[2017/08/01 09:14:26][INFO][brzcc5qmojpu7umn442mkgtq][bob][com.bob.vm.ArticleVM$2 line.191][run] Processing article(action: add) succeeds.
+[2017/08/01 09:14:26][INFO][brzcc5qmojpu7umn442mkgtq][bob][com.bob.vm.ArticleVM$2 line.193][run] Publish event to APPLICATION_POSTING_QUEUE.
+[2017/08/01 09:14:26][INFO][js6dg9hhutjohtu2fnyu98ne][bob][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:14:26][INFO][js6dg9hhutjohtu2fnyu98ne][bob][com.bob.vm.ArticleVM$1 line.159][onEvent] Trigger global command: hideMemo.
+[2017/08/01 09:14:26][INFO][1ogu7hqfumx19g6v9mpa3qcr7][andy][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:14:26][INFO][js6dg9hhutjohtu2fnyu98ne][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(finish)
+[2017/08/01 09:14:26][INFO][1ogu7hqfumx19g6v9mpa3qcr7][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(finish)
+[2017/08/01 09:14:26][INFO][js6dg9hhutjohtu2fnyu98ne][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(finish)
+[2017/08/01 09:14:26][INFO][1ogu7hqfumx19g6v9mpa3qcr7][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(finish)
+[2017/08/01 09:14:26][INFO][1ogu7hqfumx19g6v9mpa3qcr7][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(finish)
+[2017/08/01 09:14:26][INFO][js6dg9hhutjohtu2fnyu98ne][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(finish)
+[2017/08/01 09:14:26][INFO][1ogu7hqfumx19g6v9mpa3qcr7][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(finish)
+[2017/08/01 09:14:26][INFO][js6dg9hhutjohtu2fnyu98ne][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(finish)
+[2017/08/01 09:14:27][INFO][js6dg9hhutjohtu2fnyu98ne][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(finish)
+[2017/08/01 09:14:27][INFO][1ogu7hqfumx19g6v9mpa3qcr7][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(finish)
+[2017/08/01 09:14:38][INFO][][][org.springframework.web.context.ContextLoader line.305][initWebApplicationContext] Root WebApplicationContext: initialization started
+[2017/08/01 09:14:38][INFO][][][org.springframework.context.support.AbstractApplicationContext line.578][prepareRefresh] Refreshing Root WebApplicationContext: startup date [Tue Aug 01 09:14:38 CST 2017]; root of context hierarchy
+[2017/08/01 09:14:38][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+[2017/08/01 09:14:38][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/sqlStatement.xml]
+[2017/08/01 09:14:38][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/database.xml]
+[2017/08/01 09:14:38][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/security.xml]
+[2017/08/01 09:14:38][INFO][][][org.springframework.security.core.SpringSecurityCoreVersion line.33][<clinit>] You are running with Spring Security Core 3.1.6.RELEASE
+[2017/08/01 09:14:38][ERROR][][][org.springframework.security.core.SpringSecurityCoreVersion line.35][<clinit>] *** Spring Major version '3' expected, but you are running with version: 4.2.6.RELEASE. Please check your classpath for unwanted jar files.
+[2017/08/01 09:14:38][INFO][][][org.springframework.security.config.SecurityNamespaceHandler line.59][<init>] Spring Security 'config' module version is 3.1.6.RELEASE
+[2017/08/01 09:14:38][INFO][][][org.springframework.security.config.http.HttpSecurityBeanDefinitionParser line.264][checkFilterChainOrder] Checking sorted filter chain: [Root bean: class [org.springframework.security.web.context.SecurityContextPersistenceFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 200, Root bean: class [org.springframework.security.web.authentication.logout.LogoutFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 400, <org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter#0>, order = 800, Root bean: class [org.springframework.security.web.authentication.www.BasicAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1200, Root bean: class [org.springframework.security.web.savedrequest.RequestCacheAwareFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1300, Root bean: class [org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1400, Root bean: class [org.springframework.security.web.authentication.AnonymousAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1700, Root bean: class [org.springframework.security.web.session.SessionManagementFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1800, Root bean: class [org.springframework.security.web.access.ExceptionTranslationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1900, <org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0>, order = 2000]
+[2017/08/01 09:14:38][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/logger.xml]
+[2017/08/01 09:14:39][INFO][][][org.hibernate.annotations.common.Version line.37][<clinit>] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+[2017/08/01 09:14:39][INFO][][][org.hibernate.Version line.41][logVersion] HHH000412: Hibernate Core {4.1.0.Final}
+[2017/08/01 09:14:39][INFO][][][org.hibernate.cfg.Environment line.239][<clinit>] HHH000206: hibernate.properties not found
+[2017/08/01 09:14:39][INFO][][][org.hibernate.cfg.Environment line.342][buildBytecodeProvider] HHH000021: Bytecode provider name : javassist
+[2017/08/01 09:14:40][INFO][][][org.hibernate.dialect.Dialect line.122][<init>] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+[2017/08/01 09:14:40][INFO][][][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator line.68][initiateService] HHH000399: Using default transaction strategy (direct JDBC transactions)
+[2017/08/01 09:14:40][INFO][][][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory line.48][<init>] HHH000397: Using ASTQueryTranslatorFactory
+[2017/08/01 09:14:41][INFO][][][org.springframework.orm.hibernate4.HibernateTransactionManager line.360][afterPropertiesSet] Using DataSource [org.apache.commons.dbcp.BasicDataSource@310aee0b] of Hibernate SessionFactory for HibernateTransactionManager
+[2017/08/01 09:14:41][INFO][][][org.springframework.security.web.DefaultSecurityFilterChain line.28][<init>] Creating filter chain: Ant [pattern='/login.zul'], []
+[2017/08/01 09:14:41][INFO][][][org.springframework.security.web.DefaultSecurityFilterChain line.28][<init>] Creating filter chain: org.springframework.security.web.util.AnyRequestMatcher@1, [org.springframework.security.web.context.SecurityContextPersistenceFilter@493b01ef, org.springframework.security.web.authentication.logout.LogoutFilter@36c2d629, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@55fee662, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@54089484, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@45adc393, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@65fe2691, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@479111ba, org.springframework.security.web.session.SessionManagementFilter@57ad1178, org.springframework.security.web.access.ExceptionTranslationFilter@7c37f145, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@68699afc]
+[2017/08/01 09:14:41][INFO][][][org.springframework.security.config.http.DefaultFilterChainValidator line.122][checkLoginPageIsntProtected] Checking whether login URL '/login.zul' is accessible with your configuration
+[2017/08/01 09:14:41][INFO][][][org.springframework.web.context.ContextLoader line.345][initWebApplicationContext] Root WebApplicationContext: initialization completed in 3763 ms
+[2017/08/01 09:14:41][INFO][][][org.zkoss.zk.ui.http.WebManager line.117][<init>] Starting ZK 8.0.5 EE (build: 2017051613)
+[2017/08/01 09:14:41][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.168][parseConfigXml] Loading system default
+[2017/08/01 09:14:41][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing jar:file:/C:/Users/Bob/.m2/repository/org/zkoss/zk/zul/8.0.5-Eval/zul-8.0.5-Eval.jar!/metainfo/zk/zk.xml
+[2017/08/01 09:14:41][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing jar:file:/C:/Users/Bob/.m2/repository/org/zkoss/zk/zkex/8.0.5-Eval/zkex-8.0.5-Eval.jar!/metainfo/zk/zk.xml
+[2017/08/01 09:14:41][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing jar:file:/C:/Users/Bob/.m2/repository/org/zkoss/zk/zkmax/8.0.5-Eval/zkmax-8.0.5-Eval.jar!/metainfo/zk/zk.xml
+[2017/08/01 09:14:41][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing file:/C:/project/ZK_FORUM/ZK_FORUM_GIT/zk-springmvc-master/src/main/webapp/WEB-INF/zk.xml
+[2017/08/01 09:14:42][ERROR][][][org.zkoss.zkex.init.WebAppInit line.?][init] This is an evaluation copy of ZK EE and will terminate after sixty days from the first date of installation. Should you require an open source license or commercial license for ZK EE please contact us at info@zkoss.org for more information. Alternatively you can download ZK CE which is licensed under the LGPL.
+[2017/08/01 09:14:46][INFO][][][org.zkoss.util.resource.impl.LabelLoaderImpl line.239][loadLabels] Loading labels for zh_TW
+[2017/08/01 09:14:46][INFO][][][org.zkoss.util.resource.impl.LabelLoaderImpl line.239][loadLabels] Loading labels for zh
+[2017/08/01 09:14:46][INFO][][][org.zkoss.util.resource.impl.LabelLoaderImpl line.414][load] Opening file:/C:/project/ZK_FORUM/ZK_FORUM_GIT/zk-springmvc-master/src/main/webapp/WEB-INF/i3-label_zh.properties
+[2017/08/01 09:14:52][INFO][gj6e836t144gcd9al5a7cj1r][][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.findUserByAccount(finish)
+[2017/08/01 09:14:53][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(finish)
+[2017/08/01 09:14:53][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(finish)
+[2017/08/01 09:14:53][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(finish)
+[2017/08/01 09:14:53][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(finish)
+[2017/08/01 09:14:54][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(finish)
+[2017/08/01 09:14:54][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.vm.ArticleVM line.164][initSetup] Subscribe event from APPLICATION_POSTING_QUEUE.
+[2017/08/01 09:14:57][INFO][82us8dweh45o5wefi4eebm09][][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.findUserByAccount(finish)
+[2017/08/01 09:14:57][INFO][frer2tnst6n716umk47suxs6z][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(finish)
+[2017/08/01 09:14:57][INFO][frer2tnst6n716umk47suxs6z][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(finish)
+[2017/08/01 09:14:57][INFO][frer2tnst6n716umk47suxs6z][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(finish)
+[2017/08/01 09:14:57][INFO][frer2tnst6n716umk47suxs6z][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(finish)
+[2017/08/01 09:14:58][INFO][frer2tnst6n716umk47suxs6z][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(finish)
+[2017/08/01 09:14:58][INFO][frer2tnst6n716umk47suxs6z][andy][com.bob.vm.ArticleVM line.164][initSetup] Subscribe event from APPLICATION_POSTING_QUEUE.
+[2017/08/01 09:15:01][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getAllTag(finish)
+[2017/08/01 09:15:10][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
+[2017/08/01 09:15:14][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle(finish)
+[2017/08/01 09:15:14][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.vm.ArticleVM$2 line.191][run] Processing article(action: add) succeeds.
+[2017/08/01 09:15:14][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.vm.ArticleVM$2 line.193][run] Publish event to APPLICATION_POSTING_QUEUE.
+[2017/08/01 09:15:14][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:15:14][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.vm.ArticleVM$1 line.159][onEvent] Trigger global command: hideMemo.
+[2017/08/01 09:15:14][INFO][frer2tnst6n716umk47suxs6z][andy][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:15:14][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(finish)
+[2017/08/01 09:15:14][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(finish)
+[2017/08/01 09:15:14][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(finish)
+[2017/08/01 09:15:14][INFO][frer2tnst6n716umk47suxs6z][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(finish)
+[2017/08/01 09:15:14][INFO][frer2tnst6n716umk47suxs6z][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(finish)
+[2017/08/01 09:15:14][INFO][frer2tnst6n716umk47suxs6z][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(finish)
+[2017/08/01 09:15:14][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(finish)
+[2017/08/01 09:15:14][INFO][frer2tnst6n716umk47suxs6z][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(finish)
+[2017/08/01 09:15:15][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(finish)
+[2017/08/01 09:15:15][INFO][frer2tnst6n716umk47suxs6z][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(finish)
+[2017/08/01 09:16:47][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getAllTag(finish)
+[2017/08/01 09:16:50][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
+[2017/08/01 09:16:53][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle(finish)
+[2017/08/01 09:16:53][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.vm.ArticleVM$2 line.191][run] Processing article(action: add) succeeds.
+[2017/08/01 09:16:53][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.vm.ArticleVM$2 line.193][run] Publish event to APPLICATION_POSTING_QUEUE.
+[2017/08/01 09:16:53][INFO][frer2tnst6n716umk47suxs6z][andy][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:16:53][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:16:53][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.vm.ArticleVM$1 line.159][onEvent] Trigger global command: hideMemo.
+[2017/08/01 09:16:53][INFO][frer2tnst6n716umk47suxs6z][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(finish)
+[2017/08/01 09:16:53][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(finish)
+[2017/08/01 09:16:53][INFO][frer2tnst6n716umk47suxs6z][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(finish)
+[2017/08/01 09:16:53][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(finish)
+[2017/08/01 09:16:53][INFO][frer2tnst6n716umk47suxs6z][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(finish)
+[2017/08/01 09:16:53][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(finish)
+[2017/08/01 09:16:54][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(finish)
+[2017/08/01 09:16:54][INFO][frer2tnst6n716umk47suxs6z][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(finish)
+[2017/08/01 09:16:54][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(finish)
+[2017/08/01 09:16:54][INFO][frer2tnst6n716umk47suxs6z][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(finish)
+[2017/08/01 09:16:58][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.findArticleById(finish)
+[2017/08/01 09:16:59][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getAllTag(finish)
+[2017/08/01 09:17:01][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
+[2017/08/01 09:17:01][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle(finish)
+[2017/08/01 09:17:01][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.vm.ArticleVM line.200][saveOrUpdateArticle] Processing article(action: reply) succeeds.
+[2017/08/01 09:17:01][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(finish)
+[2017/08/01 09:17:01][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(finish)
+[2017/08/01 09:17:01][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(finish)
+[2017/08/01 09:17:02][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(finish)
+[2017/08/01 09:17:02][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(finish)
+[2017/08/01 09:17:02][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.findArticleById(finish)
+[2017/08/01 09:17:04][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.findArticleById(finish)
+[2017/08/01 09:17:04][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getAllTag(finish)
+[2017/08/01 09:17:06][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
+[2017/08/01 09:17:06][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle(finish)
+[2017/08/01 09:17:07][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.vm.ArticleVM line.200][saveOrUpdateArticle] Processing article(action: edit) succeeds.
+[2017/08/01 09:17:07][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(finish)
+[2017/08/01 09:17:07][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(finish)
+[2017/08/01 09:17:07][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(finish)
+[2017/08/01 09:17:07][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(finish)
+[2017/08/01 09:17:08][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(finish)
+[2017/08/01 09:17:08][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.findArticleById(finish)
+[2017/08/01 09:17:24][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getAllTag(finish)
+[2017/08/01 09:17:47][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
+[2017/08/01 09:17:50][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle(finish)
+[2017/08/01 09:17:50][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.vm.ArticleVM$2 line.191][run] Processing article(action: add) succeeds.
+[2017/08/01 09:17:50][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.vm.ArticleVM$2 line.193][run] Publish event to APPLICATION_POSTING_QUEUE.
+[2017/08/01 09:17:50][INFO][frer2tnst6n716umk47suxs6z][andy][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:17:50][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:17:50][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.vm.ArticleVM$1 line.159][onEvent] Trigger global command: hideMemo.
+[2017/08/01 09:17:50][INFO][frer2tnst6n716umk47suxs6z][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(finish)
+[2017/08/01 09:17:50][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(finish)
+[2017/08/01 09:17:50][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(finish)
+[2017/08/01 09:17:50][INFO][frer2tnst6n716umk47suxs6z][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(finish)
+[2017/08/01 09:17:50][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(finish)
+[2017/08/01 09:17:50][INFO][frer2tnst6n716umk47suxs6z][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(finish)
+[2017/08/01 09:17:51][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(finish)
+[2017/08/01 09:17:51][INFO][frer2tnst6n716umk47suxs6z][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(finish)
+[2017/08/01 09:17:51][INFO][frer2tnst6n716umk47suxs6z][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(finish)
+[2017/08/01 09:17:51][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(finish)
+[2017/08/01 09:17:51][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.findArticleById(finish)
+[2017/08/01 09:17:53][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getAllTag(finish)
+[2017/08/01 09:19:28][INFO][aroj9rhhgvjfodbazwwyf55z][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.findUserByAccount(finish)
+[2017/08/01 09:40:12][INFO][][][org.springframework.web.context.ContextLoader line.305][initWebApplicationContext] Root WebApplicationContext: initialization started
+[2017/08/01 09:40:12][INFO][][][org.springframework.context.support.AbstractApplicationContext line.578][prepareRefresh] Refreshing Root WebApplicationContext: startup date [Tue Aug 01 09:40:12 CST 2017]; root of context hierarchy
+[2017/08/01 09:40:12][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+[2017/08/01 09:40:12][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/sqlStatement.xml]
+[2017/08/01 09:40:12][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/database.xml]
+[2017/08/01 09:40:12][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/security.xml]
+[2017/08/01 09:40:12][INFO][][][org.springframework.security.core.SpringSecurityCoreVersion line.33][<clinit>] You are running with Spring Security Core 3.1.6.RELEASE
+[2017/08/01 09:40:12][ERROR][][][org.springframework.security.core.SpringSecurityCoreVersion line.35][<clinit>] *** Spring Major version '3' expected, but you are running with version: 4.2.6.RELEASE. Please check your classpath for unwanted jar files.
+[2017/08/01 09:40:12][INFO][][][org.springframework.security.config.SecurityNamespaceHandler line.59][<init>] Spring Security 'config' module version is 3.1.6.RELEASE
+[2017/08/01 09:40:13][INFO][][][org.springframework.security.config.http.HttpSecurityBeanDefinitionParser line.264][checkFilterChainOrder] Checking sorted filter chain: [Root bean: class [org.springframework.security.web.context.SecurityContextPersistenceFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 200, Root bean: class [org.springframework.security.web.authentication.logout.LogoutFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 400, <org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter#0>, order = 800, Root bean: class [org.springframework.security.web.authentication.www.BasicAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1200, Root bean: class [org.springframework.security.web.savedrequest.RequestCacheAwareFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1300, Root bean: class [org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1400, Root bean: class [org.springframework.security.web.authentication.AnonymousAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1700, Root bean: class [org.springframework.security.web.session.SessionManagementFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1800, Root bean: class [org.springframework.security.web.access.ExceptionTranslationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1900, <org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0>, order = 2000]
+[2017/08/01 09:40:13][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/logger.xml]
+[2017/08/01 09:40:13][INFO][][][org.hibernate.annotations.common.Version line.37][<clinit>] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+[2017/08/01 09:40:13][INFO][][][org.hibernate.Version line.41][logVersion] HHH000412: Hibernate Core {4.1.0.Final}
+[2017/08/01 09:40:13][INFO][][][org.hibernate.cfg.Environment line.239][<clinit>] HHH000206: hibernate.properties not found
+[2017/08/01 09:40:13][INFO][][][org.hibernate.cfg.Environment line.342][buildBytecodeProvider] HHH000021: Bytecode provider name : javassist
+[2017/08/01 09:40:14][INFO][][][org.hibernate.dialect.Dialect line.122][<init>] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+[2017/08/01 09:40:14][INFO][][][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator line.68][initiateService] HHH000399: Using default transaction strategy (direct JDBC transactions)
+[2017/08/01 09:40:14][INFO][][][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory line.48][<init>] HHH000397: Using ASTQueryTranslatorFactory
+[2017/08/01 09:40:15][INFO][][][org.springframework.orm.hibernate4.HibernateTransactionManager line.360][afterPropertiesSet] Using DataSource [org.apache.commons.dbcp.BasicDataSource@2f3166a] of Hibernate SessionFactory for HibernateTransactionManager
+[2017/08/01 09:40:15][INFO][][][org.springframework.security.web.DefaultSecurityFilterChain line.28][<init>] Creating filter chain: Ant [pattern='/login.zul'], []
+[2017/08/01 09:40:16][INFO][][][org.springframework.security.web.DefaultSecurityFilterChain line.28][<init>] Creating filter chain: org.springframework.security.web.util.AnyRequestMatcher@1, [org.springframework.security.web.context.SecurityContextPersistenceFilter@36c2d629, org.springframework.security.web.authentication.logout.LogoutFilter@55fee662, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@54089484, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@45adc393, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@65fe2691, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@479111ba, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@57ad1178, org.springframework.security.web.session.SessionManagementFilter@7c37f145, org.springframework.security.web.access.ExceptionTranslationFilter@68699afc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@273a5a8a]
+[2017/08/01 09:40:16][INFO][][][org.springframework.security.config.http.DefaultFilterChainValidator line.122][checkLoginPageIsntProtected] Checking whether login URL '/login.zul' is accessible with your configuration
+[2017/08/01 09:40:16][INFO][][][org.springframework.web.context.ContextLoader line.345][initWebApplicationContext] Root WebApplicationContext: initialization completed in 3938 ms
+[2017/08/01 09:40:16][INFO][][][org.zkoss.zk.ui.http.WebManager line.117][<init>] Starting ZK 8.0.5 EE (build: 2017051613)
+[2017/08/01 09:40:16][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.168][parseConfigXml] Loading system default
+[2017/08/01 09:40:16][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing jar:file:/C:/Users/Bob/.m2/repository/org/zkoss/zk/zul/8.0.5-Eval/zul-8.0.5-Eval.jar!/metainfo/zk/zk.xml
+[2017/08/01 09:40:16][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing jar:file:/C:/Users/Bob/.m2/repository/org/zkoss/zk/zkex/8.0.5-Eval/zkex-8.0.5-Eval.jar!/metainfo/zk/zk.xml
+[2017/08/01 09:40:16][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing jar:file:/C:/Users/Bob/.m2/repository/org/zkoss/zk/zkmax/8.0.5-Eval/zkmax-8.0.5-Eval.jar!/metainfo/zk/zk.xml
+[2017/08/01 09:40:16][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing file:/C:/project/ZK_FORUM/ZK_FORUM_GIT/zk-springmvc-master/src/main/webapp/WEB-INF/zk.xml
+[2017/08/01 09:40:16][ERROR][][][org.zkoss.zkex.init.WebAppInit line.?][init] This is an evaluation copy of ZK EE and will terminate after sixty days from the first date of installation. Should you require an open source license or commercial license for ZK EE please contact us at info@zkoss.org for more information. Alternatively you can download ZK CE which is licensed under the LGPL.
+[2017/08/01 09:40:35][INFO][][][org.zkoss.util.resource.impl.LabelLoaderImpl line.239][loadLabels] Loading labels for zh_TW
+[2017/08/01 09:40:35][INFO][][][org.zkoss.util.resource.impl.LabelLoaderImpl line.239][loadLabels] Loading labels for zh
+[2017/08/01 09:40:35][INFO][][][org.zkoss.util.resource.impl.LabelLoaderImpl line.414][load] Opening file:/C:/project/ZK_FORUM/ZK_FORUM_GIT/zk-springmvc-master/src/main/webapp/WEB-INF/i3-label_zh.properties
+[2017/08/01 09:40:35][ERROR][][][org.zkoss.zkex.rt.Runtime line.?][error] This is an evaluation copy of ZK EE and the default limit for concurrent users is 5. If you require an extended evaluation copy or a commercial license, please contact us at info@zkoss.org.
 
-[2017/07/31 18:14:10][ERROR][2ggfeufmoj3g10ernypq75u1y][][org.zkoss.zkex.rt.Runtime line.?][error] This is an evaluation copy of ZK EE and the default limit for concurrent users is 5. If you require an extended evaluation copy or a commercial license, please contact us at info@zkoss.org.
+[2017/08/01 09:40:40][ERROR][][][org.zkoss.zkex.rt.Runtime line.?][error] This is an evaluation copy of ZK EE and the default limit for concurrent users is 5. If you require an extended evaluation copy or a commercial license, please contact us at info@zkoss.org.
 
-[2017/07/31 18:14:10][INFO][2ggfeufmoj3g10ernypq75u1y][][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.findUserByAccount
-[2017/07/31 18:14:10][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
-[2017/07/31 18:14:10][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
-[2017/07/31 18:14:10][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
-[2017/07/31 18:14:11][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
-[2017/07/31 18:14:11][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
-[2017/07/31 18:14:11][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM line.164][initSetup] Subscribe event from APPLICATION_POSTING_QUEUE.
-[2017/07/31 18:14:14][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getAllTag
-[2017/07/31 18:14:20][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
-[2017/07/31 18:14:24][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle
-[2017/07/31 18:14:24][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM$2 line.191][run] Processing article(action: add) succeeds.
-[2017/07/31 18:14:24][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM$2 line.193][run] Publish event to APPLICATION_POSTING_QUEUE.
-[2017/07/31 18:14:24][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
-[2017/07/31 18:14:24][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM$1 line.159][onEvent] Trigger global command: hideMemo.
-[2017/07/31 18:14:24][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
-[2017/07/31 18:14:24][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
-[2017/07/31 18:14:24][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
-[2017/07/31 18:14:24][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
-[2017/07/31 18:14:24][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
-[2017/07/31 18:14:27][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getAllTag
-[2017/07/31 18:14:30][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
-[2017/07/31 18:14:32][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM line.252][cancelArticle] Article was cancelled.
-[2017/07/31 18:14:36][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.findArticleById
-[2017/07/31 18:14:40][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.deleteArticle
-[2017/07/31 18:14:40][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.findArticleById
-[2017/07/31 18:14:40][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM line.245][delete] Article was deleted.
-[2017/07/31 18:14:40][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
-[2017/07/31 18:14:40][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
-[2017/07/31 18:14:40][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
-[2017/07/31 18:14:40][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
-[2017/07/31 18:14:40][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
-[2017/07/31 18:17:02][INFO][14ee80sjmlxfv12jedlskpbn2j][][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.findUserByAccount
-[2017/07/31 18:18:31][INFO][14ee80sjmlxfv12jedlskpbn2j][][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.findUserByAccount
-[2017/07/31 18:18:31][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
-[2017/07/31 18:18:31][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
-[2017/07/31 18:18:31][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
-[2017/07/31 18:18:31][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
-[2017/07/31 18:18:32][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
-[2017/07/31 18:18:32][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM line.164][initSetup] Subscribe event from APPLICATION_POSTING_QUEUE.
-[2017/07/31 18:18:37][INFO][1kwacbqh4yn68ucqwwynlx4x][][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.findUserByAccount
-[2017/07/31 18:18:37][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
-[2017/07/31 18:18:37][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
-[2017/07/31 18:18:37][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
-[2017/07/31 18:18:37][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
-[2017/07/31 18:18:37][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
-[2017/07/31 18:18:37][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.vm.ArticleVM line.164][initSetup] Subscribe event from APPLICATION_POSTING_QUEUE.
-[2017/07/31 18:18:39][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getAllTag
-[2017/07/31 18:18:43][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getAllTag
-[2017/07/31 18:18:47][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
-[2017/07/31 18:18:49][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
-[2017/07/31 18:18:50][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle
-[2017/07/31 18:18:50][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM$2 line.191][run] Processing article(action: add) succeeds.
-[2017/07/31 18:18:50][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM$2 line.193][run] Publish event to APPLICATION_POSTING_QUEUE.
-[2017/07/31 18:18:50][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
-[2017/07/31 18:18:50][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
-[2017/07/31 18:18:50][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM$1 line.159][onEvent] Trigger global command: hideMemo.
-[2017/07/31 18:18:50][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
-[2017/07/31 18:18:50][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
-[2017/07/31 18:18:50][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
-[2017/07/31 18:18:50][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
-[2017/07/31 18:18:50][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
-[2017/07/31 18:18:50][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
-[2017/07/31 18:18:51][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
-[2017/07/31 18:18:51][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
-[2017/07/31 18:18:51][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
-[2017/07/31 18:18:51][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
-[2017/07/31 18:18:52][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle
-[2017/07/31 18:18:52][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM$2 line.191][run] Processing article(action: add) succeeds.
-[2017/07/31 18:18:52][INFO][1d3hnrj1b8ij21gtmy41507i6][bob][com.bob.vm.ArticleVM$2 line.193][run] Publish event to APPLICATION_POSTING_QUEUE.
-[2017/07/31 18:18:52][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
-[2017/07/31 18:18:52][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.vm.ArticleVM$1 line.159][onEvent] Trigger global command: hideMemo.
-[2017/07/31 18:18:52][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
-[2017/07/31 18:18:52][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
-[2017/07/31 18:18:52][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
-[2017/07/31 18:18:52][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
-[2017/07/31 18:18:52][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
-[2017/07/31 18:18:52][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
-[2017/07/31 18:18:52][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
-[2017/07/31 18:18:53][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
-[2017/07/31 18:18:53][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
-[2017/07/31 18:18:53][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
-[2017/07/31 18:18:53][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
-[2017/07/31 18:22:26][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getAllTag
-[2017/07/31 18:22:33][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
-[2017/07/31 18:22:36][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle
-[2017/07/31 18:22:36][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM$2 line.191][run] Processing article(action: add) succeeds.
-[2017/07/31 18:22:36][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM$2 line.193][run] Publish event to APPLICATION_POSTING_QUEUE.
-[2017/07/31 18:22:36][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
-[2017/07/31 18:22:36][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM$1 line.159][onEvent] Trigger global command: hideMemo.
-[2017/07/31 18:22:36][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
-[2017/07/31 18:22:36][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
-[2017/07/31 18:22:36][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
-[2017/07/31 18:22:36][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
-[2017/07/31 18:22:36][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
-[2017/07/31 18:22:37][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
-[2017/07/31 18:22:37][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
-[2017/07/31 18:22:37][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
-[2017/07/31 18:22:37][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
-[2017/07/31 18:22:37][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
-[2017/07/31 18:22:37][INFO][1m6bp4q9wb8llpgbjpd4mmkmu][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
-[2017/07/31 18:22:39][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.findArticleById
-[2017/07/31 18:22:41][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.findArticleById
-[2017/07/31 18:22:41][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getAllTag
-[2017/07/31 18:22:48][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
-[2017/07/31 18:22:48][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle
-[2017/07/31 18:22:48][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM line.200][saveOrUpdateArticle] Processing article(action: edit) succeeds.
-[2017/07/31 18:22:48][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
-[2017/07/31 18:22:48][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
-[2017/07/31 18:22:48][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
-[2017/07/31 18:22:49][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
-[2017/07/31 18:22:49][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
-[2017/07/31 18:22:49][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.findArticleById
-[2017/07/31 18:22:50][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getAllTag
-[2017/07/31 18:22:58][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
-[2017/07/31 18:22:58][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle
-[2017/07/31 18:22:58][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.vm.ArticleVM line.200][saveOrUpdateArticle] Processing article(action: reply) succeeds.
-[2017/07/31 18:22:58][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getLatestArticles
-[2017/07/31 18:22:58][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getRepliedArticles
-[2017/07/31 18:22:58][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getMyArticles
-[2017/07/31 18:22:59][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForListView
-[2017/07/31 18:22:59][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView
-[2017/07/31 18:22:59][INFO][j4r6rnqbtb3wfu59gcst9l99][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] End: class com.bob.service.impl.ForumServiceImpl.findArticleById
+[2017/08/01 09:40:41][ERROR][gb58jgb30dgz3b74mftn4zif][][org.zkoss.zkex.rt.Runtime line.?][error] This is an evaluation copy of ZK EE and the default limit for concurrent users is 5. If you require an extended evaluation copy or a commercial license, please contact us at info@zkoss.org.
+
+[2017/08/01 09:40:41][INFO][gb58jgb30dgz3b74mftn4zif][][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.findUserByAccount(end)
+[2017/08/01 09:40:42][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(end)
+[2017/08/01 09:40:42][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(end)
+[2017/08/01 09:40:42][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(end)
+[2017/08/01 09:40:42][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(end)
+[2017/08/01 09:40:43][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(end)
+[2017/08/01 09:40:43][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM line.164][initSetup] Subscribe event from APPLICATION_POSTING_QUEUE.
+[2017/08/01 09:40:52][INFO][v34agredwpwc1jucqam6969zv][][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.findUserByAccount(end)
+[2017/08/01 09:40:52][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(end)
+[2017/08/01 09:40:52][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(end)
+[2017/08/01 09:40:52][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(end)
+[2017/08/01 09:40:52][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(end)
+[2017/08/01 09:40:53][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(end)
+[2017/08/01 09:40:53][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.vm.ArticleVM line.164][initSetup] Subscribe event from APPLICATION_POSTING_QUEUE.
+[2017/08/01 09:40:55][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getAllTag(end)
+[2017/08/01 09:41:04][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
+[2017/08/01 09:41:07][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle(end)
+[2017/08/01 09:41:07][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$2 line.191][run] Processing article(action: add) succeeds.
+[2017/08/01 09:41:07][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$2 line.193][run] Publish event to APPLICATION_POSTING_QUEUE.
+[2017/08/01 09:41:07][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:41:07][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$1 line.159][onEvent] Trigger global command: hideMemo.
+[2017/08/01 09:41:07][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:41:07][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(end)
+[2017/08/01 09:41:07][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(end)
+[2017/08/01 09:41:07][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(end)
+[2017/08/01 09:41:07][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(end)
+[2017/08/01 09:41:07][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(end)
+[2017/08/01 09:41:07][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(end)
+[2017/08/01 09:41:08][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(end)
+[2017/08/01 09:41:08][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(end)
+[2017/08/01 09:41:08][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(end)
+[2017/08/01 09:41:09][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(end)
+[2017/08/01 09:41:11][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getAllTag(end)
+[2017/08/01 09:41:18][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
+[2017/08/01 09:41:21][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle(end)
+[2017/08/01 09:41:21][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$2 line.191][run] Processing article(action: add) succeeds.
+[2017/08/01 09:41:21][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$2 line.193][run] Publish event to APPLICATION_POSTING_QUEUE.
+[2017/08/01 09:41:21][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:41:21][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:41:21][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$1 line.159][onEvent] Trigger global command: hideMemo.
+[2017/08/01 09:41:21][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(end)
+[2017/08/01 09:41:21][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(end)
+[2017/08/01 09:41:21][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(end)
+[2017/08/01 09:41:21][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(end)
+[2017/08/01 09:41:21][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(end)
+[2017/08/01 09:41:21][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(end)
+[2017/08/01 09:41:21][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(end)
+[2017/08/01 09:41:21][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(end)
+[2017/08/01 09:41:22][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(end)
+[2017/08/01 09:41:22][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(end)
+[2017/08/01 09:41:24][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getAllTag(end)
+[2017/08/01 09:41:29][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
+[2017/08/01 09:41:32][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle(end)
+[2017/08/01 09:41:32][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$2 line.191][run] Processing article(action: add) succeeds.
+[2017/08/01 09:41:32][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$2 line.193][run] Publish event to APPLICATION_POSTING_QUEUE.
+[2017/08/01 09:41:32][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:41:32][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:41:32][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$1 line.159][onEvent] Trigger global command: hideMemo.
+[2017/08/01 09:41:32][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(end)
+[2017/08/01 09:41:32][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(end)
+[2017/08/01 09:41:32][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(end)
+[2017/08/01 09:41:32][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(end)
+[2017/08/01 09:41:32][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(end)
+[2017/08/01 09:41:32][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(end)
+[2017/08/01 09:41:32][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(end)
+[2017/08/01 09:41:32][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(end)
+[2017/08/01 09:41:33][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(end)
+[2017/08/01 09:41:33][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(end)
+[2017/08/01 09:41:35][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getAllTag(end)
+[2017/08/01 09:41:40][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
+[2017/08/01 09:41:43][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle(end)
+[2017/08/01 09:41:43][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$2 line.191][run] Processing article(action: add) succeeds.
+[2017/08/01 09:41:43][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$2 line.193][run] Publish event to APPLICATION_POSTING_QUEUE.
+[2017/08/01 09:41:43][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:41:43][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:41:43][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$1 line.159][onEvent] Trigger global command: hideMemo.
+[2017/08/01 09:41:43][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(end)
+[2017/08/01 09:41:43][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(end)
+[2017/08/01 09:41:43][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(end)
+[2017/08/01 09:41:43][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(end)
+[2017/08/01 09:41:43][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(end)
+[2017/08/01 09:41:43][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(end)
+[2017/08/01 09:41:43][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(end)
+[2017/08/01 09:41:44][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(end)
+[2017/08/01 09:41:44][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(end)
+[2017/08/01 09:41:44][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(end)
+[2017/08/01 09:41:46][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getAllTag(end)
+[2017/08/01 09:41:50][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
+[2017/08/01 09:41:53][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle(end)
+[2017/08/01 09:41:53][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$2 line.191][run] Processing article(action: add) succeeds.
+[2017/08/01 09:41:53][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$2 line.193][run] Publish event to APPLICATION_POSTING_QUEUE.
+[2017/08/01 09:41:53][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:41:53][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:41:53][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$1 line.159][onEvent] Trigger global command: hideMemo.
+[2017/08/01 09:41:53][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(end)
+[2017/08/01 09:41:53][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(end)
+[2017/08/01 09:41:54][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(end)
+[2017/08/01 09:41:54][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(end)
+[2017/08/01 09:41:54][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(end)
+[2017/08/01 09:41:54][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(end)
+[2017/08/01 09:41:54][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(end)
+[2017/08/01 09:41:54][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(end)
+[2017/08/01 09:41:54][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(end)
+[2017/08/01 09:41:54][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(end)
+[2017/08/01 09:41:56][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getAllTag(end)
+[2017/08/01 09:41:59][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
+[2017/08/01 09:42:02][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle(end)
+[2017/08/01 09:42:02][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$2 line.191][run] Processing article(action: add) succeeds.
+[2017/08/01 09:42:02][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$2 line.193][run] Publish event to APPLICATION_POSTING_QUEUE.
+[2017/08/01 09:42:02][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:42:02][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:42:02][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$1 line.159][onEvent] Trigger global command: hideMemo.
+[2017/08/01 09:42:02][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(end)
+[2017/08/01 09:42:02][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(end)
+[2017/08/01 09:42:02][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(end)
+[2017/08/01 09:42:02][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(end)
+[2017/08/01 09:42:02][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(end)
+[2017/08/01 09:42:02][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(end)
+[2017/08/01 09:42:02][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(end)
+[2017/08/01 09:42:02][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(end)
+[2017/08/01 09:42:02][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(end)
+[2017/08/01 09:42:02][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(end)
+[2017/08/01 09:42:04][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getAllTag(end)
+[2017/08/01 09:42:07][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
+[2017/08/01 09:42:10][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle(end)
+[2017/08/01 09:42:11][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$2 line.191][run] Processing article(action: add) succeeds.
+[2017/08/01 09:42:11][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$2 line.193][run] Publish event to APPLICATION_POSTING_QUEUE.
+[2017/08/01 09:42:11][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:42:11][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.vm.ArticleVM$1 line.159][onEvent] Trigger global command: hideMemo.
+[2017/08/01 09:42:11][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:42:11][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(end)
+[2017/08/01 09:42:11][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(end)
+[2017/08/01 09:42:11][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(end)
+[2017/08/01 09:42:11][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(end)
+[2017/08/01 09:42:11][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(end)
+[2017/08/01 09:42:11][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(end)
+[2017/08/01 09:42:11][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(end)
+[2017/08/01 09:42:11][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(end)
+[2017/08/01 09:42:11][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(end)
+[2017/08/01 09:42:11][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(end)
+[2017/08/01 09:42:13][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getAllTag(end)
+[2017/08/01 09:42:15][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
+[2017/08/01 09:42:18][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle(end)
+[2017/08/01 09:42:18][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$2 line.191][run] Processing article(action: add) succeeds.
+[2017/08/01 09:42:18][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$2 line.193][run] Publish event to APPLICATION_POSTING_QUEUE.
+[2017/08/01 09:42:19][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:42:19][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.vm.ArticleVM$1 line.159][onEvent] Trigger global command: hideMemo.
+[2017/08/01 09:42:19][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:42:19][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(end)
+[2017/08/01 09:42:19][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(end)
+[2017/08/01 09:42:19][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(end)
+[2017/08/01 09:42:19][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(end)
+[2017/08/01 09:42:19][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(end)
+[2017/08/01 09:42:19][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(end)
+[2017/08/01 09:42:19][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(end)
+[2017/08/01 09:42:19][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(end)
+[2017/08/01 09:42:19][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(end)
+[2017/08/01 09:42:19][INFO][1nnjzp551b30kcgysokciricd][andy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(end)
+[2017/08/01 09:42:31][INFO][1ow9pngxgd30x8vchl8xl3llm][][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.findUserByAccount(end)
+[2017/08/01 09:42:31][INFO][1rbxsc2xam2p8363tctuu593][cathy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(end)
+[2017/08/01 09:42:31][INFO][1rbxsc2xam2p8363tctuu593][cathy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(end)
+[2017/08/01 09:42:31][INFO][1rbxsc2xam2p8363tctuu593][cathy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(end)
+[2017/08/01 09:42:32][INFO][1rbxsc2xam2p8363tctuu593][cathy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(end)
+[2017/08/01 09:42:32][INFO][1rbxsc2xam2p8363tctuu593][cathy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(end)
+[2017/08/01 09:42:32][INFO][1rbxsc2xam2p8363tctuu593][cathy][com.bob.vm.ArticleVM line.164][initSetup] Subscribe event from APPLICATION_POSTING_QUEUE.
+[2017/08/01 09:42:34][INFO][1rbxsc2xam2p8363tctuu593][cathy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getAllTag(end)
+[2017/08/01 09:42:39][INFO][1rbxsc2xam2p8363tctuu593][cathy][com.bob.vm.ArticleVM line.184][saveOrUpdateArticle] Submit article form.
+[2017/08/01 09:42:42][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.saveOrUpdateArticle(end)
+[2017/08/01 09:42:42][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$2 line.191][run] Processing article(action: add) succeeds.
+[2017/08/01 09:42:42][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$2 line.193][run] Publish event to APPLICATION_POSTING_QUEUE.
+[2017/08/01 09:42:42][INFO][1rbxsc2xam2p8363tctuu593][cathy][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:42:42][INFO][1rbxsc2xam2p8363tctuu593][cathy][com.bob.vm.ArticleVM$1 line.159][onEvent] Trigger global command: hideMemo.
+[2017/08/01 09:42:42][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.vm.ArticleVM$1 line.156][onEvent] Trigger global command: refreshArticleDisplay.
+[2017/08/01 09:42:42][INFO][1rbxsc2xam2p8363tctuu593][cathy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(end)
+[2017/08/01 09:42:42][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getLatestArticles(end)
+[2017/08/01 09:42:42][INFO][1rbxsc2xam2p8363tctuu593][cathy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(end)
+[2017/08/01 09:42:42][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getRepliedArticles(end)
+[2017/08/01 09:42:42][INFO][1rbxsc2xam2p8363tctuu593][cathy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(end)
+[2017/08/01 09:42:42][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getMyArticles(end)
+[2017/08/01 09:42:42][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(end)
+[2017/08/01 09:42:42][INFO][1rbxsc2xam2p8363tctuu593][cathy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForListView(end)
+[2017/08/01 09:42:43][INFO][23lvpafh8i381tbi221mnul7a][bob][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(end)
+[2017/08/01 09:42:43][INFO][1rbxsc2xam2p8363tctuu593][cathy][com.bob.aop.LogAdvice line.19][logAfterExecute] class com.bob.service.impl.ForumServiceImpl.getArticlesForTreeView(end)
+[2017/08/01 09:48:41][INFO][][][org.springframework.web.context.ContextLoader line.305][initWebApplicationContext] Root WebApplicationContext: initialization started
+[2017/08/01 09:48:41][INFO][][][org.springframework.context.support.AbstractApplicationContext line.578][prepareRefresh] Refreshing Root WebApplicationContext: startup date [Tue Aug 01 09:48:41 CST 2017]; root of context hierarchy
+[2017/08/01 09:48:41][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+[2017/08/01 09:48:41][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/sqlStatement.xml]
+[2017/08/01 09:48:41][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/database.xml]
+[2017/08/01 09:48:41][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/security.xml]
+[2017/08/01 09:48:41][INFO][][][org.springframework.security.core.SpringSecurityCoreVersion line.33][<clinit>] You are running with Spring Security Core 3.1.6.RELEASE
+[2017/08/01 09:48:41][ERROR][][][org.springframework.security.core.SpringSecurityCoreVersion line.35][<clinit>] *** Spring Major version '3' expected, but you are running with version: 4.2.6.RELEASE. Please check your classpath for unwanted jar files.
+[2017/08/01 09:48:41][INFO][][][org.springframework.security.config.SecurityNamespaceHandler line.59][<init>] Spring Security 'config' module version is 3.1.6.RELEASE
+[2017/08/01 09:48:41][INFO][][][org.springframework.security.config.http.HttpSecurityBeanDefinitionParser line.264][checkFilterChainOrder] Checking sorted filter chain: [Root bean: class [org.springframework.security.web.context.SecurityContextPersistenceFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 200, Root bean: class [org.springframework.security.web.authentication.logout.LogoutFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 400, <org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter#0>, order = 800, Root bean: class [org.springframework.security.web.authentication.www.BasicAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1200, Root bean: class [org.springframework.security.web.savedrequest.RequestCacheAwareFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1300, Root bean: class [org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1400, Root bean: class [org.springframework.security.web.authentication.AnonymousAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1700, Root bean: class [org.springframework.security.web.session.SessionManagementFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1800, Root bean: class [org.springframework.security.web.access.ExceptionTranslationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1900, <org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0>, order = 2000]
+[2017/08/01 09:48:41][INFO][][][org.springframework.beans.factory.xml.XmlBeanDefinitionReader line.317][loadBeanDefinitions] Loading XML bean definitions from ServletContext resource [/WEB-INF/logger.xml]
+[2017/08/01 09:48:42][INFO][][][org.hibernate.annotations.common.Version line.37][<clinit>] HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+[2017/08/01 09:48:42][INFO][][][org.hibernate.Version line.41][logVersion] HHH000412: Hibernate Core {4.1.0.Final}
+[2017/08/01 09:48:42][INFO][][][org.hibernate.cfg.Environment line.239][<clinit>] HHH000206: hibernate.properties not found
+[2017/08/01 09:48:42][INFO][][][org.hibernate.cfg.Environment line.342][buildBytecodeProvider] HHH000021: Bytecode provider name : javassist
+[2017/08/01 09:48:43][INFO][][][org.hibernate.dialect.Dialect line.122][<init>] HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+[2017/08/01 09:48:43][INFO][][][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator line.68][initiateService] HHH000399: Using default transaction strategy (direct JDBC transactions)
+[2017/08/01 09:48:43][INFO][][][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory line.48][<init>] HHH000397: Using ASTQueryTranslatorFactory
+[2017/08/01 09:48:44][INFO][][][org.springframework.orm.hibernate4.HibernateTransactionManager line.360][afterPropertiesSet] Using DataSource [org.apache.commons.dbcp.BasicDataSource@2f3166a] of Hibernate SessionFactory for HibernateTransactionManager
+[2017/08/01 09:48:44][INFO][][][org.springframework.security.web.DefaultSecurityFilterChain line.28][<init>] Creating filter chain: Ant [pattern='/login.zul'], []
+[2017/08/01 09:48:44][INFO][][][org.springframework.security.web.DefaultSecurityFilterChain line.28][<init>] Creating filter chain: org.springframework.security.web.util.AnyRequestMatcher@1, [org.springframework.security.web.context.SecurityContextPersistenceFilter@36c2d629, org.springframework.security.web.authentication.logout.LogoutFilter@55fee662, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@54089484, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@45adc393, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@65fe2691, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@479111ba, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@57ad1178, org.springframework.security.web.session.SessionManagementFilter@7c37f145, org.springframework.security.web.access.ExceptionTranslationFilter@68699afc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@273a5a8a]
+[2017/08/01 09:48:44][INFO][][][org.springframework.security.config.http.DefaultFilterChainValidator line.122][checkLoginPageIsntProtected] Checking whether login URL '/login.zul' is accessible with your configuration
+[2017/08/01 09:48:45][INFO][][][org.springframework.web.context.ContextLoader line.345][initWebApplicationContext] Root WebApplicationContext: initialization completed in 3934 ms
+[2017/08/01 09:48:45][INFO][][][org.zkoss.zk.ui.http.WebManager line.117][<init>] Starting ZK 8.0.5 EE (build: 2017051613)
+[2017/08/01 09:48:45][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.168][parseConfigXml] Loading system default
+[2017/08/01 09:48:45][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing jar:file:/C:/Users/Bob/.m2/repository/org/zkoss/zk/zul/8.0.5-Eval/zul-8.0.5-Eval.jar!/metainfo/zk/zk.xml
+[2017/08/01 09:48:45][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing jar:file:/C:/Users/Bob/.m2/repository/org/zkoss/zk/zkex/8.0.5-Eval/zkex-8.0.5-Eval.jar!/metainfo/zk/zk.xml
+[2017/08/01 09:48:45][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing jar:file:/C:/Users/Bob/.m2/repository/org/zkoss/zk/zkmax/8.0.5-Eval/zkmax-8.0.5-Eval.jar!/metainfo/zk/zk.xml
+[2017/08/01 09:48:45][INFO][][][org.zkoss.zk.ui.sys.ConfigParser line.300][parse] Parsing file:/C:/project/ZK_FORUM/ZK_FORUM_GIT/zk-springmvc-master/src/main/webapp/WEB-INF/zk.xml
+[2017/08/01 09:48:45][ERROR][][][org.zkoss.zkex.init.WebAppInit line.?][init] This is an evaluation copy of ZK EE and will terminate after sixty days from the first date of installation. Should you require an open source license or commercial license for ZK EE please contact us at info@zkoss.org for more information. Alternatively you can download ZK CE which is licensed under the LGPL.

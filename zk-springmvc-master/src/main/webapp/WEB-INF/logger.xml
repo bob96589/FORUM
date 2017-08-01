@@ -7,11 +7,11 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 http://www.springframework.org/schema/aop
 http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
     <aop:config proxy-target-class="true">
-        <aop:pointcut id="logPointCut" expression="execution(* com..service.*.*(..))" />
+        <aop:pointcut id="logServicePointCut" expression="execution(* com..service.*.*(..))" />
         <aop:aspect id="logAspect" ref="logAdvice">
-            <aop:around pointcut-ref="logPointCut" method="logAroundExecute" />
-            <aop:after-returning pointcut-ref="logPointCut" method="logAfterExecute" returning="reVal" />
-            <aop:after-throwing pointcut-ref="logPointCut" method="logAfterThrowingException" throwing="exception" />
+            <aop:around pointcut-ref="logServicePointCut" method="logAroundExecute" />
+            <aop:after-returning pointcut-ref="logServicePointCut" method="logAfterExecute" returning="reVal" />
+            <aop:after-throwing pointcut-ref="logServicePointCut" method="logAfterThrowingException" throwing="exception" />
         </aop:aspect>
     </aop:config>
     <bean id="logAdvice" class="com.bob.aop.LogAdvice"/>
