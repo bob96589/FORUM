@@ -186,6 +186,20 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
+					<groupId>org.mortbay.jetty</groupId>
+					<artifactId>jetty-maven-plugin</artifactId>
+					<version>7.6.8.v20121106</version>
+					<configuration>
+						<webAppConfig>
+							<contextPath>/${project.artifactId}</contextPath>
+							<allowDuplicateFragmentNames>true</allowDuplicateFragmentNames>
+						</webAppConfig>
+						<webAppSourceDirectory>${basedir}/src/test/webapp</webAppSourceDirectory>
+						<classesDirectory>${basedir}/target/classes</classesDirectory>
+						<scanIntervalSeconds>5</scanIntervalSeconds>
+					</configuration>
+				</plugin>
+				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.2</version>
