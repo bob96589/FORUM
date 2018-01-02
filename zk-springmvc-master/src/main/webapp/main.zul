@@ -1,11 +1,37 @@
 <?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
 <zk>
+
+	<script>Notification.requestPermission();</script>
+	<script src="main.js" defer="true"/>
+
 	<window id="main" border="none" width="100%" height="100%" viewModel="@id('mainVm') @init('com.bob.vm.MainVM')">
 		<borderlayout>
 			<north>
-				<div style="margin: 20px 50px;">
+				<div style="margin: 20px 50px; height: 250px">
 					<button label="${c:l('btn.add')}" onClick="@global-command('openDialogForAdd')" />
 					<button label="${c:l('btn.logout')}" href="j_spring_security_logout"/>
+					<button label="zk message" onClick="@command('sendMessage')"/>
+					<separator/>
+					<separator/>
+
+
+					<label value="1. web push: " />
+					<button zclass="js-push-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+						Enable Push Messaging
+					</button>
+					<button label="push" onClick='Clients.evalJavaScript("push()");'/>
+					<div zclass="js-subscription-json"></div>
+					<separator/>
+					<separator/>
+
+
+
+					<label value="2. zk eventQueue: " />
+					<button label="send" onClick="@command('sendNotification')"/>
+
+
+
+
 				</div>
 			</north>
 			<center autoscroll="true" viewModel="@id('articleVm') @init('com.bob.vm.ArticleVM')">
@@ -47,6 +73,12 @@
 			<div style="padding: 10px; background: white; border: 1px solid #cfcfcf; width: 200px; height: 100px; position: fixed;bottom: 0;right: 0; z-index: 30;">
 				<label value="Article Sending..."/>
 				<button label="cancel" onClick="@global-command('cancelArticle')"/>
+			</div>
+		</hbox>
+		<hbox visible="@load(mainVm.msgVisible)">
+			<div style="padding: 10px; background: white; border: 1px solid #cfcfcf; width: 200px; height: 100px; position: fixed;bottom: 0;right: 0; z-index: 30;">
+				<label value="I am Message"/>
+				<button label="cancel" onClick="@global-command('hideMsg')"/>
 			</div>
 		</hbox>
 	</window>

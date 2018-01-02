@@ -4,6 +4,7 @@
 	<groupId>demo</groupId>
 	<artifactId>zk-springmvc</artifactId>
 	<version>1.0.0</version>
+
 	<properties>
 		<zk.version>8.0.5-Eval</zk.version>
 		<spring.version>4.2.6.RELEASE</spring.version>
@@ -37,49 +38,321 @@
 		</pluginRepository>
 	</pluginRepositories>
 	<dependencies>
-		<!-- ZK dependency -->
+		<dependency>
+			<groupId>org.zkoss.common</groupId>
+			<artifactId>zel</artifactId>
+			<version>${zk.version}</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/zel.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.common</groupId>
+			<artifactId>zcommon</artifactId>
+			<version>${zk.version}</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/zcommon.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.common</groupId>
+			<artifactId>zweb</artifactId>
+			<version>${zk.version}</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/zweb.jar</systemPath>
+		</dependency>
+
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
-			<artifactId>zkbind</artifactId>
+			<artifactId>zk</artifactId>
 			<version>${zk.version}</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/zk.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zul</artifactId>
 			<version>${zk.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-jdk14</artifactId>
-				</exclusion>
-			</exclusions> 
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/zul.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkplus</artifactId>
 			<version>${zk.version}</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/zkplus.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zhtml</artifactId>
 			<version>${zk.version}</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/zhtml.jar</systemPath>
 		</dependency>
-		<!-- ZK EE PE -->
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zkbind</artifactId>
+			<version>${zk.version}</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/zkbind.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zml</artifactId>
+			<version>${zk.version}</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/zml.jar</systemPath>
+		</dependency>
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkex</artifactId>
 			<version>${zk.version}</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/zkex.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zuti</artifactId>
+			<version>${zk.version}</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/zuti.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkmax</artifactId>
 			<version>${zk.version}</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/zkmax.jar</systemPath>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.beanshell</groupId>
+			<artifactId>bsh</artifactId>
+			<version>empty</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/ext/bsh.jar</systemPath>
 		</dependency>
 		<dependency>
-			<groupId>org.zkoss.zk</groupId>
-			<artifactId>zuti</artifactId>
-			<version>${zk.version}</version>
+			<groupId>com.google.javascript</groupId>
+			<artifactId>closure-compiler-unshaded</artifactId>
+			<version>empty</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/ext/closure-compiler-unshaded.jar</systemPath>
 		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>empty</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/ext/commons-codec.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>empty</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/ext/commons-collections.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>empty</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/ext/commons-fileupload.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>empty</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/ext/commons-io.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>empty</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/ext/commons-logging.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>empty</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/ext/gson.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.lowagie</groupId>
+			<artifactId>itext</artifactId>
+			<version>empty</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/ext/itext.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>empty</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/ext/jackson-annotations.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>empty</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/ext/jackson-core.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>empty</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/ext/jackson-databind.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>empty</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/ext/jasperreports.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>empty</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/ext/javassist.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>jfree</groupId>
+			<artifactId>jcommon</artifactId>
+			<version>empty</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/ext/jcommon.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>jfree</groupId>
+			<artifactId>jfreechart</artifactId>
+			<version>empty</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/ext/jfreechart.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.jexcelapi</groupId>
+			<artifactId>jxl</artifactId>
+			<version>empty</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/ext/jxl.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>empty</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/ext/poi.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>empty</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/ext/slf4j-api.jar</systemPath>
+		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.slf4j</groupId>-->
+			<!--<artifactId>slf4j-jdk14</artifactId>-->
+			<!--<version>empty</version>-->
+			<!--<scope>system</scope>-->
+			<!--<systemPath>${project.basedir}/repo/ext/slf4j-jdk14.jar</systemPath>-->
+		<!--</dependency>-->
+		<dependency>
+			<groupId>org.zkoss</groupId>
+			<artifactId>zsoup</artifactId>
+			<version>empty</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/ext/zsoup.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>org.zkoss</groupId>
+			<artifactId>zsoup</artifactId>
+			<version>empty</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/ext/zsoup.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>org.zkoss.theme</groupId>
+			<artifactId>breeze</artifactId>
+			<version>${zk.version}</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/theme/breeze.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.theme</groupId>
+			<artifactId>sapphire</artifactId>
+			<version>${zk.version}</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/theme/sapphire.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.theme</groupId>
+			<artifactId>silvertail</artifactId>
+			<version>${zk.version}</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/repo/theme/silvertail.jar</systemPath>
+		</dependency>
+
+
+		<!--<dependency>-->
+			<!--<groupId>org.zkoss.zk</groupId>-->
+			<!--<artifactId>zkbind</artifactId>-->
+			<!--<version>${zk.version}</version>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>org.zkoss.zk</groupId>-->
+			<!--<artifactId>zul</artifactId>-->
+			<!--<version>${zk.version}</version>-->
+			<!--<exclusions>-->
+				<!--<exclusion>-->
+					<!--<groupId>org.slf4j</groupId>-->
+					<!--<artifactId>slf4j-jdk14</artifactId>-->
+				<!--</exclusion>-->
+			<!--</exclusions>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>org.zkoss.zk</groupId>-->
+			<!--<artifactId>zkplus</artifactId>-->
+			<!--<version>${zk.version}</version>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>org.zkoss.zk</groupId>-->
+			<!--<artifactId>zhtml</artifactId>-->
+			<!--<version>${zk.version}</version>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>org.zkoss.zk</groupId>-->
+			<!--<artifactId>zkex</artifactId>-->
+			<!--<version>${zk.version}</version>-->
+			<!--<exclusions>-->
+				<!--<exclusion>-->
+					<!--<groupId>org.bouncycastle</groupId>-->
+					<!--<artifactId>bcprov-jdk14</artifactId>-->
+				<!--</exclusion>-->
+			<!--</exclusions>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>org.zkoss.zk</groupId>-->
+			<!--<artifactId>zkmax</artifactId>-->
+			<!--<version>${zk.version}</version>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>org.zkoss.zk</groupId>-->
+			<!--<artifactId>zuti</artifactId>-->
+			<!--<version>${zk.version}</version>-->
+		<!--</dependency>-->
 		<!-- ZK ckeditor -->
 		<dependency>
 			<groupId>org.zkoss.zkforge</groupId>
@@ -144,15 +417,20 @@
 			<version>1.0.0.Final</version>
 		</dependency>
 		<!-- aop -->
+		<!--<dependency>-->
+			<!--<groupId>org.aspectj</groupId>-->
+			<!--<artifactId>aspectjweaver</artifactId>-->
+			<!--<version>1.8.9</version>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>org.aspectj</groupId>-->
+			<!--<artifactId>aspectjrt</artifactId>-->
+			<!--<version>1.8.9</version>-->
+		<!--</dependency>-->
 		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjweaver</artifactId>
-			<version>1.8.9</version>
-		</dependency>
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjrt</artifactId>
-			<version>1.8.9</version>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.aspectj</artifactId>
+			<version>1.8.0_1</version>
 		</dependency>
 		<!-- JSTL -->
 		<dependency>
@@ -180,6 +458,21 @@
 		    <artifactId>slf4j-log4j12</artifactId>
 		    <version>1.7.21</version>
 		</dependency>
+		<dependency>
+			<groupId>nl.martijndwars</groupId>
+			<artifactId>web-push</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk15on</artifactId>
+			<version>1.54</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.0</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>messageboard</finalName>
@@ -205,8 +498,8 @@
 					<version>3.2</version>
 					<configuration>
 						<verbose>true</verbose>
-						<source>1.8</source>
-						<target>1.8</target>
+						<source>9</source>
+						<target>9</target>
 						<showWarnings>true</showWarnings>
 					</configuration>
 				</plugin>

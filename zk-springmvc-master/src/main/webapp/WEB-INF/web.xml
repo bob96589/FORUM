@@ -58,6 +58,25 @@
 		<filter-name>logContextFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+
+	<servlet>
+	<servlet-name>TestServlet</servlet-name>
+	<servlet-class>com.bob.servlet.TestServlet</servlet-class>
+</servlet>
+	<servlet-mapping>
+		<servlet-name>TestServlet</servlet-name>
+		<url-pattern>profile/subscription</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>PushServlet</servlet-name>
+		<servlet-class>com.bob.servlet.PushServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PushServlet</servlet-name>
+		<url-pattern>profile/push</url-pattern>
+	</servlet-mapping>
+
 	<servlet>
 		<description>ZK loader for ZUML pages</description>
 		<servlet-name>zkLoader</servlet-name>

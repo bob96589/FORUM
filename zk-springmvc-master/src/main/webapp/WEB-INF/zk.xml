@@ -4,4 +4,8 @@
     <language-config>
         <addon-uri>/WEB-INF/ckez-bind-addon.xml</addon-uri>
     </language-config>
+    <library-property>
+        <name>org.zkoss.theme.preferred</name>
+        <value>breeze</value>
+    </library-property>
 </zk>

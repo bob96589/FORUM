@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class SecurityContext {
 
 	@SuppressWarnings("unchecked")
-	public static <T extends ForumUserDetails> T getUser() {
+	public static <T extends UserDetails> T getUser() {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (auth == null) {
 			return null;
