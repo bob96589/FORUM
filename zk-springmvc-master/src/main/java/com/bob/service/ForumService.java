@@ -5,29 +5,33 @@ import java.util.Map;
 import java.util.Set;
 
 import com.bob.model.Article;
+import com.bob.model.Comment;
 import com.bob.model.Tag;
-import com.bob.model.User;
 
 public interface ForumService {
 
-	List<Map<String, Object>> getLatestArticles();
+    List<Map<String, Object>> getLatestArticles();
 
-	List<Map<String, Object>> getRepliedArticles();
+    List<Map<String, Object>> getRepliedArticles();
 
-	List<Map<String, Object>> getMyArticles(int id);
+    List<Map<String, Object>> getMyArticles(int id);
 
-	List<Article> getArticlesForListView();
+    Article findArticleById(int articleId);
 
-	List<Article> getArticlesForTreeView();
+    Article saveOrUpdateArticle(Article article, Set<Tag> tags);
 
-	Article findArticleById(int articleId);
+    void deleteArticle(Integer articleId);
 
-	void saveOrUpdateArticle(Article article, Set<Tag> tags);
+    List<Article> getArticles();
 
-	void deleteArticle(Integer articleId);
+    List<Comment> getCommentsByArticleId(Integer articleId);
 
-	User findUserByAccount(String username);
+    Comment addComment(Integer articleId, Comment comment);
 
-	List<Tag> getAllTag();
+    Comment updateComment(Integer articleId, Integer commentId, Comment comment);
+
+    void removeComment(Integer commentId);
+
+    Comment getCommentById(Integer commentId);
 
 }

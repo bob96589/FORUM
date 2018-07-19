@@ -1,5 +1,7 @@
 package com.bob.model;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -7,67 +9,62 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name = "USER")
+@XmlRootElement
 public class User {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-	@Column(name = "ACCOUNT")
-	private String account;
+    @Column(name = "USERNAME")
+    private String username;
 
-	@Column(name = "PASSWORD")
-	private String password;
+    @Column(name = "PASSWORD")
+    private String password;
 
-	@Column(name = "NAME")
-	private String name;
+    @Column(name = "AUTHORITY")
+    private String authority;
 
-	@OneToMany(mappedBy = "user")
-	private Set<Article> articles;
+    public Integer getId() {
+        return id;
+    }
 
-	public Set<Article> getArticles() {
-		return articles;
-	}
+    public String getAuthority() {
+        return authority;
+    }
 
-	public void setArticles(Set<Article> articles) {
-		this.articles = articles;
-	}
+    public void setAuthority(String authority) {
+        this.authority = authority;
+    }
 
-	public Integer getId() {
-		return id;
-	}
+    public Set<String> getAuthorities() {
+        String[] ary = authority.split(",");
+        return new HashSet<String>(Arrays.asList(ary));
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public String getAccount() {
-		return account;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public void setAccount(String account) {
-		this.account = account;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
 }

@@ -17,32 +17,31 @@ import com.bob.security.SecurityContext;
 
 public class logContextFilter implements Filter {
 
-	@Override
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-			throws IOException, ServletException {
-		HttpServletRequest req = (HttpServletRequest) request;
-		HttpSession session = req.getSession(false);
-		if (session != null) {
-			MDC.put("sessionId", session.getId());
-		} else {
-			MDC.put("sessionId", "");
-		}
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        HttpServletRequest req = (HttpServletRequest) request;
+        HttpSession session = req.getSession(false);
+        if (session != null) {
+            MDC.put("sessionId", session.getId());
+        } else {
+            MDC.put("sessionId", "");
+        }
 
-		String account = SecurityContext.getAccount();
-		if (account != null) {
-			MDC.put("account", account);
-		} else {
-			MDC.put("account", "");
-		}
-		chain.doFilter(request, response);
-	}
+        String username = SecurityContext.getUsername();
+        if (username != null) {
+            MDC.put("account", username);
+        } else {
+            MDC.put("account", "");
+        }
+        chain.doFilter(request, response);
+    }
 
-	@Override
-	public void destroy() {
-	}
+    @Override
+    public void destroy() {
+    }
 
-	@Override
-	public void init(FilterConfig filterConfig) throws ServletException {
-	}
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+    }
 
 }

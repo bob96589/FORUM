@@ -5,20 +5,12 @@ import java.util.Map;
 
 import com.bob.model.Article;
 
-public interface ArticleDao {
+public interface ArticleDao extends GenericDao<Article> {
 
-	public Article findById(int articleId);
+    public List<Map<String, Object>> getLatestArticles();
 
-	public void saveOrUpdate(Article article);
+    public List<Map<String, Object>> getRepliedArticles();
 
-	public List<Map<String, Object>> getLatestArticles();
-
-	public List<Map<String, Object>> getRepliedArticles();
-
-	public List<Map<String, Object>> getMyArticles(int id);
-
-	public List<Article> getArticlesForListView();
-
-	public List<Article> getArticlesForTreeView();
+    public List<Map<String, Object>> getMyArticles(int id);
 
 }

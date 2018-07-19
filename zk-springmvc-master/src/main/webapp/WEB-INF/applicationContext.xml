@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-	<context:annotation-config />
-	<context:component-scan base-package="demo.data.service" />
-	<!-- @Repository -->
-	<context:component-scan base-package="com.bob.dao.impl" />
-	<!-- @Service -->
-	<context:component-scan base-package="com.bob.service.impl" />
-	
-	<!-- import -->
-	<import resource="sqlStatement.xml" />
-	<import resource="database.xml" />
-	<import resource="security.xml" />
-	<import resource="logger.xml" />
+    <context:annotation-config />
+    <context:component-scan base-package="demo.data.service" />
+    <!-- @Repository -->
+    <context:component-scan base-package="com.bob.dao.impl" />
+    <!-- @Service -->
+    <context:component-scan base-package="com.bob.service.impl" />
+    <!-- resources -->
+    <context:component-scan base-package="com.bob.resources" />
+    <context:component-scan base-package="com.bob.security.service" />
+    <bean id="config" class="com.bob.utils.Config">
+        <constructor-arg index="0">
+            <bean class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+                <property name="locations">
+                    <list>
+                        <value>classpath:config.properties</value>
+                    </list>
+                </property>
+            </bean>
+        </constructor-arg>
+    </bean>
+    <!-- import -->
+    <import resource="sqlStatement.xml" />
+    <import resource="database.xml" />
+    <import resource="security.xml" />
+    <import resource="logger.xml" />
 </beans>

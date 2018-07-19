@@ -27,7 +27,7 @@ public class SecurityContext {
 		return user.getId();
 	}
 
-	public static String getAccount() {
+	public static String getUsername() {
 		ForumUserDetails user = getUser();
 		if (user == null) {
 			return null;
