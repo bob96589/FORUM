@@ -16,7 +16,6 @@ import io.jsonwebtoken.SignatureAlgorithm;
  *
  * @author cassiomolin
  */
-// @Dependent
 @Component
 class AuthenticationTokenIssuer {
 

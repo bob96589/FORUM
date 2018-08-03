@@ -43,7 +43,7 @@ public class ArticleResource {
     @POST
     public Response addArticle(Article article, @Context UriInfo uriInfo) {
         article.setId(null);
-        forumService.saveOrUpdateArticle(article, null);
+        forumService.saveOrUpdateArticle(article);
         String newId = String.valueOf(article.getId());
         URI uri = uriInfo.getAbsolutePathBuilder().path(newId).build();
         return Response.created(uri).entity(article).build();
@@ -53,7 +53,7 @@ public class ArticleResource {
     @Path("/{articleId}")
     public Article updateArticle(@PathParam("articleId") Integer id, Article article) {
         article.setId(id);
-        return forumService.saveOrUpdateArticle(article, null);
+        return forumService.saveOrUpdateArticle(article);
     }
 
     @DELETE

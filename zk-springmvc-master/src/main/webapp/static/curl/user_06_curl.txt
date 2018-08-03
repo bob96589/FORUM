@@ -1,0 +1,6 @@
+curl \
+--header "Content-Type: application/json" \
+--header "Authorization: {Authorization}" \
+--request POST \
+--data '{"password": "{password}", "newPassword": "{newPassword}"}' \
+http://localhost:8085/zk-springmvc/webapi/users/{username}/changePwd

@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 
 import com.bob.dao.UserDao;
 import com.bob.model.User;
+import com.bob.security.service.UsernamePasswordValidator;
 import com.bob.service.UserService;
+import com.bob.utils.PasswordEncoder;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -20,6 +22,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     UserDao userDao;
+
+    @Autowired
+    private UsernamePasswordValidator usernamePasswordValidator;
 
     @Override
     public User findUserByUsername(String username) {
@@ -38,6 +43,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void addUser(User user) {
+        user.setPassword(PasswordEncoder.hashPassword(user.getPassword()));
         User existingUser = userDao.findByUsername(user.getUsername());
         if (existingUser != null) {
             throw new WebApplicationException("user exist");
@@ -46,9 +52,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User UpdateUser(String username, String password, String authority) {
+    public User UpdateUser(String username, String authority) {
         User user = userDao.findByUsername(username);
-        user.setPassword(password);
         user.setAuthority(authority);
         userDao.save(user);
         return user;
@@ -58,6 +63,14 @@ public class UserServiceImpl implements UserService {
     public void deleteUserByUsername(String username) {
         User user = userDao.findByUsername(username);
         userDao.delete(user);
+    }
+
+    @Override
+    public User changePwd(String username, String password, String newPassword) {
+        User user = usernamePasswordValidator.validateCredentials(username, password);
+        user.setPassword(PasswordEncoder.hashPassword(newPassword));
+        userDao.save(user);
+        return user;
     }
 
 }

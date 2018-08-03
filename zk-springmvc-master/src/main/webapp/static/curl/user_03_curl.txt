@@ -1,0 +1,6 @@
+curl \
+--header "Content-Type: application/json" \
+--header "Authorization: {Authorization}" \
+--request POST \
+--data '{"authority": "admin,user", "password": "password", "username": "rudy"}' \
+http://localhost:8085/zk-springmvc/webapi/users

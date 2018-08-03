@@ -15,6 +15,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriInfo;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,8 @@ import org.springframework.stereotype.Component;
 
 import com.bob.model.User;
 import com.bob.service.UserService;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 @Path("/users")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -53,7 +56,7 @@ public class UserResource {
     @PermitAll
     @Path("/{username}")
     public User updateUser(@PathParam("username") String username, User user) {
-        User updatedUser = userService.UpdateUser(username, user.getPassword(), user.getAuthority());
+        User updatedUser = userService.UpdateUser(username, user.getAuthority());
         return updatedUser;
     }
 
@@ -75,6 +78,17 @@ public class UserResource {
         // article.addLink(getUriForComments(uriInfo, article), "comments");
         return user;
 
+    }
+
+    @POST
+    @PermitAll
+    @Path("/{username}/changePwd")
+    public Response changePwd(@PathParam("username") String username, String json) {
+        JsonObject jsonObj = new JsonParser().parse(json).getAsJsonObject();
+        String password = jsonObj.get("password").getAsString();
+        String newPassword = jsonObj.get("newPassword").getAsString();
+        User user = userService.changePwd(username, password, newPassword);
+        return Response.status(Status.OK).entity(user).build();
     }
 
 }

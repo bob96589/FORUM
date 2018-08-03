@@ -12,14 +12,13 @@ import com.bob.utils.Config;
  *
  * @author cassiomolin
  */
-// @Dependent
 @Component
 class AuthenticationTokenSettings {
 
     @Autowired
     Config config;
 
-    @PostConstruct // after Creating bean init() will be execute.
+    @PostConstruct
     public void init() {
         secret = config.getProperty("authentication.jwt.secret");
         clockSkew = Long.parseLong(config.getProperty("authentication.jwt.clockSkew"));
@@ -33,50 +32,36 @@ class AuthenticationTokenSettings {
     /**
      * Secret for signing and verifying the token signature.
      */
-    // @Inject
-    // @Configurable("authentication.jwt.secret")
     private String secret;
 
     /**
      * Allowed clock skew for verifying the token signature (in seconds).
      */
-    // @Inject
-    // @Configurable("authentication.jwt.clockSkew")
     private Long clockSkew;
 
     /**
      * Identifies the recipients that the JWT token is intended for.
      */
-    // @Inject
-    // @Configurable("authentication.jwt.audience")
     private String audience;
 
     /**
      * Identifies the JWT token issuer.
      */
-    // @Inject
-    // @Configurable("authentication.jwt.issuer")
     private String issuer;
 
     /**
      * JWT claim for the authorities.
      */
-    // @Inject
-    // @Configurable("authentication.jwt.claimNames.authorities")
     private String authoritiesClaimName = "authorities";
 
     /**
      * JWT claim for the token refreshment count.
      */
-    // @Inject
-    // @Configurable("authentication.jwt.claimNames.refreshCount")
     private String refreshCountClaimName = "refreshCount";
 
     /**
      * JWT claim for the maximum times that a token can be refreshed.
      */
-    // @Inject
-    // @Configurable("authentication.jwt.claimNames.refreshLimit")
     private String refreshLimitClaimName = "refreshLimit";
 
     public String getSecret() {

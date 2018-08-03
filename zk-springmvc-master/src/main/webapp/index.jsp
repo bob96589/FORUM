@@ -12,19 +12,20 @@
   table-layout: fixed;
   word-wrap: break-word;
   font-size: 13px;
-  margin : 20px 0px;
+  margin: 20px 0px;
   background-color: #fff;
 }
 
 .format {
   white-space: pre;
 }
+
 textarea {
-    border: none;
-    width: 100%;
-    -webkit-box-sizing: border-box; /* <=iOS4, <= Android  2.3 */
-       -moz-box-sizing: border-box; /* FF1+ */
-            box-sizing: border-box; /* Chrome, IE8, Opera, Safari 5.1*/
+  border: none;
+  width: 100%;
+  -webkit-box-sizing: border-box; /* <=iOS4, <= Android  2.3 */
+  -moz-box-sizing: border-box; /* FF1+ */
+  box-sizing: border-box; /* Chrome, IE8, Opera, Safari 5.1*/
 }
 
 body {
@@ -32,10 +33,31 @@ body {
     "Segoe UI Symbol";
   background-color: #ddd;
 }
+
 th {
-    background-color: #999;
-    color: white;
-} 
+  background-color: #999;
+  color: white;
+}
+
+tr th:nth-child(1) {
+  width: 8%;
+}
+
+tr th:nth-child(2) {
+  width: 12%;
+}
+
+tr th:nth-child(3) {
+  width: 20%;
+}
+
+tr th:nth-child(4) {
+  width: 18%;
+}
+
+tr th:nth-child(5) {
+  width: 32%;
+}
 </style>
 </header>
 <body>
@@ -51,17 +73,19 @@ th {
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th style="width: 5%">Type</th>
-                                    <th style="width: 10%">Url</th>
-                                    <th style="width: 20%">Data</th>
-                                    <th style="width: 20%">Authorization(Bearer )</th>
-                                    <th style="width: 35%">Response</th>
+                                    <th>Type</th>
+                                    <th>Url</th>
+                                    <th>Data</th>
+                                    <th>Authorization(Bearer )</th>
+                                    <th>Response</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>
-                                        <button id="auth_01" class="btn btn-info">Send</button> POST
+                                        <button id="auth_01" class="btn btn-info">Send</button>
+                                        <button id="auth_01_curl" class="btn btn-success" data-toggle="modal">Curl</button>
+                                        <div>POST</div>
                                     </td>
                                     <td>/auth</td>
                                     <td class="data">{ "username" : "bob", "password" : "password" }</td>
@@ -71,7 +95,9 @@ th {
                                 </tr>
                                 <tr>
                                     <td>
-                                        <button id="auth_02" class="btn btn-info">Send</button> POST
+                                        <button id="auth_02" class="btn btn-info">Send</button>
+                                        <button id="auth_02_curl" class="btn btn-success" data-toggle="modal">Curl</button>
+                                        <div>POST</div>
                                     </td>
                                     <td>/auth/refresh</td>
                                     <td class="data"></td>
@@ -95,17 +121,19 @@ th {
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th style="width: 5%">Type</th>
-                                            <th style="width: 10%">Url</th>
-                                            <th style="width: 20%">Data</th>
-                                            <th style="width: 20%">Authorization(Bearer )</th>
-                                            <th style="width: 35%">Response</th>
+                                            <th>Type</th>
+                                            <th>Url</th>
+                                            <th>Data</th>
+                                            <th>Authorization(Bearer )</th>
+                                            <th>Response</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <button id="user_01" class="btn btn-info">Send</button> GET
+                                                <button id="user_01" class="btn btn-info">Send</button>
+                                                <button id="user_01_curl" class="btn btn-success" data-toggle="modal">Curl</button>
+                                                <div>GET</div>
                                             </td>
                                             <td>/users</td>
                                             <td class="data format"></td>
@@ -115,7 +143,9 @@ th {
                                         </tr>
                                         <tr>
                                             <td>
-                                                <button id="user_02" class="btn btn-info">Send</button> GET
+                                                <button id="user_02" class="btn btn-info">Send</button>
+                                                <button id="user_02_curl" class="btn btn-success" data-toggle="modal">Curl</button>
+                                                <div>GET</div>
                                             </td>
                                             <td>/users/{userId} <input class="userId" placeholder="userId" /></td>
                                             <td class="data format"></td>
@@ -125,7 +155,9 @@ th {
                                         </tr>
                                         <tr>
                                             <td>
-                                                <button id="user_03" class="btn btn-info">Send</button> POST
+                                                <button id="user_03" class="btn btn-info">Send</button>
+                                                <button id="user_03_curl" class="btn btn-success" data-toggle="modal">Curl</button>
+                                                <div>POST</div>
                                             </td>
                                             <td>/users</td>
                                             <td class="data format"></td>
@@ -135,7 +167,24 @@ th {
                                         </tr>
                                         <tr>
                                             <td>
-                                                <button id="user_04" class="btn btn-info">Send</button> PUT
+                                                <button id="user_04" class="btn btn-info">Send</button>
+                                                <button id="user_04_curl" class="btn btn-success" data-toggle="modal">Curl</button>
+                                                <div>PUT</div>
+                                            </td>
+                                            <td>/users/{username}<input class="username" placeholder="username" /></td>
+                                            <td>
+                                                <div class="data format"></div>
+                                                <input class="authority" placeholder="authority" />
+                                            </td>
+                                            <td><textarea class="auth"></textarea></td>
+                                            <td><button class="btn btn-warning clear">Clear</button>
+                                                <div class="result format"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <button id="user_05" class="btn btn-info">Send</button>
+                                                <button id="user_05_curl" class="btn btn-success" data-toggle="modal">Curl</button>
+                                                <div>DELETE</div>
                                             </td>
                                             <td>/users/{username}<input class="username" placeholder="username" /></td>
                                             <td class="data format"></td>
@@ -145,10 +194,14 @@ th {
                                         </tr>
                                         <tr>
                                             <td>
-                                                <button id="user_05" class="btn btn-info">Send</button> DELETE
+                                                <button id="user_06" class="btn btn-info">POST</button>
+                                                <button id="user_06_curl" class="btn btn-success" data-toggle="modal">Curl</button>
+                                                <div>POST</div>
                                             </td>
-                                            <td>/users/{username}<input class="username" placeholder="username" /></td>
-                                            <td class="data format"></td>
+                                            <td>/users/{username}<br />/changePwd<input class="username" placeholder="username" /></td>
+                                            <td>
+                                                <div class="data format"></div> <input class="password" placeholder="password" /> <input class="newPassword" placeholder="newPassword" />
+                                            </td>
                                             <td><textarea class="auth"></textarea></td>
                                             <td><button class="btn btn-warning clear">Clear</button>
                                                 <div class="result format"></div></td>
@@ -160,17 +213,19 @@ th {
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th style="width: 5%">Type</th>
-                                            <th style="width: 10%">Url</th>
-                                            <th style="width: 20%">Data</th>
-                                            <th style="width: 20%">Authorization(Bearer )</th>
-                                            <th style="width: 35%">Response</th>
+                                            <th>Type</th>
+                                            <th>Url</th>
+                                            <th>Data</th>
+                                            <th>Authorization(Bearer )</th>
+                                            <th>Response</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <button id="article_01" class="btn btn-info">Send</button> GET
+                                                <button id="article_01" class="btn btn-info">Send</button>
+                                                <button id="article_01_curl" class="btn btn-success" data-toggle="modal">Curl</button>
+                                                <div>GET</div>
                                             </td>
                                             <td>/articles</td>
                                             <td class="data format"></td>
@@ -180,7 +235,9 @@ th {
                                         </tr>
                                         <tr>
                                             <td>
-                                                <button id="article_02" class="btn btn-info">Send</button> GET
+                                                <button id="article_02" class="btn btn-info">Send</button>
+                                                <button id="article_02_curl" class="btn btn-success" data-toggle="modal">Curl</button>
+                                                <div>GET</div>
                                             </td>
                                             <td>/articles/{articleId} <input class="articleId" placeholder="articleId" /></td>
                                             <td class="data format"></td>
@@ -190,7 +247,9 @@ th {
                                         </tr>
                                         <tr>
                                             <td>
-                                                <button id="article_03" class="btn btn-info">Send</button> POST
+                                                <button id="article_03" class="btn btn-info">Send</button>
+                                                <button id="article_03_curl" class="btn btn-success" data-toggle="modal">Curl</button>
+                                                <div>POST</div>
                                             </td>
                                             <td>/articles</td>
                                             <td class="data format"></td>
@@ -200,7 +259,9 @@ th {
                                         </tr>
                                         <tr>
                                             <td>
-                                                <button id="article_04" class="btn btn-info">Send</button> PUT
+                                                <button id="article_04" class="btn btn-info">Send</button>
+                                                <button id="article_04_curl" class="btn btn-success" data-toggle="modal">Curl</button>
+                                                <div>PUT</div>
                                             </td>
                                             <td>/articles/{articleId}<input class="articleId" placeholder="articleId" /></td>
                                             <td class="data format"></td>
@@ -210,7 +271,9 @@ th {
                                         </tr>
                                         <tr>
                                             <td>
-                                                <button id="article_05" class="btn btn-info">Send</button> DELETE
+                                                <button id="article_05" class="btn btn-info">Send</button>
+                                                <button id="article_05_curl" class="btn btn-success" data-toggle="modal">Curl</button>
+                                                <div>DELETE</div>
                                             </td>
                                             <td>/articles/{articleId}<input class="articleId" placeholder="articleId" /></td>
                                             <td class="data format"></td>
@@ -225,19 +288,21 @@ th {
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th style="width: 5%">Type</th>
-                                            <th style="width: 20%">Url</th>
-                                            <th style="width: 20%">Data</th>
-                                            <th style="width: 20%">Authorization(Bearer )</th>
-                                            <th style="width: 25%">Response</th>
+                                            <th>Type</th>
+                                            <th>Url</th>
+                                            <th>Data</th>
+                                            <th>Authorization(Bearer )</th>
+                                            <th>Response</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <button id="comment_01" class="btn btn-info">Send</button> GET
+                                                <button id="comment_01" class="btn btn-info">Send</button>
+                                                <button id="comment_01_curl" class="btn btn-success" data-toggle="modal">Curl</button>
+                                                <div>GET</div>
                                             </td>
-                                            <td>/articles/{articleId}/comments<input class="articleId" placeholder="articleId" /></td>
+                                            <td>/articles/{articleId}<br />/comments<input class="articleId" placeholder="articleId" /></td>
                                             <td class="data format"></td>
                                             <td><textarea class="auth"></textarea></td>
                                             <td><button class="btn btn-warning clear">Clear</button>
@@ -245,9 +310,12 @@ th {
                                         </tr>
                                         <tr>
                                             <td>
-                                                <button id="comment_02" class="btn btn-info">Send</button> GET
+                                                <button id="comment_02" class="btn btn-info">Send</button>
+                                                <button id="comment_02_curl" class="btn btn-success" data-toggle="modal">Curl</button>
+                                                <div>GET</div>
                                             </td>
-                                            <td>/articles/{articleId}/comments/{commentId}<input class="articleId" placeholder="articleId" /><input class="commentId" placeholder="commentId" /></td>
+                                            <td>/articles/{articleId}<br />/comments/{commentId}<input class="articleId" placeholder="articleId" /><input class="commentId"
+                                                placeholder="commentId" /></td>
                                             <td class="data format"></td>
                                             <td><textarea class="auth"></textarea></td>
                                             <td><button class="btn btn-warning clear">Clear</button>
@@ -255,9 +323,11 @@ th {
                                         </tr>
                                         <tr>
                                             <td>
-                                                <button id="comment_03" class="btn btn-info">Send</button> POST
+                                                <button id="comment_03" class="btn btn-info">Send</button>
+                                                <button id="comment_03_curl" class="btn btn-success" data-toggle="modal">Curl</button>
+                                                <div>POST</div>
                                             </td>
-                                            <td>/articles/{articleId}/comments<input class="articleId" placeholder="articleId" /></td>
+                                            <td>/articles/{articleId}<br />/comments<input class="articleId" placeholder="articleId" /></td>
                                             <td class="data format"></td>
                                             <td><textarea class="auth"></textarea></td>
                                             <td><button class="btn btn-warning clear">Clear</button>
@@ -265,9 +335,12 @@ th {
                                         </tr>
                                         <tr>
                                             <td>
-                                                <button id="comment_04" class="btn btn-info">Send</button> PUT
+                                                <button id="comment_04" class="btn btn-info">Send</button>
+                                                <button id="comment_04_curl" class="btn btn-success" data-toggle="modal">Curl</button>
+                                                <div>PUT</div>
                                             </td>
-                                            <td>/articles/{articleId}/comments/{commentId}<input class="articleId" placeholder="articleId" /><input class="commentId" placeholder="commentId" /></td>
+                                            <td>/articles/{articleId}<br />/comments/{commentId}<input class="articleId" placeholder="articleId" /><input class="commentId"
+                                                placeholder="commentId" /></td>
                                             <td class="data format"></td>
                                             <td><textarea class="auth"></textarea></td>
                                             <td><button class="btn btn-warning clear">Clear</button>
@@ -275,9 +348,12 @@ th {
                                         </tr>
                                         <tr>
                                             <td>
-                                                <button id="comment_05" class="btn btn-info">Send</button> DELETE
+                                                <button id="comment_05" class="btn btn-info">Send</button>
+                                                <button id="comment_05_curl" class="btn btn-success" data-toggle="modal">Curl</button>
+                                                <div>DELETE</div>
                                             </td>
-                                            <td>/articles/{articleId}/comments/{commentId}<input class="articleId" placeholder="articleId" /><input class="commentId" placeholder="commentId" /></td>
+                                            <td>/articles/{articleId}<br />/comments/{commentId}<input class="articleId" placeholder="articleId" /><input class="commentId"
+                                                placeholder="commentId" /></td>
                                             <td class="data format"></td>
                                             <td><textarea class="auth"></textarea></td>
                                             <td><button class="btn btn-warning clear">Clear</button>
@@ -288,6 +364,24 @@ th {
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">CURL command</h4>
+                </div>
+                <div class="modal-body">
+                    <textarea id="my-modal-body" rows="20"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

@@ -1,0 +1,6 @@
+curl \
+--header "Content-Type: application/json" \
+--header "Authorization: {Authorization}" \
+--request PUT \
+--data '{  "content": "CONTENT_2_modified",  "createTime": "2009-01-01T01:00:00+08:00",  "status": 0,  "userId": 1000}' \
+http://localhost:8085/zk-springmvc/webapi/articles/{articleId}/comments/{commentId}

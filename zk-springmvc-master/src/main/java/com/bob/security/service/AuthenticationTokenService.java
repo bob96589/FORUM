@@ -19,30 +19,25 @@ import com.bob.utils.Config;
  *
  * @author cassiomolin
  */
-// @ApplicationScoped
 @Component
 public class AuthenticationTokenService {
 
+    @Autowired
+    Config config;
     /**
      * How long the token is valid for (in seconds).
      */
-    @Autowired
-    Config config;
-
     private Long validFor;
-
     /**
      * How many times the token can be refreshed.
      */
     private Integer refreshLimit;
-
     @Inject
     private AuthenticationTokenIssuer tokenIssuer;
-
     @Inject
     private AuthenticationTokenParser tokenParser;
 
-    @PostConstruct // after Creating bean init() will be execute.
+    @PostConstruct
     public void init() {
         validFor = Long.parseLong(config.getProperty("authentication.jwt.validFor"));
         refreshLimit = Integer.parseInt(config.getProperty("authentication.jwt.refreshLimit"));

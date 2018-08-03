@@ -1,4 +1,8 @@
+"use strict";
 $(document).ready(function() {
+
+  var myModalBody = $("#my-modal-body");
+  var myModal = $('#myModal');
 
   $('tr td:nth-child(3), tr td:nth-child(4), tr th:nth-child(3), tr th:nth-child(4)').each(function() {
     $(this).addClass('hidden-xs hidden-sm');
@@ -19,10 +23,6 @@ $(document).ready(function() {
   });
 
   $.extend({
-    emptyFunction : function() {
-      return true;
-    },
-    emptyJSON : {},
     __ajax : $.ajax,
     ajax : function(s) {
       return $.__ajax($.extend({
@@ -47,31 +47,23 @@ $(document).ready(function() {
     }
   });
 
-  function url(url) {
-    return "http:///localhost:8085/zk-springmvc/" + url;
-  }
+  //=============================================================================
 
-  function syntaxHighlight(json) {
-    if (typeof json != 'string') {
-      json = JSON.stringify(json, undefined, 2);
-    }
-    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function(match) {
-      var cls = 'number';
-      if (/^"/.test(match)) {
-        if (/:$/.test(match)) {
-          cls = 'key';
-        } else {
-          cls = 'string';
-        }
-      } else if (/true|false/.test(match)) {
-        cls = 'boolean';
-      } else if (/null/.test(match)) {
-        cls = 'null';
-      }
-      return '<span class="' + cls + '">' + match + '</span>';
+  $("#auth_01_curl").click(function() {
+    readTextFile('auth_01_curl.txt', function(allText) {
+      myModalBody.html(allText);
+      myModal.modal('toggle');
     });
-  }
+  });
+
+  $("#auth_02_curl").click(function() {
+    var self = $(this);
+    var tr = self.parents('tr');
+    readTextFile('auth_02_curl.txt', function(allText) {
+      myModalBody.html(allText.replace("{Authorization}", tr.find('.auth').val()));
+      myModal.modal('toggle');
+    });
+  });
 
   $("#auth_01").click(function() {
     var self = $(this);
@@ -96,6 +88,72 @@ $(document).ready(function() {
   });
 
   // =============================================================================
+
+  $("#user_01_curl").click(function() {
+    var self = $(this);
+    var tr = self.parents('tr');
+    readTextFile('user_01_curl.txt', function(allText) {
+      allText = allText.replace("{Authorization}", tr.find('.auth').val());
+      myModalBody.html(allText);
+      myModal.modal('toggle');
+    });
+  });
+
+  $("#user_02_curl").click(function() {
+    var self = $(this);
+    var tr = self.parents('tr');
+    readTextFile('user_02_curl.txt', function(allText) {
+      allText = allText.replace("{Authorization}", tr.find('.auth').val());
+      allText = allText.replace("{userId}", tr.find('.userId').val());
+      myModalBody.html(allText);
+      myModal.modal('toggle');
+    });
+  });
+
+  $("#user_03_curl").click(function() {
+    var self = $(this);
+    var tr = self.parents('tr');
+    readTextFile('user_03_curl.txt', function(allText) {
+      allText = allText.replace("{Authorization}", tr.find('.auth').val());
+      myModalBody.html(allText);
+      myModal.modal('toggle');
+    });
+  });
+
+  $("#user_04_curl").click(function() {
+    var self = $(this);
+    var tr = self.parents('tr');
+    readTextFile('user_04_curl.txt', function(allText) {
+      allText = allText.replace("{Authorization}", tr.find('.auth').val());
+      allText = allText.replace("{username}", tr.find('.username').val())
+      myModalBody.html(allText);
+      myModal.modal('toggle');
+    });
+  });
+
+  $("#user_05_curl").click(function() {
+    var self = $(this);
+    var tr = self.parents('tr');
+    readTextFile('user_05_curl.txt', function(allText) {
+      allText = allText.replace("{Authorization}", tr.find('.auth').val())
+      allText = allText.replace("{username}", tr.find('.username').val())
+      myModalBody.html(allText);
+      myModal.modal('toggle');
+    });
+  });
+  
+  $("#user_06_curl").click(function() {
+    var self = $(this);
+    var tr = self.parents('tr');
+    readTextFile('user_06_curl.txt', function(allText) {
+      allText = allText.replace("{Authorization}", tr.find('.auth').val())
+      allText = allText.replace("{username}", tr.find('.username').val())
+      allText = allText.replace("{password}", tr.find('.password').val())
+      allText = allText.replace("{newPassword}", tr.find('.newPassword').val())
+      myModalBody.html(allText);
+      myModal.modal('toggle');
+    });
+  });
 
   $("#user_01").click(function() {
     var self = $(this);
@@ -134,9 +192,9 @@ $(document).ready(function() {
   });
 
   var data_user_04 = {
-    authority : "admin,user",
-    password : "password_modify"
+    authority : "{authority}"
   };
+  //"admin,user"
   $("#user_04").parents('tr').find('.data').html(syntaxHighlight(data_user_04));
   $("#user_04").click(function() {
     var self = $(this);
@@ -144,7 +202,9 @@ $(document).ready(function() {
     $.ajax({
       url : url("webapi/users/" + tr.find(".username").val()),
       type : "PUT",
-      data : data_user_04,
+      data : {
+        authority : tr.find(".authority").val(),
+      },
       self : self
     });
   });
@@ -159,7 +219,79 @@ $(document).ready(function() {
     });
   });
 
+  var data_user_06 = {
+    password : "{password}",
+    newPassword : "{newPassword}"
+  };
+  $("#user_06").parents('tr').find('.data').html(syntaxHighlight(data_user_06));
+  $("#user_06").click(function() {
+    var self = $(this);
+    var tr = self.parents('tr');
+    $.ajax({
+      url : url("webapi/users/" + tr.find(".username").val() + "/changePwd"),
+      type : "POST",
+      data : {
+        password : tr.find(".password").val(),
+        newPassword : tr.find(".newPassword").val()
+      },
+      self : self
+    });
+  });
+
   // =============================================================================
+
+  $("#article_01_curl").click(function() {
+    var self = $(this);
+    var tr = self.parents('tr');
+    readTextFile('article_01_curl.txt', function(allText) {
+      allText = allText.replace("{Authorization}", tr.find('.auth').val());
+      myModalBody.html(allText);
+      myModal.modal('toggle');
+    });
+  });
+
+  $("#article_02_curl").click(function() {
+    var self = $(this);
+    var tr = self.parents('tr');
+    readTextFile('article_02_curl.txt', function(allText) {
+      allText = allText.replace("{Authorization}", tr.find('.auth').val());
+      allText = allText.replace("{articleId}", tr.find('.articleId').val());
+      myModalBody.html(allText);
+      myModal.modal('toggle');
+    });
+  });
+
+  $("#article_03_curl").click(function() {
+    var self = $(this);
+    var tr = self.parents('tr');
+    readTextFile('article_03_curl.txt', function(allText) {
+      allText = allText.replace("{Authorization}", tr.find('.auth').val());
+      myModalBody.html(allText);
+      myModal.modal('toggle');
+    });
+  });
+
+  $("#article_04_curl").click(function() {
+    var self = $(this);
+    var tr = self.parents('tr');
+    readTextFile('article_04_curl.txt', function(allText) {
+      allText = allText.replace("{Authorization}", tr.find('.auth').val());
+      allText = allText.replace("{articleId}", tr.find('.articleId').val())
+      myModalBody.html(allText);
+      myModal.modal('toggle');
+    });
+  });
+
+  $("#article_05_curl").click(function() {
+    var self = $(this);
+    var tr = self.parents('tr');
+    readTextFile('article_05_curl.txt', function(allText) {
+      allText = allText.replace("{Authorization}", tr.find('.auth').val())
+      allText = allText.replace("{articleId}", tr.find('.articleId').val())
+      myModalBody.html(allText);
+      myModal.modal('toggle');
+    });
+  });
 
   $("#article_01").click(function() {
     var self = $(this);
@@ -201,7 +333,7 @@ $(document).ready(function() {
     });
   });
 
-  var data_user_04 = {
+  var data_article_04 = {
     type : "article",
     links : [],
     content : "CONTENT_3_modified",
@@ -210,14 +342,14 @@ $(document).ready(function() {
     title : "TITLE_3_modified",
     userId : 1000
   };
-  $("#article_04").parents('tr').find('.data').html(syntaxHighlight(data_user_04));
+  $("#article_04").parents('tr').find('.data').html(syntaxHighlight(data_article_04));
   $("#article_04").click(function() {
     var self = $(this);
     var tr = self.parents('tr');
     $.ajax({
       url : url("webapi/articles/" + tr.find(".articleId").val()),
       type : "PUT",
-      data : data_user_04,
+      data : data_article_04,
       self : self
     });
   });
@@ -233,6 +365,63 @@ $(document).ready(function() {
   });
 
   // =============================================================================
+  $("#comment_01_curl").click(function() {
+    var self = $(this);
+    var tr = self.parents('tr');
+    readTextFile('comment_01_curl.txt', function(allText) {
+      allText = allText.replace("{Authorization}", tr.find('.auth').val());
+      allText = allText.replace("{articleId}", tr.find('.articleId').val());
+      myModalBody.html(allText);
+      myModal.modal('toggle');
+    });
+  });
+
+  $("#comment_02_curl").click(function() {
+    var self = $(this);
+    var tr = self.parents('tr');
+    readTextFile('comment_02_curl.txt', function(allText) {
+      allText = allText.replace("{Authorization}", tr.find('.auth').val());
+      allText = allText.replace("{articleId}", tr.find('.articleId').val());
+      allText = allText.replace("{commentId}", tr.find('.commentId').val());
+      myModalBody.html(allText);
+      myModal.modal('toggle');
+    });
+  });
+
+  $("#comment_03_curl").click(function() {
+    var self = $(this);
+    var tr = self.parents('tr');
+    readTextFile('comment_03_curl.txt', function(allText) {
+      allText = allText.replace("{Authorization}", tr.find('.auth').val());
+      allText = allText.replace("{articleId}", tr.find('.articleId').val());
+      myModalBody.html(allText);
+      myModal.modal('toggle');
+    });
+  });
+
+  $("#comment_04_curl").click(function() {
+    var self = $(this);
+    var tr = self.parents('tr');
+    readTextFile('comment_04_curl.txt', function(allText) {
+      allText = allText.replace("{Authorization}", tr.find('.auth').val());
+      allText = allText.replace("{articleId}", tr.find('.articleId').val())
+      allText = allText.replace("{commentId}", tr.find('.commentId').val())
+      myModalBody.html(allText);
+      myModal.modal('toggle');
+    });
+  });
+
+  $("#comment_05_curl").click(function() {
+    var self = $(this);
+    var tr = self.parents('tr');
+    readTextFile('comment_05_curl.txt', function(allText) {
+      allText = allText.replace("{Authorization}", tr.find('.auth').val())
+      allText = allText.replace("{articleId}", tr.find('.articleId').val())
+      allText = allText.replace("{commentId}", tr.find('.commentId').val())
+      myModalBody.html(allText);
+      myModal.modal('toggle');
+    });
+  });
 
   $("#comment_01").click(function() {
     var self = $(this);
@@ -273,11 +462,11 @@ $(document).ready(function() {
   });
 
   var data_comment_04 = {
-      "content" : "CONTENT_2_modified",
-      "createTime" : "2009-01-01T01:00:00+08:00",
-      "status" : 0,
-      "userId" : 1000
-    };
+    "content" : "CONTENT_2_modified",
+    "createTime" : "2009-01-01T01:00:00+08:00",
+    "status" : 0,
+    "userId" : 1000
+  };
   $("#comment_04").parents('tr').find('.data').html(syntaxHighlight(data_comment_04));
   $("#comment_04").click(function() {
     var self = $(this);
@@ -299,5 +488,47 @@ $(document).ready(function() {
       self : self
     });
   });
+
+  // =============================================================================
+
+  function readTextFile(file, callback) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", "./static/curl/" + file, false);
+    rawFile.onreadystatechange = function() {
+      if (rawFile.readyState === 4) {
+        if (rawFile.status === 200 || rawFile.status == 0) {
+          var allText = rawFile.responseText;
+          callback && callback(allText);
+        }
+      }
+    }
+    rawFile.send(null);
+  }
+
+  function url(url) {
+    return "http:///localhost:8085/zk-springmvc/" + url;
+  }
+
+  function syntaxHighlight(json) {
+    if (typeof json != 'string') {
+      json = JSON.stringify(json, undefined, 2);
+    }
+    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function(match) {
+      var cls = 'number';
+      if (/^"/.test(match)) {
+        if (/:$/.test(match)) {
+          cls = 'key';
+        } else {
+          cls = 'string';
+        }
+      } else if (/true|false/.test(match)) {
+        cls = 'boolean';
+      } else if (/null/.test(match)) {
+        cls = 'null';
+      }
+      return '<span class="' + cls + '">' + match + '</span>';
+    });
+  }
 
 });

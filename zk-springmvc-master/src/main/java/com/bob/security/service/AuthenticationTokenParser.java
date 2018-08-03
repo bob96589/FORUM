@@ -27,7 +27,6 @@ import io.jsonwebtoken.UnsupportedJwtException;
  *
  * @author cassiomolin
  */
-// @Dependent
 @Component
 class AuthenticationTokenParser {
 

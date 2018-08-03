@@ -14,8 +14,10 @@ public interface UserService {
 
     void addUser(User user);
 
-    User UpdateUser(String username, String password, String authority);
+    User UpdateUser(String username, String authority);
 
     void deleteUserByUsername(String username);
+
+    User changePwd(String username, String password, String newPassword);
 
 }
